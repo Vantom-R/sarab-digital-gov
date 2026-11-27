@@ -1,0 +1,32 @@
+{
+  "name": "sarab-digital-gov",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Republic of Sarab — a fictional, fully digital government prototype (backend services)",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "imports": {
+    "#shared/*": "./packages/shared/src/*"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@fastify/cookie": "^11.0.2",
+    "@fastify/rate-limit": "^10.2.2",
+    "@fastify/swagger": "^9.5.0",
+    "@fastify/swagger-ui": "^5.2.2",
+    "@simplewebauthn/server": "^13.1.1",
+    "fastify": "^5.3.2",
+    "jose": "^6.0.10",
+    "nats": "^2.29.3",
+    "pg": "^8.15.6"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/pg": "^8.11.14",
+    "typescript": "^5.8.3"
+  }
+}

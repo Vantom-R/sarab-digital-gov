@@ -1,0 +1,1361 @@
+{
+ "DELETE /x/records/persons/:id/properties/:deed": {
+  "200": {
+   "properties": {
+    "changes": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "actor": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "detail": {
+        "properties": {
+         "after": {
+          "properties": {
+           "area_m2": {
+            "type": "integer"
+           },
+           "share_percent": {
+            "type": "integer"
+           },
+           "type": {
+            "properties": {
+             "ar": {
+              "type": "string"
+             },
+             "en": {
+              "type": "string"
+             }
+            },
+            "required": [
+             "ar",
+             "en"
+            ],
+            "type": "object"
+           }
+          },
+          "required": [
+           "area_m2",
+           "share_percent",
+           "type"
+          ],
+          "type": "object"
+         },
+         "area_m2": {
+          "type": "integer"
+         },
+         "before": {
+          "properties": {
+           "area_m2": {
+            "type": "integer"
+           },
+           "share_percent": {
+            "type": "integer"
+           },
+           "type": {
+            "properties": {
+             "ar": {
+              "type": "string"
+             },
+             "en": {
+              "type": "string"
+             }
+            },
+            "required": [
+             "ar",
+             "en"
+            ],
+            "type": "object"
+           }
+          },
+          "required": [
+           "area_m2",
+           "share_percent",
+           "type"
+          ],
+          "type": "object"
+         },
+         "deed_no": {
+          "type": "string"
+         },
+         "from_id": {
+          "type": "string"
+         },
+         "make": {
+          "type": "string"
+         },
+         "model": {
+          "type": "string"
+         },
+         "plate": {
+          "type": "string"
+         },
+         "registration_expiry": {
+          "format": "date",
+          "type": "string"
+         },
+         "share_percent": {
+          "type": "integer"
+         },
+         "to_id": {
+          "type": "string"
+         },
+         "type": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "year": {
+          "type": "integer"
+         }
+        },
+        "type": "object"
+       }
+      },
+      "required": [
+       "action",
+       "actor",
+       "at",
+       "detail"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "properties": {
+     "items": {},
+     "type": "array"
+    },
+    "vehicles": {
+     "items": {},
+     "type": "array"
+    }
+   },
+   "required": [
+    "changes",
+    "national_id",
+    "properties",
+    "vehicles"
+   ],
+   "type": "object"
+  }
+ },
+ "DELETE /x/records/persons/:id/vehicles/:plate": {
+  "200": {
+   "properties": {
+    "changes": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "actor": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "detail": {
+        "properties": {
+         "from_id": {
+          "type": "string"
+         },
+         "make": {
+          "type": "string"
+         },
+         "model": {
+          "type": "string"
+         },
+         "plate": {
+          "type": "string"
+         },
+         "to_id": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "make",
+         "model",
+         "plate"
+        ],
+        "type": "object"
+       }
+      },
+      "required": [
+       "action",
+       "actor",
+       "at",
+       "detail"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "properties": {
+     "items": {},
+     "type": "array"
+    },
+    "vehicles": {
+     "items": {},
+     "type": "array"
+    }
+   },
+   "required": [
+    "changes",
+    "national_id",
+    "properties",
+    "vehicles"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /healthz": {
+  "200": {
+   "properties": {
+    "ok": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "ok"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /x/persons/:id/assets": {
+  "200": {
+   "properties": {
+    "national_id": {
+     "type": "string"
+    },
+    "properties": {
+     "items": {
+      "properties": {
+       "area_m2": {
+        "type": "integer"
+       },
+       "city": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "deed_no": {
+        "type": "string"
+       },
+       "district": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "share_percent": {
+        "type": "integer"
+       },
+       "type": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       }
+      },
+      "required": [
+       "area_m2",
+       "city",
+       "deed_no",
+       "district",
+       "share_percent",
+       "type"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "vehicles": {
+     "items": {
+      "properties": {
+       "color": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "days_left": {
+        "type": "integer"
+       },
+       "make": {
+        "type": "string"
+       },
+       "model": {
+        "type": "string"
+       },
+       "plate": {
+        "type": "string"
+       },
+       "registration_expiry": {
+        "format": "date",
+        "type": "string"
+       },
+       "status": {
+        "type": "string"
+       },
+       "year": {
+        "type": "integer"
+       }
+      },
+      "required": [
+       "color",
+       "days_left",
+       "make",
+       "model",
+       "plate",
+       "registration_expiry",
+       "status",
+       "year"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "national_id",
+    "properties",
+    "vehicles"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /x/records/persons/:id": {
+  "200": {
+   "properties": {
+    "changes": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "actor": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "detail": {
+        "properties": {
+         "from_id": {
+          "type": "string"
+         },
+         "make": {
+          "type": "string"
+         },
+         "model": {
+          "type": "string"
+         },
+         "plate": {
+          "type": "string"
+         },
+         "to_id": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "from_id",
+         "make",
+         "model",
+         "plate",
+         "to_id"
+        ],
+        "type": "object"
+       }
+      },
+      "required": [
+       "action",
+       "actor",
+       "at",
+       "detail"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "properties": {
+     "items": {
+      "type": []
+     },
+     "type": "array"
+    },
+    "vehicles": {
+     "items": {
+      "properties": {
+       "color": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "days_left": {
+        "type": "integer"
+       },
+       "make": {
+        "type": "string"
+       },
+       "model": {
+        "type": "string"
+       },
+       "plate": {
+        "type": "string"
+       },
+       "registration_expiry": {
+        "format": "date",
+        "type": "string"
+       },
+       "renewable": {
+        "type": "boolean"
+       },
+       "status": {
+        "type": "string"
+       },
+       "year": {
+        "type": "integer"
+       }
+      },
+      "required": [
+       "color",
+       "days_left",
+       "make",
+       "model",
+       "plate",
+       "registration_expiry",
+       "renewable",
+       "status",
+       "year"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "changes",
+    "national_id",
+    "properties",
+    "vehicles"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /x/records/persons/:id/properties": {
+  "201": {
+   "properties": {
+    "changes": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "actor": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "detail": {
+        "properties": {
+         "area_m2": {
+          "type": "integer"
+         },
+         "deed_no": {
+          "type": "string"
+         },
+         "from_id": {
+          "type": "string"
+         },
+         "make": {
+          "type": "string"
+         },
+         "model": {
+          "type": "string"
+         },
+         "plate": {
+          "type": "string"
+         },
+         "registration_expiry": {
+          "format": "date",
+          "type": "string"
+         },
+         "share_percent": {
+          "type": "integer"
+         },
+         "to_id": {
+          "type": "string"
+         },
+         "type": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "year": {
+          "type": "integer"
+         }
+        },
+        "type": "object"
+       }
+      },
+      "required": [
+       "action",
+       "actor",
+       "at",
+       "detail"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "properties": {
+     "items": {
+      "properties": {
+       "area_m2": {
+        "type": "integer"
+       },
+       "city": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "city_index": {
+        "type": "integer"
+       },
+       "deed_no": {
+        "type": "string"
+       },
+       "district": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "district_index": {
+        "type": "integer"
+       },
+       "share_percent": {
+        "type": "integer"
+       },
+       "type": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "type_index": {
+        "type": "integer"
+       }
+      },
+      "required": [
+       "area_m2",
+       "city",
+       "city_index",
+       "deed_no",
+       "district",
+       "district_index",
+       "share_percent",
+       "type",
+       "type_index"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "vehicles": {
+     "items": {},
+     "type": "array"
+    }
+   },
+   "required": [
+    "changes",
+    "national_id",
+    "properties",
+    "vehicles"
+   ],
+   "type": "object"
+  },
+  "400": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /x/records/persons/:id/vehicles": {
+  "201": {
+   "properties": {
+    "changes": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "actor": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "detail": {
+        "properties": {
+         "make": {
+          "type": "string"
+         },
+         "model": {
+          "type": "string"
+         },
+         "plate": {
+          "type": "string"
+         },
+         "registration_expiry": {
+          "format": "date",
+          "type": "string"
+         },
+         "year": {
+          "type": "integer"
+         }
+        },
+        "required": [
+         "make",
+         "model",
+         "plate",
+         "registration_expiry",
+         "year"
+        ],
+        "type": "object"
+       }
+      },
+      "required": [
+       "action",
+       "actor",
+       "at",
+       "detail"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "plate": {
+     "type": "string"
+    },
+    "properties": {
+     "items": {},
+     "type": "array"
+    },
+    "vehicles": {
+     "items": {
+      "properties": {
+       "color": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "days_left": {
+        "type": "integer"
+       },
+       "make": {
+        "type": "string"
+       },
+       "model": {
+        "type": "string"
+       },
+       "plate": {
+        "type": "string"
+       },
+       "registration_expiry": {
+        "format": "date",
+        "type": "string"
+       },
+       "renewable": {
+        "type": "boolean"
+       },
+       "status": {
+        "type": "string"
+       },
+       "year": {
+        "type": "integer"
+       }
+      },
+      "required": [
+       "color",
+       "days_left",
+       "make",
+       "model",
+       "plate",
+       "registration_expiry",
+       "renewable",
+       "status",
+       "year"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "changes",
+    "national_id",
+    "plate",
+    "properties",
+    "vehicles"
+   ],
+   "type": "object"
+  },
+  "422": {
+   "properties": {
+    "details": {
+     "properties": {
+      "problems": {
+       "items": {
+        "properties": {
+         "code": {
+          "type": "string"
+         },
+         "field": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "code",
+         "field"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      }
+     },
+     "required": [
+      "problems"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /x/records/persons/:id/vehicles/:plate/renewal": {
+  "409": {
+   "properties": {
+    "details": {
+     "properties": {
+      "days_left": {
+       "type": "integer"
+      }
+     },
+     "required": [
+      "days_left"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /x/records/persons/:id/vehicles/:plate/transfer": {
+  "200": {
+   "properties": {
+    "changes": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "actor": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "detail": {
+        "properties": {
+         "from_id": {
+          "type": "string"
+         },
+         "make": {
+          "type": "string"
+         },
+         "model": {
+          "type": "string"
+         },
+         "plate": {
+          "type": "string"
+         },
+         "registration_expiry": {
+          "format": "date",
+          "type": "string"
+         },
+         "to_id": {
+          "type": "string"
+         },
+         "year": {
+          "type": "integer"
+         }
+        },
+        "required": [
+         "make",
+         "model",
+         "plate"
+        ],
+        "type": "object"
+       }
+      },
+      "required": [
+       "action",
+       "actor",
+       "at",
+       "detail"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "properties": {
+     "items": {},
+     "type": "array"
+    },
+    "vehicles": {
+     "items": {},
+     "type": "array"
+    }
+   },
+   "required": [
+    "changes",
+    "national_id",
+    "properties",
+    "vehicles"
+   ],
+   "type": "object"
+  },
+  "404": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "422": {
+   "properties": {
+    "details": {
+     "properties": {
+      "problems": {
+       "items": {
+        "properties": {
+         "code": {
+          "type": "string"
+         },
+         "field": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "code",
+         "field"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      }
+     },
+     "required": [
+      "problems"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /x/vehicles/:plate/renewals": {
+  "200": {
+   "properties": {
+    "days_left": {
+     "type": "integer"
+    },
+    "fee": {
+     "type": "integer"
+    },
+    "new_expiry": {
+     "format": "date",
+     "type": "string"
+    },
+    "old_expiry": {
+     "format": "date",
+     "type": "string"
+    },
+    "plate": {
+     "type": "string"
+    },
+    "renewal_id": {
+     "type": "string"
+    },
+    "status": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "days_left",
+    "fee",
+    "new_expiry",
+    "old_expiry",
+    "plate",
+    "renewal_id",
+    "status"
+   ],
+   "type": "object"
+  },
+  "409": {
+   "properties": {
+    "details": {
+     "properties": {
+      "days_left": {
+       "type": "integer"
+      }
+     },
+     "required": [
+      "days_left"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "PUT /x/records/persons/:id/properties/:deed": {
+  "200": {
+   "properties": {
+    "changes": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "actor": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "detail": {
+        "properties": {
+         "after": {
+          "properties": {
+           "area_m2": {
+            "type": "integer"
+           },
+           "share_percent": {
+            "type": "integer"
+           },
+           "type": {
+            "properties": {
+             "ar": {
+              "type": "string"
+             },
+             "en": {
+              "type": "string"
+             }
+            },
+            "required": [
+             "ar",
+             "en"
+            ],
+            "type": "object"
+           }
+          },
+          "required": [
+           "area_m2",
+           "share_percent",
+           "type"
+          ],
+          "type": "object"
+         },
+         "area_m2": {
+          "type": "integer"
+         },
+         "before": {
+          "properties": {
+           "area_m2": {
+            "type": "integer"
+           },
+           "share_percent": {
+            "type": "integer"
+           },
+           "type": {
+            "properties": {
+             "ar": {
+              "type": "string"
+             },
+             "en": {
+              "type": "string"
+             }
+            },
+            "required": [
+             "ar",
+             "en"
+            ],
+            "type": "object"
+           }
+          },
+          "required": [
+           "area_m2",
+           "share_percent",
+           "type"
+          ],
+          "type": "object"
+         },
+         "deed_no": {
+          "type": "string"
+         },
+         "from_id": {
+          "type": "string"
+         },
+         "make": {
+          "type": "string"
+         },
+         "model": {
+          "type": "string"
+         },
+         "plate": {
+          "type": "string"
+         },
+         "registration_expiry": {
+          "format": "date",
+          "type": "string"
+         },
+         "share_percent": {
+          "type": "integer"
+         },
+         "to_id": {
+          "type": "string"
+         },
+         "type": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "year": {
+          "type": "integer"
+         }
+        },
+        "type": "object"
+       }
+      },
+      "required": [
+       "action",
+       "actor",
+       "at",
+       "detail"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "properties": {
+     "items": {
+      "properties": {
+       "area_m2": {
+        "type": "integer"
+       },
+       "city": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "city_index": {
+        "type": "integer"
+       },
+       "deed_no": {
+        "type": "string"
+       },
+       "district": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "district_index": {
+        "type": "integer"
+       },
+       "share_percent": {
+        "type": "integer"
+       },
+       "type": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "type_index": {
+        "type": "integer"
+       }
+      },
+      "required": [
+       "area_m2",
+       "city",
+       "city_index",
+       "deed_no",
+       "district",
+       "district_index",
+       "share_percent",
+       "type",
+       "type_index"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "vehicles": {
+     "items": {},
+     "type": "array"
+    }
+   },
+   "required": [
+    "changes",
+    "national_id",
+    "properties",
+    "vehicles"
+   ],
+   "type": "object"
+  }
+ }
+}

@@ -1,0 +1,3 @@
+{
+ "POST /x/records/persons/:id/vehicles/:plate/renewal": { "200": { "same_as": "POST /x/records/persons/:id/vehicles 201" } }
+}

@@ -1,0 +1,1195 @@
+{
+ "DELETE /x/records/persons/:id/degrees/:degreeId": {
+  "200": {
+   "properties": {
+    "changes": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "actor": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "detail": {
+        "properties": {
+         "before": {
+          "properties": {
+           "graduation_year": {
+            "type": "integer"
+           },
+           "level": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "graduation_year",
+           "level"
+          ],
+          "type": "object"
+         },
+         "degree_id": {
+          "type": "string"
+         },
+         "graduation_year": {
+          "type": "integer"
+         },
+         "level": {
+          "type": "string"
+         },
+         "level_name": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "since_year": {
+          "type": "integer"
+         },
+         "stage": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         }
+        },
+        "type": "object"
+       }
+      },
+      "required": [
+       "action",
+       "actor",
+       "at",
+       "detail"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "degrees": {
+     "items": {},
+     "type": "array"
+    },
+    "enrollment": {
+     "type": "null"
+    },
+    "national_id": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "changes",
+    "degrees",
+    "enrollment",
+    "national_id"
+   ],
+   "type": "object"
+  }
+ },
+ "DELETE /x/records/persons/:id/enrollment": {
+  "200": {
+   "properties": {
+    "changes": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "actor": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "detail": {
+        "properties": {
+         "before": {
+          "properties": {
+           "graduation_year": {
+            "type": "integer"
+           },
+           "level": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "graduation_year",
+           "level"
+          ],
+          "type": "object"
+         },
+         "degree_id": {
+          "type": "string"
+         },
+         "graduation_year": {
+          "type": "integer"
+         },
+         "level": {
+          "type": "string"
+         },
+         "level_name": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "since_year": {
+          "type": "integer"
+         },
+         "stage": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         }
+        },
+        "type": "object"
+       }
+      },
+      "required": [
+       "action",
+       "actor",
+       "at",
+       "detail"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "degrees": {
+     "items": {
+      "properties": {
+       "field": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "grade": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "grade_index": {
+        "type": "integer"
+       },
+       "graduation_year": {
+        "type": "integer"
+       },
+       "id": {
+        "type": "string"
+       },
+       "institution": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "institution_index": {
+        "type": "integer"
+       },
+       "level": {
+        "type": "string"
+       },
+       "level_name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "major_index": {
+        "type": "integer"
+       },
+       "verified": {
+        "type": "boolean"
+       }
+      },
+      "required": [
+       "field",
+       "grade",
+       "grade_index",
+       "graduation_year",
+       "id",
+       "institution",
+       "institution_index",
+       "level",
+       "level_name",
+       "major_index",
+       "verified"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "enrollment": {
+     "type": "null"
+    },
+    "national_id": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "changes",
+    "degrees",
+    "enrollment",
+    "national_id"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /healthz": {
+  "200": {
+   "properties": {
+    "ok": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "ok"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /x/persons/:id/education": {
+  "200": {
+   "properties": {
+    "degrees": {
+     "items": {
+      "properties": {
+       "field": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "grade": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "graduation_year": {
+        "type": "integer"
+       },
+       "id": {
+        "type": "string"
+       },
+       "institution": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "level": {
+        "type": "string"
+       },
+       "level_name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "verified": {
+        "type": "boolean"
+       }
+      },
+      "required": [
+       "field",
+       "grade",
+       "graduation_year",
+       "id",
+       "institution",
+       "level",
+       "level_name",
+       "verified"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "enrollment": {
+     "type": "null"
+    },
+    "national_id": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "degrees",
+    "enrollment",
+    "national_id"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /x/records/persons/:id": {
+  "200": {
+   "properties": {
+    "changes": {
+     "items": {},
+     "type": "array"
+    },
+    "degrees": {
+     "items": {},
+     "type": "array"
+    },
+    "enrollment": {
+     "type": "null"
+    },
+    "national_id": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "changes",
+    "degrees",
+    "enrollment",
+    "national_id"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /x/records/persons/:id/degrees": {
+  "201": {
+   "properties": {
+    "changes": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "actor": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "detail": {
+        "properties": {
+         "before": {
+          "properties": {
+           "graduation_year": {
+            "type": "integer"
+           },
+           "level": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "graduation_year",
+           "level"
+          ],
+          "type": "object"
+         },
+         "degree_id": {
+          "type": "string"
+         },
+         "graduation_year": {
+          "type": "integer"
+         },
+         "level": {
+          "type": "string"
+         },
+         "level_name": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "since_year": {
+          "type": "integer"
+         },
+         "stage": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         }
+        },
+        "type": "object"
+       }
+      },
+      "required": [
+       "action",
+       "actor",
+       "at",
+       "detail"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "degrees": {
+     "items": {
+      "properties": {
+       "field": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "grade": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "grade_index": {
+        "type": "integer"
+       },
+       "graduation_year": {
+        "type": "integer"
+       },
+       "id": {
+        "type": "string"
+       },
+       "institution": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "institution_index": {
+        "type": "integer"
+       },
+       "level": {
+        "type": "string"
+       },
+       "level_name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "major_index": {
+        "type": "integer"
+       },
+       "verified": {
+        "type": "boolean"
+       }
+      },
+      "required": [
+       "field",
+       "grade",
+       "grade_index",
+       "graduation_year",
+       "id",
+       "institution",
+       "institution_index",
+       "level",
+       "level_name",
+       "major_index",
+       "verified"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "enrollment": {
+     "type": "null"
+    },
+    "national_id": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "changes",
+    "degrees",
+    "enrollment",
+    "national_id"
+   ],
+   "type": "object"
+  },
+  "400": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "409": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "422": {
+   "properties": {
+    "details": {
+     "properties": {
+      "problems": {
+       "items": {
+        "properties": {
+         "code": {
+          "type": "string"
+         },
+         "field": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "code",
+         "field"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      }
+     },
+     "required": [
+      "problems"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "PUT /x/records/persons/:id/degrees/:degreeId": {
+  "200": {
+   "properties": {
+    "changes": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "actor": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "detail": {
+        "properties": {
+         "before": {
+          "properties": {
+           "graduation_year": {
+            "type": "integer"
+           },
+           "level": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "graduation_year",
+           "level"
+          ],
+          "type": "object"
+         },
+         "degree_id": {
+          "type": "string"
+         },
+         "graduation_year": {
+          "type": "integer"
+         },
+         "level": {
+          "type": "string"
+         },
+         "level_name": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         }
+        },
+        "required": [
+         "degree_id",
+         "graduation_year",
+         "level",
+         "level_name"
+        ],
+        "type": "object"
+       }
+      },
+      "required": [
+       "action",
+       "actor",
+       "at",
+       "detail"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "degrees": {
+     "items": {
+      "properties": {
+       "field": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "grade": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "grade_index": {
+        "type": "integer"
+       },
+       "graduation_year": {
+        "type": "integer"
+       },
+       "id": {
+        "type": "string"
+       },
+       "institution": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "institution_index": {
+        "type": "integer"
+       },
+       "level": {
+        "type": "string"
+       },
+       "level_name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "major_index": {
+        "type": "integer"
+       },
+       "verified": {
+        "type": "boolean"
+       }
+      },
+      "required": [
+       "field",
+       "grade",
+       "grade_index",
+       "graduation_year",
+       "id",
+       "institution",
+       "institution_index",
+       "level",
+       "level_name",
+       "major_index",
+       "verified"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "enrollment": {
+     "type": "null"
+    },
+    "national_id": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "changes",
+    "degrees",
+    "enrollment",
+    "national_id"
+   ],
+   "type": "object"
+  }
+ },
+ "PUT /x/records/persons/:id/enrollment": {
+  "200": {
+   "properties": {
+    "changes": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "actor": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "detail": {
+        "properties": {
+         "before": {
+          "properties": {
+           "graduation_year": {
+            "type": "integer"
+           },
+           "level": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "graduation_year",
+           "level"
+          ],
+          "type": "object"
+         },
+         "degree_id": {
+          "type": "string"
+         },
+         "graduation_year": {
+          "type": "integer"
+         },
+         "level": {
+          "type": "string"
+         },
+         "level_name": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "since_year": {
+          "type": "integer"
+         },
+         "stage": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         }
+        },
+        "type": "object"
+       }
+      },
+      "required": [
+       "action",
+       "actor",
+       "at",
+       "detail"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "degrees": {
+     "items": {
+      "properties": {
+       "field": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "grade": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "grade_index": {
+        "type": "integer"
+       },
+       "graduation_year": {
+        "type": "integer"
+       },
+       "id": {
+        "type": "string"
+       },
+       "institution": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "institution_index": {
+        "type": "integer"
+       },
+       "level": {
+        "type": "string"
+       },
+       "level_name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "major_index": {
+        "type": "integer"
+       },
+       "verified": {
+        "type": "boolean"
+       }
+      },
+      "required": [
+       "field",
+       "grade",
+       "grade_index",
+       "graduation_year",
+       "id",
+       "institution",
+       "institution_index",
+       "level",
+       "level_name",
+       "major_index",
+       "verified"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "enrollment": {
+     "properties": {
+      "institution": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "institution_index": {
+       "type": "integer"
+      },
+      "since_year": {
+       "type": "integer"
+      },
+      "stage": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "stage_index": {
+       "type": "integer"
+      }
+     },
+     "required": [
+      "institution",
+      "institution_index",
+      "since_year",
+      "stage",
+      "stage_index"
+     ],
+     "type": "object"
+    },
+    "national_id": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "changes",
+    "degrees",
+    "enrollment",
+    "national_id"
+   ],
+   "type": "object"
+  }
+ }
+}

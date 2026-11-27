@@ -1,0 +1,816 @@
+{
+ "GET /api/consent/consents/mine": {
+  "200": {
+   "properties": {
+    "consents": {
+     "items": {
+      "properties": {
+       "claims": {
+        "items": {
+         "properties": {
+          "derived": {
+           "type": "boolean"
+          },
+          "description": {
+           "properties": {
+            "ar": {
+             "type": "string"
+            },
+            "en": {
+             "type": "string"
+            }
+           },
+           "required": [
+            "ar",
+            "en"
+           ],
+           "type": "object"
+          },
+          "label": {
+           "properties": {
+            "ar": {
+             "type": "string"
+            },
+            "en": {
+             "type": "string"
+            }
+           },
+           "required": [
+            "ar",
+            "en"
+           ],
+           "type": "object"
+          },
+          "name": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "derived",
+          "description",
+          "label",
+          "name"
+         ],
+         "type": "object"
+        },
+        "type": "array"
+       },
+       "client": {
+        "properties": {
+         "id": {
+          "type": "string"
+         },
+         "name": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         }
+        },
+        "required": [
+         "id",
+         "name"
+        ],
+        "type": "object"
+       },
+       "granted_at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "id": {
+        "type": "string"
+       },
+       "last_used_at": {
+        "format": "date-time",
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "purpose": {
+        "properties": {
+         "id": {
+          "type": "string"
+         },
+         "label": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         }
+        },
+        "required": [
+         "id",
+         "label"
+        ],
+        "type": "object"
+       },
+       "revoked_at": {
+        "format": "date-time",
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "status": {
+        "type": "string"
+       },
+       "use_count": {
+        "type": "integer"
+       },
+       "valid_until": {
+        "format": "date-time",
+        "type": "string"
+       }
+      },
+      "required": [
+       "claims",
+       "client",
+       "granted_at",
+       "id",
+       "last_used_at",
+       "purpose",
+       "revoked_at",
+       "status",
+       "use_count",
+       "valid_until"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "consents"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/consent/requests": {
+  "200": {
+   "properties": {
+    "requests": {
+     "items": {
+      "properties": {
+       "claims": {
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "client": {
+        "type": "string"
+       },
+       "client_name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "created_at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "decided_at": {
+        "format": "date-time",
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "id": {
+        "type": "string"
+       },
+       "purpose": {
+        "type": "string"
+       },
+       "reason": {
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "rejected_claims": {
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "sector": {
+        "type": "string"
+       },
+       "status": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "claims",
+       "client",
+       "client_name",
+       "created_at",
+       "decided_at",
+       "id",
+       "purpose",
+       "reason",
+       "rejected_claims",
+       "sector",
+       "status"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "requests"
+   ],
+   "type": "object"
+  },
+  "401": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/consent/requests/:id": {
+  "200": {
+   "properties": {
+    "audience": {
+     "type": "string"
+    },
+    "claims": {
+     "items": {
+      "properties": {
+       "derived": {
+        "type": "boolean"
+       },
+       "description": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "label": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "name": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "derived",
+       "description",
+       "label",
+       "name"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "client": {
+     "properties": {
+      "id": {
+       "type": "string"
+      },
+      "name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "sector": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "id",
+      "name",
+      "sector"
+     ],
+     "type": "object"
+    },
+    "expires_at": {
+     "format": "date-time",
+     "type": "string"
+    },
+    "id": {
+     "type": "string"
+    },
+    "nonce": {
+     "type": "string"
+    },
+    "not_requested": {
+     "items": {
+      "properties": {
+       "derived": {
+        "type": "boolean"
+       },
+       "description": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "label": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "name": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "derived",
+       "description",
+       "label",
+       "name"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "purpose": {
+     "properties": {
+      "id": {
+       "type": "string"
+      },
+      "label": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      }
+     },
+     "required": [
+      "id",
+      "label"
+     ],
+     "type": "object"
+    },
+    "regulator": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "status": {
+     "type": "string"
+    },
+    "validity_days": {
+     "type": "integer"
+    }
+   },
+   "required": [
+    "audience",
+    "claims",
+    "client",
+    "expires_at",
+    "id",
+    "nonce",
+    "not_requested",
+    "purpose",
+    "regulator",
+    "status",
+    "validity_days"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /healthz": {
+  "200": {
+   "properties": {
+    "ok": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "ok"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /x/consents/:id/presentation": {
+  "200": {
+   "properties": {
+    "consent": {
+     "properties": {
+      "claims": {
+       "items": {
+        "type": "string"
+       },
+       "type": "array"
+      },
+      "granted_at": {
+       "format": "date-time",
+       "type": "string"
+      },
+      "id": {
+       "type": "string"
+      },
+      "request_id": {
+       "type": "string"
+      },
+      "valid_until": {
+       "format": "date-time",
+       "type": "string"
+      }
+     },
+     "required": [
+      "claims",
+      "granted_at",
+      "id",
+      "request_id",
+      "valid_until"
+     ],
+     "type": "object"
+    },
+    "format": {
+     "type": "string"
+    },
+    "holder": {
+     "type": "string"
+    },
+    "presentations": {
+     "items": {
+      "properties": {
+       "credential": {
+        "type": "string"
+       },
+       "issuer": {
+        "type": "string"
+       },
+       "presentation": {
+        "type": "string"
+       },
+       "vct": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "credential",
+       "issuer",
+       "presentation",
+       "vct"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "consent",
+    "format",
+    "holder",
+    "presentations"
+   ],
+   "type": "object"
+  },
+  "403": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "409": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/consent/consents/:id/presentations": {
+  "200": {
+   "properties": {
+    "ok": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "ok"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/consent/consents/:id/revoke": {
+  "200": {
+   "properties": {
+    "ok": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "ok"
+   ],
+   "type": "object"
+  },
+  "404": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/consent/requests/:id/approve": {
+  "200": {
+   "properties": {
+    "consent_id": {
+     "type": "string"
+    },
+    "redirect": {
+     "type": "string"
+    },
+    "status": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "consent_id",
+    "redirect",
+    "status"
+   ],
+   "type": "object"
+  },
+  "409": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/consent/requests/:id/deny": {
+  "200": {
+   "properties": {
+    "redirect": {
+     "type": "string"
+    },
+    "status": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "redirect",
+    "status"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /x/requests": {
+  "201": {
+   "properties": {
+    "consent_url": {
+     "type": "string"
+    },
+    "request_id": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "consent_url",
+    "request_id"
+   ],
+   "type": "object"
+  },
+  "422": {
+   "properties": {
+    "details": {
+     "properties": {
+      "allowed_claims": {
+       "items": {
+        "type": "string"
+       },
+       "type": "array"
+      },
+      "regulator": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "rejected_claims": {
+       "items": {
+        "properties": {
+         "derived": {
+          "type": "boolean"
+         },
+         "description": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "label": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "name": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "derived",
+         "description",
+         "label",
+         "name"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      },
+      "request_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "allowed_claims",
+      "regulator",
+      "rejected_claims",
+      "request_id"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ }
+}

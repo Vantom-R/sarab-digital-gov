@@ -1,0 +1,3852 @@
+{
+ "GET /api/jisr/audit": {
+  "200": {
+   "properties": {
+    "entries": {
+     "items": {
+      "properties": {
+       "client": {
+        "type": "string"
+       },
+       "client_name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "consent_id": {
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "decision": {
+        "type": "string"
+       },
+       "event_label": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "hash": {
+        "type": "string"
+       },
+       "method": {
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "on_behalf_of": {
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "on_behalf_of_name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "path": {
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "prev_hash": {
+        "type": "string"
+       },
+       "purpose": {
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "purpose_label": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "reason": {
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "request_id": {
+        "type": "string"
+       },
+       "response_sha256": {
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "seq": {
+        "type": "integer"
+       },
+       "status": {
+        "type": [
+         "integer",
+         "null"
+        ]
+       },
+       "subject": {
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "target": {
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "target_name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "ts": {
+        "format": "date-time",
+        "type": "string"
+       }
+      },
+      "required": [
+       "client",
+       "client_name",
+       "consent_id",
+       "decision",
+       "hash",
+       "method",
+       "on_behalf_of",
+       "path",
+       "prev_hash",
+       "purpose",
+       "reason",
+       "request_id",
+       "response_sha256",
+       "seq",
+       "status",
+       "subject",
+       "target",
+       "ts"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "limit": {
+     "type": "integer"
+    },
+    "offset": {
+     "type": "integer"
+    },
+    "total": {
+     "type": "integer"
+    }
+   },
+   "required": [
+    "entries",
+    "limit",
+    "offset",
+    "total"
+   ],
+   "type": "object"
+  },
+  "400": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "401": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "403": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/jisr/audit/head": {
+  "200": {
+   "properties": {
+    "at": {
+     "format": "date-time",
+     "type": "string"
+    },
+    "hash": {
+     "type": "string"
+    },
+    "seq": {
+     "type": "integer"
+    },
+    "signed": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "at",
+    "hash",
+    "seq",
+    "signed"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/jisr/audit/mine": {
+  "200": {
+   "properties": {
+    "entries": {
+     "items": {
+      "properties": {
+       "client": {
+        "type": "string"
+       },
+       "client_name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "consent_id": {
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "decision": {
+        "type": "string"
+       },
+       "event_label": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "hash": {
+        "type": "string"
+       },
+       "method": {
+        "type": "string"
+       },
+       "on_behalf_of": {
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "on_behalf_of_name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "path": {
+        "type": "string"
+       },
+       "prev_hash": {
+        "type": "string"
+       },
+       "purpose": {
+        "type": "string"
+       },
+       "purpose_label": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "reason": {
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "request_id": {
+        "type": "string"
+       },
+       "response_sha256": {
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "seq": {
+        "type": "integer"
+       },
+       "status": {
+        "type": [
+         "integer",
+         "null"
+        ]
+       },
+       "subject": {
+        "type": "string"
+       },
+       "target": {
+        "type": "string"
+       },
+       "target_name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "ts": {
+        "format": "date-time",
+        "type": "string"
+       }
+      },
+      "required": [
+       "client",
+       "client_name",
+       "consent_id",
+       "decision",
+       "hash",
+       "method",
+       "on_behalf_of",
+       "path",
+       "prev_hash",
+       "purpose",
+       "purpose_label",
+       "reason",
+       "request_id",
+       "response_sha256",
+       "seq",
+       "status",
+       "subject",
+       "target",
+       "target_name",
+       "ts"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "entries"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/jisr/events": {
+  "200": {
+   "properties": {
+    "event_types": {
+     "items": {
+      "properties": {
+       "label": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "publisher": {
+        "type": "string"
+       },
+       "publisher_name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "subject": {
+        "type": "string"
+       },
+       "type": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "label",
+       "publisher",
+       "publisher_name",
+       "subject",
+       "type"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "subscriptions": {
+     "items": {
+      "properties": {
+       "consumer": {
+        "type": "string"
+       },
+       "description": {
+        "type": "string"
+       },
+       "events": {
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "member": {
+        "type": "string"
+       },
+       "member_name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       }
+      },
+      "required": [
+       "consumer",
+       "description",
+       "events",
+       "member",
+       "member_name"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "event_types",
+    "subscriptions"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/jisr/rules": {
+  "200": {
+   "properties": {
+    "rules": {
+     "items": {
+      "properties": {
+       "client": {
+        "type": "string"
+       },
+       "client_name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "description": {
+        "type": "string"
+       },
+       "method": {
+        "type": "string"
+       },
+       "path_pattern": {
+        "type": "string"
+       },
+       "purposes": {
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "requires_consent": {
+        "type": "boolean"
+       },
+       "target": {
+        "type": "string"
+       },
+       "target_name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       }
+      },
+      "required": [
+       "client",
+       "client_name",
+       "description",
+       "method",
+       "path_pattern",
+       "purposes",
+       "requires_consent",
+       "target",
+       "target_name"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "rules"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /healthz": {
+  "200": {
+   "properties": {
+    "ok": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "ok"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/jisr/audit/tamper-demo": {
+  "200": {
+   "properties": {
+    "rolled_back": {
+     "type": "boolean"
+    },
+    "tamper": {
+     "properties": {
+      "action": {
+       "type": "string"
+      },
+      "entry": {
+       "properties": {
+        "client": {
+         "type": "string"
+        },
+        "purpose": {
+         "type": "string"
+        },
+        "subject": {
+         "type": "string"
+        },
+        "target": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "client",
+        "purpose",
+        "subject",
+        "target"
+       ],
+       "type": "object"
+      },
+      "field": {
+       "type": "string"
+      },
+      "from": {
+       "type": "string"
+      },
+      "seq": {
+       "type": "integer"
+      },
+      "to": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "action",
+      "seq"
+     ],
+     "type": "object"
+    },
+    "verification_after_rollback": {
+     "properties": {
+      "entries": {
+       "type": "integer"
+      },
+      "head": {
+       "type": "string"
+      },
+      "head_seq": {
+       "type": "integer"
+      },
+      "ok": {
+       "type": "boolean"
+      }
+     },
+     "required": [
+      "entries",
+      "head",
+      "head_seq",
+      "ok"
+     ],
+     "type": "object"
+    },
+    "verification_while_tampered": {
+     "properties": {
+      "broken_at": {
+       "type": "integer"
+      },
+      "entries": {
+       "type": "integer"
+      },
+      "head": {
+       "type": "string"
+      },
+      "head_seq": {
+       "type": "integer"
+      },
+      "ok": {
+       "type": "boolean"
+      },
+      "problem": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "broken_at",
+      "entries",
+      "head",
+      "head_seq",
+      "ok",
+      "problem"
+     ],
+     "type": "object"
+    }
+   },
+   "required": [
+    "rolled_back",
+    "tamper",
+    "verification_after_rollback",
+    "verification_while_tampered"
+   ],
+   "type": "object"
+  },
+  "403": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/jisr/audit/verify": {
+  "200": {
+   "properties": {
+    "entries": {
+     "type": "integer"
+    },
+    "head": {
+     "type": "string"
+    },
+    "head_seq": {
+     "type": "integer"
+    },
+    "ok": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "entries",
+    "head",
+    "head_seq",
+    "ok"
+   ],
+   "type": "object"
+  },
+  "401": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /x/exchange": {
+  "200": {
+   "properties": {
+    "address": {
+     "properties": {
+      "city": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "city_index": {
+       "type": "integer"
+      },
+      "district": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "district_index": {
+       "type": "integer"
+      },
+      "street": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "city",
+      "district",
+      "street"
+     ],
+     "type": "object"
+    },
+    "allergies": {
+     "items": {
+      "properties": {
+       "ar": {
+        "type": "string"
+       },
+       "en": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "ar",
+       "en"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "allergy_indices": {
+     "items": {
+      "type": "integer"
+     },
+     "type": "array"
+    },
+    "base_income": {
+     "type": "integer"
+    },
+    "base_status": {
+     "type": [
+      "null",
+      "string"
+     ]
+    },
+    "benefits": {
+     "items": {
+      "properties": {
+       "child_id": {
+        "type": "string"
+       },
+       "id": {
+        "type": "string"
+       },
+       "kind": {
+        "type": "string"
+       },
+       "monthly_amount": {
+        "type": "integer"
+       },
+       "reason": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "starts_on": {
+        "format": "date",
+        "type": "string"
+       },
+       "status": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "child_id",
+       "id",
+       "kind",
+       "monthly_amount",
+       "reason",
+       "starts_on",
+       "status"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "birth_date": {
+     "format": "date",
+     "type": "string"
+    },
+    "births": {
+     "items": {
+      "properties": {
+       "birth_date": {
+        "format": "date",
+        "type": "string"
+       },
+       "child": {
+        "properties": {
+         "name": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "national_id": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "name",
+         "national_id"
+        ],
+        "type": [
+         "null",
+         "object"
+        ]
+       },
+       "family_name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "father": {
+        "properties": {
+         "name": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "national_id": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "name",
+         "national_id"
+        ],
+        "type": [
+         "null",
+         "object"
+        ]
+       },
+       "gender": {
+        "type": "string"
+       },
+       "history": {
+        "items": {
+         "properties": {
+          "decided_at": {
+           "format": "date-time",
+           "type": [
+            "null",
+            "string"
+           ]
+          },
+          "decided_by": {
+           "type": [
+            "null",
+            "string"
+           ]
+          },
+          "given_name": {
+           "properties": {
+            "ar": {
+             "type": "string"
+            },
+            "en": {
+             "type": "string"
+            }
+           },
+           "required": [
+            "ar",
+            "en"
+           ],
+           "type": "object"
+          },
+          "id": {
+           "type": "integer"
+          },
+          "proposed_at": {
+           "format": "date-time",
+           "type": "string"
+          },
+          "proposed_by": {
+           "type": "string"
+          },
+          "status": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "decided_at",
+          "decided_by",
+          "given_name",
+          "id",
+          "proposed_at",
+          "proposed_by",
+          "status"
+         ],
+         "type": "object"
+        },
+        "type": "array"
+       },
+       "hospital": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "mother": {
+        "properties": {
+         "name": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "national_id": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "name",
+         "national_id"
+        ],
+        "type": "object"
+       },
+       "name_deadline": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "named_by": {
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "notification_id": {
+        "type": "string"
+       },
+       "overdue": {
+        "type": "boolean"
+       },
+       "proposal": {
+        "properties": {
+         "awaiting": {
+          "type": "string"
+         },
+         "given_name": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "id": {
+          "type": "integer"
+         },
+         "proposed_at": {
+          "format": "date-time",
+          "type": "string"
+         },
+         "proposed_by": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "awaiting",
+         "given_name",
+         "id",
+         "proposed_at",
+         "proposed_by"
+        ],
+        "type": [
+         "null",
+         "object"
+        ]
+       },
+       "registered_at": {
+        "format": "date-time",
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "reported_at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "status": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "birth_date",
+       "child",
+       "family_name",
+       "father",
+       "gender",
+       "history",
+       "hospital",
+       "mother",
+       "name_deadline",
+       "named_by",
+       "notification_id",
+       "overdue",
+       "proposal",
+       "registered_at",
+       "reported_at",
+       "status"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "blood_type": {
+     "type": "string"
+    },
+    "changes": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "actor": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "detail": {
+        "properties": {
+         "after": {
+          "properties": {
+           "area_m2": {
+            "type": "integer"
+           },
+           "city": {
+            "type": "string"
+           },
+           "district": {
+            "type": "string"
+           },
+           "employer": {
+            "properties": {
+             "ar": {
+              "type": "string"
+             },
+             "en": {
+              "type": "string"
+             }
+            },
+            "required": [
+             "ar",
+             "en"
+            ],
+            "type": [
+             "null",
+             "object"
+            ]
+           },
+           "father_id": {
+            "type": "string"
+           },
+           "monthly_income": {
+            "type": "integer"
+           },
+           "mother_id": {
+            "type": "string"
+           },
+           "phone": {
+            "type": "string"
+           },
+           "share_percent": {
+            "type": "integer"
+           },
+           "status": {
+            "type": "string"
+           },
+           "street": {
+            "type": "string"
+           },
+           "type": {
+            "properties": {
+             "ar": {
+              "type": "string"
+             },
+             "en": {
+              "type": "string"
+             }
+            },
+            "required": [
+             "ar",
+             "en"
+            ],
+            "type": "object"
+           }
+          },
+          "type": "object"
+         },
+         "area_m2": {
+          "type": "integer"
+         },
+         "before": {
+          "properties": {
+           "area_m2": {
+            "type": "integer"
+           },
+           "city": {
+            "type": "string"
+           },
+           "district": {
+            "type": "string"
+           },
+           "employer_name": {
+            "properties": {
+             "ar": {
+              "type": "string"
+             },
+             "en": {
+              "type": "string"
+             }
+            },
+            "required": [
+             "ar",
+             "en"
+            ],
+            "type": [
+             "null",
+             "object"
+            ]
+           },
+           "father_id": {
+            "type": "null"
+           },
+           "graduation_year": {
+            "type": "integer"
+           },
+           "level": {
+            "type": "string"
+           },
+           "monthly_income": {
+            "type": "integer"
+           },
+           "mother_id": {
+            "type": "string"
+           },
+           "phone": {
+            "type": "string"
+           },
+           "share_percent": {
+            "type": "integer"
+           },
+           "status": {
+            "type": "string"
+           },
+           "street": {
+            "type": "string"
+           },
+           "type": {
+            "properties": {
+             "ar": {
+              "type": "string"
+             },
+             "en": {
+              "type": "string"
+             }
+            },
+            "required": [
+             "ar",
+             "en"
+            ],
+            "type": "object"
+           }
+          },
+          "type": [
+           "null",
+           "object"
+          ]
+         },
+         "child_id": {
+          "type": "string"
+         },
+         "deed_no": {
+          "type": "string"
+         },
+         "degree_id": {
+          "type": "string"
+         },
+         "divorced_on": {
+          "format": "date",
+          "type": "string"
+         },
+         "employer": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "end_date": {
+          "format": "date",
+          "type": [
+           "null",
+           "string"
+          ]
+         },
+         "from_id": {
+          "type": "string"
+         },
+         "graduation_year": {
+          "type": "integer"
+         },
+         "job_id": {
+          "type": "string"
+         },
+         "job_title": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "level": {
+          "type": "string"
+         },
+         "level_name": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "make": {
+          "type": "string"
+         },
+         "married_on": {
+          "format": "date",
+          "type": "string"
+         },
+         "model": {
+          "type": "string"
+         },
+         "monthly_income": {
+          "type": "integer"
+         },
+         "plate": {
+          "type": "string"
+         },
+         "registration_expiry": {
+          "format": "date",
+          "type": "string"
+         },
+         "share_percent": {
+          "type": "integer"
+         },
+         "since_year": {
+          "type": "integer"
+         },
+         "spouse_id": {
+          "type": "string"
+         },
+         "stage": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "status": {
+          "type": "string"
+         },
+         "to_id": {
+          "type": "string"
+         },
+         "type": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "year": {
+          "type": "integer"
+         }
+        },
+        "type": "object"
+       }
+      },
+      "required": [
+       "action",
+       "actor",
+       "at"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "child": {
+     "properties": {
+      "name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "national_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "name",
+      "national_id"
+     ],
+     "type": [
+      "null",
+      "object"
+     ]
+    },
+    "child_gender": {
+     "type": "string"
+    },
+    "chronic_conditions": {
+     "items": {
+      "properties": {
+       "ar": {
+        "type": "string"
+       },
+       "en": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "ar",
+       "en"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "clinic_index": {
+     "type": "integer"
+    },
+    "condition_indices": {
+     "items": {
+      "type": []
+     },
+     "type": "array"
+    },
+    "consent": {
+     "properties": {
+      "claims": {
+       "items": {
+        "type": "string"
+       },
+       "type": "array"
+      },
+      "granted_at": {
+       "format": "date-time",
+       "type": "string"
+      },
+      "id": {
+       "type": "string"
+      },
+      "request_id": {
+       "type": "string"
+      },
+      "valid_until": {
+       "format": "date-time",
+       "type": "string"
+      }
+     },
+     "required": [
+      "claims",
+      "granted_at",
+      "id",
+      "request_id",
+      "valid_until"
+     ],
+     "type": "object"
+    },
+    "credential": {
+     "type": "string"
+    },
+    "current": {
+     "properties": {
+      "employer": {
+       "type": "null"
+      },
+      "income_bracket": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "income_source": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "job_title": {
+       "type": "null"
+      },
+      "monthly_income": {
+       "type": "integer"
+      },
+      "since": {
+       "type": "null"
+      },
+      "status": {
+       "type": "string"
+      },
+      "status_name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      }
+     },
+     "required": [
+      "employer",
+      "income_bracket",
+      "income_source",
+      "job_title",
+      "monthly_income",
+      "since",
+      "status",
+      "status_name"
+     ],
+     "type": [
+      "null",
+      "object"
+     ]
+    },
+    "days_left": {
+     "type": "integer"
+    },
+    "degrees": {
+     "items": {
+      "properties": {
+       "field": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "grade": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "grade_index": {
+        "type": "integer"
+       },
+       "graduation_year": {
+        "type": "integer"
+       },
+       "id": {
+        "type": "string"
+       },
+       "institution": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "institution_index": {
+        "type": "integer"
+       },
+       "level": {
+        "type": "string"
+       },
+       "level_name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "major_index": {
+        "type": "integer"
+       },
+       "verified": {
+        "type": "boolean"
+       }
+      },
+      "required": [
+       "field",
+       "grade",
+       "graduation_year",
+       "id",
+       "institution",
+       "level",
+       "level_name",
+       "verified"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "employer": {
+     "properties": {
+      "name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "sector": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "name",
+      "sector"
+     ],
+     "type": [
+      "null",
+      "object"
+     ]
+    },
+    "enrollment": {
+     "properties": {
+      "institution": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "institution_index": {
+       "type": "integer"
+      },
+      "since_year": {
+       "type": "integer"
+      },
+      "stage": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "stage_index": {
+       "type": "integer"
+      }
+     },
+     "required": [
+      "institution",
+      "institution_index",
+      "since_year",
+      "stage",
+      "stage_index"
+     ],
+     "type": [
+      "null",
+      "object"
+     ]
+    },
+    "exists": {
+     "type": "boolean"
+    },
+    "family": {
+     "items": {
+      "properties": {
+       "birth_date": {
+        "format": "date",
+        "type": "string"
+       },
+       "gender": {
+        "type": "string"
+       },
+       "name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "national_id": {
+        "type": "string"
+       },
+       "relation": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "name",
+       "national_id",
+       "relation"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "family_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "father": {
+     "properties": {
+      "name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "national_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "name",
+      "national_id"
+     ],
+     "type": [
+      "null",
+      "object"
+     ]
+    },
+    "father_id": {
+     "type": [
+      "null",
+      "string"
+     ]
+    },
+    "fee": {
+     "type": "integer"
+    },
+    "format": {
+     "type": "string"
+    },
+    "gender": {
+     "type": "string"
+    },
+    "given_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "history": {
+     "items": {
+      "properties": {
+       "decided_at": {
+        "format": "date-time",
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "decided_by": {
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "given_name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "id": {
+        "type": "integer"
+       },
+       "proposed_at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "proposed_by": {
+        "type": "string"
+       },
+       "status": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "decided_at",
+       "decided_by",
+       "given_name",
+       "id",
+       "proposed_at",
+       "proposed_by",
+       "status"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "holder": {
+     "type": "string"
+    },
+    "hospital": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "id": {
+     "type": "string"
+    },
+    "income_bracket": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "income_source": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "job_title": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": [
+      "null",
+      "object"
+     ]
+    },
+    "jobs": {
+     "items": {
+      "properties": {
+       "current": {
+        "type": "boolean"
+       },
+       "employer": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "employer_index": {
+        "type": "integer"
+       },
+       "end_date": {
+        "format": "date",
+        "type": "string"
+       },
+       "id": {
+        "type": "string"
+       },
+       "job_title": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "job_title_index": {
+        "type": "integer"
+       },
+       "monthly_salary": {
+        "type": "integer"
+       },
+       "sector": {
+        "type": "string"
+       },
+       "start_date": {
+        "format": "date",
+        "type": "string"
+       }
+      },
+      "required": [
+       "current",
+       "employer",
+       "employer_index",
+       "end_date",
+       "id",
+       "job_title",
+       "job_title_index",
+       "monthly_salary",
+       "sector",
+       "start_date"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "marital_status": {
+     "type": "string"
+    },
+    "married_on": {
+     "format": "date",
+     "type": [
+      "null",
+      "string"
+     ]
+    },
+    "monthly_income": {
+     "type": "integer"
+    },
+    "mother": {
+     "properties": {
+      "name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "national_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "name",
+      "national_id"
+     ],
+     "type": "object"
+    },
+    "mother_id": {
+     "type": "string"
+    },
+    "name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "name_deadline": {
+     "format": "date-time",
+     "type": "string"
+    },
+    "named_by": {
+     "type": [
+      "null",
+      "string"
+     ]
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "nationality": {
+     "type": "string"
+    },
+    "new_expiry": {
+     "format": "date",
+     "type": "string"
+    },
+    "notification_id": {
+     "type": "string"
+    },
+    "old_expiry": {
+     "format": "date",
+     "type": "string"
+    },
+    "organ_donor": {
+     "type": "boolean"
+    },
+    "overdue": {
+     "type": "boolean"
+    },
+    "phone": {
+     "type": "string"
+    },
+    "plate": {
+     "type": "string"
+    },
+    "presentations": {
+     "items": {
+      "properties": {
+       "credential": {
+        "type": "string"
+       },
+       "issuer": {
+        "type": "string"
+       },
+       "presentation": {
+        "type": "string"
+       },
+       "vct": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "credential",
+       "issuer",
+       "presentation",
+       "vct"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "primary_clinic": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "properties": {
+     "items": {
+      "properties": {
+       "area_m2": {
+        "type": "integer"
+       },
+       "city": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "city_index": {
+        "type": "integer"
+       },
+       "deed_no": {
+        "type": "string"
+       },
+       "district": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "district_index": {
+        "type": "integer"
+       },
+       "share_percent": {
+        "type": "integer"
+       },
+       "type": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "type_index": {
+        "type": "integer"
+       }
+      },
+      "required": [
+       "area_m2",
+       "city",
+       "deed_no",
+       "district",
+       "share_percent",
+       "type"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "proposal": {
+     "properties": {
+      "awaiting": {
+       "type": [
+        "null",
+        "string"
+       ]
+      },
+      "given_name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "id": {
+       "type": "integer"
+      },
+      "proposed_at": {
+       "format": "date-time",
+       "type": "string"
+      },
+      "proposed_by": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "awaiting",
+      "given_name",
+      "id",
+      "proposed_at",
+      "proposed_by"
+     ],
+     "type": [
+      "null",
+      "object"
+     ]
+    },
+    "registered_at": {
+     "format": "date-time",
+     "type": [
+      "null",
+      "string"
+     ]
+    },
+    "renewal_id": {
+     "type": "string"
+    },
+    "reported_at": {
+     "format": "date-time",
+     "type": "string"
+    },
+    "results": {
+     "items": {
+      "properties": {
+       "birth_date": {
+        "format": "date",
+        "type": "string"
+       },
+       "gender": {
+        "type": "string"
+       },
+       "name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "national_id": {
+        "type": "string"
+       },
+       "status": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "birth_date",
+       "gender",
+       "name",
+       "national_id",
+       "status"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "since": {
+     "format": "date",
+     "type": [
+      "null",
+      "string"
+     ]
+    },
+    "social_insurance": {
+     "properties": {
+      "contribution_months": {
+       "type": "integer"
+      },
+      "number": {
+       "type": "string"
+      },
+      "pension": {
+       "type": [
+        "integer",
+        "null"
+       ]
+      }
+     },
+     "required": [
+      "contribution_months",
+      "number",
+      "pension"
+     ],
+     "type": [
+      "null",
+      "object"
+     ]
+    },
+    "status": {
+     "type": "string"
+    },
+    "status_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "vaccinations": {
+     "items": {
+      "properties": {
+       "given_on": {
+        "format": "date",
+        "type": "string"
+       },
+       "name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       }
+      },
+      "required": [
+       "given_on",
+       "name"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "vct": {
+     "type": "string"
+    },
+    "vehicles": {
+     "items": {
+      "properties": {
+       "color": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "days_left": {
+        "type": "integer"
+       },
+       "make": {
+        "type": "string"
+       },
+       "model": {
+        "type": "string"
+       },
+       "plate": {
+        "type": "string"
+       },
+       "registration_expiry": {
+        "format": "date",
+        "type": "string"
+       },
+       "renewable": {
+        "type": "boolean"
+       },
+       "status": {
+        "type": "string"
+       },
+       "year": {
+        "type": "integer"
+       }
+      },
+      "required": [
+       "color",
+       "days_left",
+       "make",
+       "model",
+       "plate",
+       "registration_expiry",
+       "status",
+       "year"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    }
+   },
+   "type": "object"
+  },
+  "201": {
+   "properties": {
+    "address": {
+     "properties": {
+      "city": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "district": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "street": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "city",
+      "district",
+      "street"
+     ],
+     "type": "object"
+    },
+    "allergies": {
+     "items": {
+      "properties": {
+       "ar": {
+        "type": "string"
+       },
+       "en": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "ar",
+       "en"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "allergy_indices": {
+     "items": {
+      "type": "integer"
+     },
+     "type": "array"
+    },
+    "base_income": {
+     "type": "integer"
+    },
+    "base_status": {
+     "type": "null"
+    },
+    "benefits": {
+     "items": {
+      "type": []
+     },
+     "type": "array"
+    },
+    "birth_date": {
+     "format": "date",
+     "type": "string"
+    },
+    "blood_type": {
+     "type": "string"
+    },
+    "changes": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "actor": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "detail": {
+        "properties": {
+         "after": {
+          "properties": {
+           "employer": {
+            "properties": {
+             "ar": {
+              "type": "string"
+             },
+             "en": {
+              "type": "string"
+             }
+            },
+            "required": [
+             "ar",
+             "en"
+            ],
+            "type": "object"
+           },
+           "monthly_income": {
+            "type": "integer"
+           },
+           "status": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "employer",
+           "monthly_income",
+           "status"
+          ],
+          "type": "object"
+         },
+         "area_m2": {
+          "type": "integer"
+         },
+         "before": {
+          "properties": {
+           "employer_name": {
+            "properties": {
+             "ar": {
+              "type": "string"
+             },
+             "en": {
+              "type": "string"
+             }
+            },
+            "required": [
+             "ar",
+             "en"
+            ],
+            "type": "object"
+           },
+           "graduation_year": {
+            "type": "integer"
+           },
+           "level": {
+            "type": "string"
+           },
+           "monthly_income": {
+            "type": "integer"
+           },
+           "status": {
+            "type": "string"
+           }
+          },
+          "type": [
+           "null",
+           "object"
+          ]
+         },
+         "deed_no": {
+          "type": "string"
+         },
+         "degree_id": {
+          "type": "string"
+         },
+         "employer": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "end_date": {
+          "format": "date",
+          "type": [
+           "null",
+           "string"
+          ]
+         },
+         "from_id": {
+          "type": "string"
+         },
+         "graduation_year": {
+          "type": "integer"
+         },
+         "job_id": {
+          "type": "string"
+         },
+         "job_title": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "level": {
+          "type": "string"
+         },
+         "level_name": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "make": {
+          "type": "string"
+         },
+         "model": {
+          "type": "string"
+         },
+         "plate": {
+          "type": "string"
+         },
+         "registration_expiry": {
+          "format": "date",
+          "type": "string"
+         },
+         "share_percent": {
+          "type": "integer"
+         },
+         "since_year": {
+          "type": "integer"
+         },
+         "stage": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "to_id": {
+          "type": "string"
+         },
+         "type": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "year": {
+          "type": "integer"
+         }
+        },
+        "type": "object"
+       }
+      },
+      "required": [
+       "action",
+       "actor",
+       "at"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "chronic_conditions": {
+     "items": {},
+     "type": "array"
+    },
+    "clinic_index": {
+     "type": "integer"
+    },
+    "condition_indices": {
+     "items": {},
+     "type": "array"
+    },
+    "consent_url": {
+     "type": "string"
+    },
+    "current": {
+     "properties": {
+      "employer": {
+       "properties": {
+        "name": {
+         "properties": {
+          "ar": {
+           "type": "string"
+          },
+          "en": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "ar",
+          "en"
+         ],
+         "type": "object"
+        },
+        "sector": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "name",
+        "sector"
+       ],
+       "type": "object"
+      },
+      "income_bracket": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "income_source": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "job_title": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "monthly_income": {
+       "type": "integer"
+      },
+      "since": {
+       "format": "date",
+       "type": "string"
+      },
+      "status": {
+       "type": "string"
+      },
+      "status_name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      }
+     },
+     "required": [
+      "employer",
+      "income_bracket",
+      "income_source",
+      "job_title",
+      "monthly_income",
+      "since",
+      "status",
+      "status_name"
+     ],
+     "type": "object"
+    },
+    "degrees": {
+     "items": {
+      "properties": {
+       "field": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "grade": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "grade_index": {
+        "type": "integer"
+       },
+       "graduation_year": {
+        "type": "integer"
+       },
+       "id": {
+        "type": "string"
+       },
+       "institution": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "institution_index": {
+        "type": "integer"
+       },
+       "level": {
+        "type": "string"
+       },
+       "level_name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "major_index": {
+        "type": "integer"
+       },
+       "verified": {
+        "type": "boolean"
+       }
+      },
+      "required": [
+       "field",
+       "grade",
+       "grade_index",
+       "graduation_year",
+       "id",
+       "institution",
+       "institution_index",
+       "level",
+       "level_name",
+       "major_index",
+       "verified"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "enrollment": {
+     "type": "null"
+    },
+    "exists": {
+     "type": "boolean"
+    },
+    "family": {
+     "items": {
+      "properties": {
+       "name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "national_id": {
+        "type": "string"
+       },
+       "relation": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "name",
+       "national_id",
+       "relation"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "family_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "gender": {
+     "type": "string"
+    },
+    "given_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "jobs": {
+     "items": {
+      "properties": {
+       "current": {
+        "type": "boolean"
+       },
+       "employer": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "employer_index": {
+        "type": "integer"
+       },
+       "end_date": {
+        "format": "date",
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "id": {
+        "type": "string"
+       },
+       "job_title": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "job_title_index": {
+        "type": "integer"
+       },
+       "monthly_salary": {
+        "type": "integer"
+       },
+       "sector": {
+        "type": "string"
+       },
+       "start_date": {
+        "format": "date",
+        "type": "string"
+       }
+      },
+      "required": [
+       "current",
+       "employer",
+       "employer_index",
+       "end_date",
+       "id",
+       "job_title",
+       "job_title_index",
+       "monthly_salary",
+       "sector",
+       "start_date"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "marital_status": {
+     "type": "string"
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "nationality": {
+     "type": "string"
+    },
+    "organ_donor": {
+     "type": "boolean"
+    },
+    "phone": {
+     "type": "string"
+    },
+    "plate": {
+     "type": "string"
+    },
+    "primary_clinic": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "properties": {
+     "items": {
+      "properties": {
+       "area_m2": {
+        "type": "integer"
+       },
+       "city": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "city_index": {
+        "type": "integer"
+       },
+       "deed_no": {
+        "type": "string"
+       },
+       "district": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "district_index": {
+        "type": "integer"
+       },
+       "share_percent": {
+        "type": "integer"
+       },
+       "type": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "type_index": {
+        "type": "integer"
+       }
+      },
+      "required": [
+       "area_m2",
+       "city",
+       "city_index",
+       "deed_no",
+       "district",
+       "district_index",
+       "share_percent",
+       "type",
+       "type_index"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "request_id": {
+     "type": "string"
+    },
+    "social_insurance": {
+     "properties": {
+      "contribution_months": {
+       "type": "integer"
+      },
+      "number": {
+       "type": "string"
+      },
+      "pension": {
+       "type": "null"
+      }
+     },
+     "required": [
+      "contribution_months",
+      "number",
+      "pension"
+     ],
+     "type": "object"
+    },
+    "status": {
+     "type": "string"
+    },
+    "vaccinations": {
+     "items": {
+      "properties": {
+       "given_on": {
+        "format": "date",
+        "type": "string"
+       },
+       "id": {
+        "type": "integer"
+       },
+       "name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       }
+      },
+      "required": [
+       "given_on",
+       "id",
+       "name"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "vehicles": {
+     "items": {
+      "properties": {
+       "color": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "days_left": {
+        "type": "integer"
+       },
+       "make": {
+        "type": "string"
+       },
+       "model": {
+        "type": "string"
+       },
+       "plate": {
+        "type": "string"
+       },
+       "registration_expiry": {
+        "format": "date",
+        "type": "string"
+       },
+       "renewable": {
+        "type": "boolean"
+       },
+       "status": {
+        "type": "string"
+       },
+       "year": {
+        "type": "integer"
+       }
+      },
+      "required": [
+       "color",
+       "days_left",
+       "make",
+       "model",
+       "plate",
+       "registration_expiry",
+       "renewable",
+       "status",
+       "year"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    }
+   },
+   "type": "object"
+  },
+  "400": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "403": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "404": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "409": {
+   "properties": {
+    "details": {
+     "properties": {
+      "days_left": {
+       "type": "integer"
+      },
+      "national_ids": {
+       "items": {
+        "type": "string"
+       },
+       "type": "array"
+      },
+      "notification_ids": {
+       "items": {
+        "type": "string"
+       },
+       "type": "array"
+      }
+     },
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "422": {
+   "properties": {
+    "details": {
+     "properties": {
+      "allowed_claims": {
+       "items": {
+        "type": "string"
+       },
+       "type": "array"
+      },
+      "problems": {
+       "items": {
+        "properties": {
+         "code": {
+          "type": "string"
+         },
+         "field": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "code",
+         "field"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      },
+      "regulator": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "rejected_claims": {
+       "items": {
+        "properties": {
+         "derived": {
+          "type": "boolean"
+         },
+         "description": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "label": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "name": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "derived",
+         "description",
+         "label",
+         "name"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      },
+      "request_id": {
+       "type": "string"
+      }
+     },
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ }
+}

@@ -1,0 +1,762 @@
+{
+ "DELETE /x/records/persons/:id/vaccinations/:vid": {
+  "200": {
+   "properties": {
+    "allergies": {
+     "items": {
+      "properties": {
+       "ar": {
+        "type": "string"
+       },
+       "en": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "ar",
+       "en"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "allergy_indices": {
+     "items": {
+      "type": "integer"
+     },
+     "type": "array"
+    },
+    "blood_type": {
+     "type": "string"
+    },
+    "changes": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "actor": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       }
+      },
+      "required": [
+       "action",
+       "actor",
+       "at"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "chronic_conditions": {
+     "items": {},
+     "type": "array"
+    },
+    "clinic_index": {
+     "type": "integer"
+    },
+    "condition_indices": {
+     "items": {},
+     "type": "array"
+    },
+    "exists": {
+     "type": "boolean"
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "organ_donor": {
+     "type": "boolean"
+    },
+    "primary_clinic": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "vaccinations": {
+     "items": {},
+     "type": "array"
+    }
+   },
+   "required": [
+    "allergies",
+    "allergy_indices",
+    "blood_type",
+    "changes",
+    "chronic_conditions",
+    "clinic_index",
+    "condition_indices",
+    "exists",
+    "national_id",
+    "organ_donor",
+    "primary_clinic",
+    "vaccinations"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /healthz": {
+  "200": {
+   "properties": {
+    "ok": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "ok"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /x/birth-notifications/:id": {
+  "200": {
+   "properties": {
+    "birth_date": {
+     "format": "date",
+     "type": "string"
+    },
+    "child_gender": {
+     "type": "string"
+    },
+    "father_id": {
+     "type": [
+      "null",
+      "string"
+     ]
+    },
+    "hospital": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "id": {
+     "type": "string"
+    },
+    "mother_id": {
+     "type": "string"
+    },
+    "reported_at": {
+     "format": "date-time",
+     "type": "string"
+    }
+   },
+   "required": [
+    "birth_date",
+    "child_gender",
+    "father_id",
+    "hospital",
+    "id",
+    "mother_id",
+    "reported_at"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /x/persons/:id/health": {
+  "200": {
+   "properties": {
+    "allergies": {
+     "items": {},
+     "type": "array"
+    },
+    "blood_type": {
+     "type": "string"
+    },
+    "chronic_conditions": {
+     "items": {
+      "properties": {
+       "ar": {
+        "type": "string"
+       },
+       "en": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "ar",
+       "en"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "organ_donor": {
+     "type": "boolean"
+    },
+    "primary_clinic": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "vaccinations": {
+     "items": {
+      "properties": {
+       "given_on": {
+        "format": "date",
+        "type": "string"
+       },
+       "name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       }
+      },
+      "required": [
+       "given_on",
+       "name"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "allergies",
+    "blood_type",
+    "chronic_conditions",
+    "national_id",
+    "organ_donor",
+    "primary_clinic",
+    "vaccinations"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /x/records/persons/:id": {
+  "200": {
+   "properties": {
+    "allergies": {
+     "items": {
+      "properties": {
+       "ar": {
+        "type": "string"
+       },
+       "en": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "ar",
+       "en"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "allergy_indices": {
+     "items": {
+      "type": "integer"
+     },
+     "type": "array"
+    },
+    "blood_type": {
+     "type": "string"
+    },
+    "changes": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "actor": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       }
+      },
+      "required": [
+       "action",
+       "actor",
+       "at"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "chronic_conditions": {
+     "items": {
+      "type": []
+     },
+     "type": "array"
+    },
+    "clinic_index": {
+     "type": "integer"
+    },
+    "condition_indices": {
+     "items": {
+      "type": []
+     },
+     "type": "array"
+    },
+    "exists": {
+     "type": "boolean"
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "organ_donor": {
+     "type": "boolean"
+    },
+    "primary_clinic": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "vaccinations": {
+     "items": {
+      "type": []
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "changes",
+    "exists",
+    "national_id",
+    "vaccinations"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /x/birth-notifications": {
+  "200": {
+   "properties": {
+    "hospital": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "notification_id": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "hospital",
+    "notification_id"
+   ],
+   "type": "object"
+  },
+  "409": {
+   "properties": {
+    "details": {
+     "properties": {
+      "notification_ids": {
+       "items": {
+        "type": "string"
+       },
+       "type": "array"
+      }
+     },
+     "required": [
+      "notification_ids"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /x/records/persons/:id/vaccinations": {
+  "201": {
+   "properties": {
+    "allergies": {
+     "items": {
+      "properties": {
+       "ar": {
+        "type": "string"
+       },
+       "en": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "ar",
+       "en"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "allergy_indices": {
+     "items": {
+      "type": "integer"
+     },
+     "type": "array"
+    },
+    "blood_type": {
+     "type": "string"
+    },
+    "changes": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "actor": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       }
+      },
+      "required": [
+       "action",
+       "actor",
+       "at"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "chronic_conditions": {
+     "items": {},
+     "type": "array"
+    },
+    "clinic_index": {
+     "type": "integer"
+    },
+    "condition_indices": {
+     "items": {},
+     "type": "array"
+    },
+    "exists": {
+     "type": "boolean"
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "organ_donor": {
+     "type": "boolean"
+    },
+    "primary_clinic": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "vaccinations": {
+     "items": {
+      "properties": {
+       "given_on": {
+        "format": "date",
+        "type": "string"
+       },
+       "id": {
+        "type": "integer"
+       },
+       "name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       }
+      },
+      "required": [
+       "given_on",
+       "id",
+       "name"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "allergies",
+    "allergy_indices",
+    "blood_type",
+    "changes",
+    "chronic_conditions",
+    "clinic_index",
+    "condition_indices",
+    "exists",
+    "national_id",
+    "organ_donor",
+    "primary_clinic",
+    "vaccinations"
+   ],
+   "type": "object"
+  },
+  "409": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "422": {
+   "properties": {
+    "details": {
+     "properties": {
+      "problems": {
+       "items": {
+        "properties": {
+         "code": {
+          "type": "string"
+         },
+         "field": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "code",
+         "field"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      }
+     },
+     "required": [
+      "problems"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "PUT /x/records/persons/:id": {
+  "200": {
+   "properties": {
+    "allergies": {
+     "items": {
+      "properties": {
+       "ar": {
+        "type": "string"
+       },
+       "en": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "ar",
+       "en"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "allergy_indices": {
+     "items": {
+      "type": "integer"
+     },
+     "type": "array"
+    },
+    "blood_type": {
+     "type": "string"
+    },
+    "changes": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "actor": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       }
+      },
+      "required": [
+       "action",
+       "actor",
+       "at"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "chronic_conditions": {
+     "items": {},
+     "type": "array"
+    },
+    "clinic_index": {
+     "type": "integer"
+    },
+    "condition_indices": {
+     "items": {},
+     "type": "array"
+    },
+    "exists": {
+     "type": "boolean"
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "organ_donor": {
+     "type": "boolean"
+    },
+    "primary_clinic": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "vaccinations": {
+     "items": {},
+     "type": "array"
+    }
+   },
+   "required": [
+    "allergies",
+    "allergy_indices",
+    "blood_type",
+    "changes",
+    "chronic_conditions",
+    "clinic_index",
+    "condition_indices",
+    "exists",
+    "national_id",
+    "organ_donor",
+    "primary_clinic",
+    "vaccinations"
+   ],
+   "type": "object"
+  },
+  "400": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ }
+}

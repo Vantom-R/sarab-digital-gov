@@ -1,0 +1,614 @@
+{
+ "GET /healthz": {
+  "200": {
+   "properties": {
+    "ok": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "ok"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/bank/me/kyc-refresh": {
+  "200": {
+   "properties": {
+    "message": {
+     "type": "string"
+    },
+    "ok": {
+     "type": "boolean"
+    },
+    "reason": {
+     "type": "string"
+    },
+    "received_claims": {
+     "properties": {
+      "address_city": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "age_over_18": {
+       "type": "boolean"
+      },
+      "employment_status": {
+       "type": "string"
+      },
+      "full_name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "income_bracket": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "national_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "address_city",
+      "age_over_18",
+      "employment_status",
+      "full_name",
+      "income_bracket",
+      "national_id"
+     ],
+     "type": "object"
+    }
+   },
+   "required": [
+    "ok"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/bank/onboarding/complete": {
+  "200": {
+   "properties": {
+    "account": {
+     "properties": {
+      "city": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "number": {
+       "type": "string"
+      },
+      "opened_at": {
+       "format": "date-time",
+       "type": "string"
+      }
+     },
+     "required": [
+      "city",
+      "name",
+      "number",
+      "opened_at"
+     ],
+     "type": "object"
+    },
+    "consent": {
+     "properties": {
+      "claims": {
+       "items": {
+        "type": "string"
+       },
+       "type": "array"
+      },
+      "granted_at": {
+       "format": "date-time",
+       "type": "string"
+      },
+      "id": {
+       "type": "string"
+      },
+      "request_id": {
+       "type": "string"
+      },
+      "valid_until": {
+       "format": "date-time",
+       "type": "string"
+      }
+     },
+     "required": [
+      "claims",
+      "granted_at",
+      "id",
+      "request_id",
+      "valid_until"
+     ],
+     "type": "object"
+    },
+    "inspection": {
+     "items": {
+      "properties": {
+       "credential": {
+        "type": "string"
+       },
+       "disclosures": {
+        "items": {
+         "properties": {
+          "decoded": {
+           "properties": {
+            "name": {
+             "type": "string"
+            },
+            "salt": {
+             "type": "string"
+            },
+            "value": {
+             "properties": {
+              "ar": {
+               "type": "string"
+              },
+              "en": {
+               "type": "string"
+              }
+             },
+             "required": [
+              "ar",
+              "en"
+             ],
+             "type": [
+              "boolean",
+              "object",
+              "string"
+             ]
+            }
+           },
+           "required": [
+            "name",
+            "salt",
+            "value"
+           ],
+           "type": "object"
+          },
+          "encoded": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "decoded",
+          "encoded"
+         ],
+         "type": "object"
+        },
+        "type": "array"
+       },
+       "issuer": {
+        "type": "string"
+       },
+       "issuer_header": {
+        "properties": {
+         "alg": {
+          "type": "string"
+         },
+         "kid": {
+          "type": "string"
+         },
+         "typ": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "alg",
+         "kid",
+         "typ"
+        ],
+        "type": "object"
+       },
+       "issuer_payload": {
+        "properties": {
+         "_sd": {
+          "items": {
+           "type": "string"
+          },
+          "type": "array"
+         },
+         "_sd_alg": {
+          "type": "string"
+         },
+         "cnf": {
+          "properties": {
+           "jwk": {
+            "properties": {
+             "alg": {
+              "type": "string"
+             },
+             "crv": {
+              "type": "string"
+             },
+             "kid": {
+              "type": "string"
+             },
+             "kty": {
+              "type": "string"
+             },
+             "x": {
+              "type": "string"
+             },
+             "y": {
+              "type": "string"
+             }
+            },
+            "required": [
+             "alg",
+             "crv",
+             "kty",
+             "x"
+            ],
+            "type": "object"
+           }
+          },
+          "required": [
+           "jwk"
+          ],
+          "type": "object"
+         },
+         "exp": {
+          "type": "integer"
+         },
+         "iat": {
+          "type": "integer"
+         },
+         "iss": {
+          "type": "string"
+         },
+         "vct": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "_sd",
+         "_sd_alg",
+         "cnf",
+         "exp",
+         "iat",
+         "iss",
+         "vct"
+        ],
+        "type": "object"
+       },
+       "key_binding_header": {
+        "properties": {
+         "alg": {
+          "type": "string"
+         },
+         "typ": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "alg",
+         "typ"
+        ],
+        "type": "object"
+       },
+       "key_binding_payload": {
+        "properties": {
+         "aud": {
+          "type": "string"
+         },
+         "iat": {
+          "type": "integer"
+         },
+         "nonce": {
+          "type": "string"
+         },
+         "sd_hash": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "aud",
+         "iat",
+         "nonce",
+         "sd_hash"
+        ],
+        "type": "object"
+       },
+       "undisclosed_digests": {
+        "type": "integer"
+       },
+       "vct": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "credential",
+       "disclosures",
+       "issuer",
+       "issuer_header",
+       "issuer_payload",
+       "key_binding_header",
+       "key_binding_payload",
+       "undisclosed_digests",
+       "vct"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "not_received": {
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "reason": {
+     "type": "string"
+    },
+    "received_claims": {
+     "properties": {
+      "address_city": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "age_over_18": {
+       "type": "boolean"
+      },
+      "employment_status": {
+       "type": "string"
+      },
+      "full_name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "income_bracket": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "national_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "address_city",
+      "age_over_18",
+      "employment_status",
+      "full_name",
+      "income_bracket",
+      "national_id"
+     ],
+     "type": "object"
+    },
+    "status": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "status"
+   ],
+   "type": "object"
+  },
+  "400": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/bank/onboarding/start": {
+  "200": {
+   "properties": {
+    "details": {
+     "properties": {
+      "allowed_claims": {
+       "items": {
+        "type": "string"
+       },
+       "type": "array"
+      },
+      "regulator": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "rejected_claims": {
+       "items": {
+        "properties": {
+         "derived": {
+          "type": "boolean"
+         },
+         "description": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "label": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "name": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "derived",
+         "description",
+         "label",
+         "name"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      },
+      "request_id": {
+       "type": "string"
+      },
+      "target": {
+       "type": "string"
+      },
+      "via": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "allowed_claims",
+      "regulator",
+      "rejected_claims",
+      "request_id",
+      "target",
+      "via"
+     ],
+     "type": "object"
+    },
+    "message": {
+     "type": "string"
+    },
+    "redirect": {
+     "type": "string"
+    },
+    "requested_claims": {
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "status": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "requested_claims",
+    "status"
+   ],
+   "type": "object"
+  }
+ }
+}

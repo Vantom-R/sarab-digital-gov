@@ -1,0 +1,3 @@
+{
+ "POST /api/identity/counter/sessions/:id/vehicles/:plate/renew": { "200": { "same_as": "property:POST /x/vehicles/:plate/renewals 200" } }
+}

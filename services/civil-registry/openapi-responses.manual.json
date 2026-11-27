@@ -1,0 +1,3 @@
+{
+ "PUT /x/records/persons/:id/marital-status": { "200": { "same_as": "PUT /x/records/persons/:id/address 200" } }
+}

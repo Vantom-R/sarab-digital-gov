@@ -1,0 +1,3288 @@
+{
+ "DELETE /x/records/persons/:id/children/:childId": {
+  "200": {
+   "properties": {
+    "address": {
+     "properties": {
+      "city": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "city_index": {
+       "type": "integer"
+      },
+      "district": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "district_index": {
+       "type": "integer"
+      },
+      "street": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "city",
+      "city_index",
+      "district",
+      "district_index",
+      "street"
+     ],
+     "type": "object"
+    },
+    "birth_date": {
+     "format": "date",
+     "type": "string"
+    },
+    "changes": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "actor": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "detail": {
+        "properties": {
+         "after": {
+          "properties": {
+           "city": {
+            "type": "string"
+           },
+           "district": {
+            "type": "string"
+           },
+           "phone": {
+            "type": "string"
+           },
+           "street": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "city",
+           "district",
+           "phone",
+           "street"
+          ],
+          "type": "object"
+         },
+         "before": {
+          "properties": {
+           "city": {
+            "type": "string"
+           },
+           "district": {
+            "type": "string"
+           },
+           "phone": {
+            "type": "string"
+           },
+           "street": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "city",
+           "district",
+           "phone",
+           "street"
+          ],
+          "type": "object"
+         },
+         "child_id": {
+          "type": "string"
+         },
+         "married_on": {
+          "format": "date",
+          "type": "string"
+         },
+         "spouse_id": {
+          "type": "string"
+         }
+        },
+        "type": "object"
+       }
+      },
+      "required": [
+       "action",
+       "actor",
+       "at",
+       "detail"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "family": {
+     "items": {
+      "properties": {
+       "birth_date": {
+        "format": "date",
+        "type": "string"
+       },
+       "gender": {
+        "type": "string"
+       },
+       "name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "national_id": {
+        "type": "string"
+       },
+       "relation": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "birth_date",
+       "gender",
+       "name",
+       "national_id",
+       "relation"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "family_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "gender": {
+     "type": "string"
+    },
+    "given_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "marital_status": {
+     "type": "string"
+    },
+    "married_on": {
+     "format": "date",
+     "type": "string"
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "phone": {
+     "type": "string"
+    },
+    "status": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "address",
+    "birth_date",
+    "changes",
+    "family",
+    "family_name",
+    "gender",
+    "given_name",
+    "marital_status",
+    "married_on",
+    "national_id",
+    "phone",
+    "status"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /healthz": {
+  "200": {
+   "properties": {
+    "ok": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "ok"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /x/births": {
+  "200": {
+   "properties": {
+    "births": {
+     "items": {
+      "properties": {
+       "birth_date": {
+        "format": "date",
+        "type": "string"
+       },
+       "child": {
+        "properties": {
+         "name": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "national_id": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "name",
+         "national_id"
+        ],
+        "type": [
+         "null",
+         "object"
+        ]
+       },
+       "family_name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "father": {
+        "properties": {
+         "name": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "national_id": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "name",
+         "national_id"
+        ],
+        "type": [
+         "null",
+         "object"
+        ]
+       },
+       "gender": {
+        "type": "string"
+       },
+       "history": {
+        "items": {
+         "properties": {
+          "decided_at": {
+           "format": "date-time",
+           "type": [
+            "null",
+            "string"
+           ]
+          },
+          "decided_by": {
+           "type": [
+            "null",
+            "string"
+           ]
+          },
+          "given_name": {
+           "properties": {
+            "ar": {
+             "type": "string"
+            },
+            "en": {
+             "type": "string"
+            }
+           },
+           "required": [
+            "ar",
+            "en"
+           ],
+           "type": "object"
+          },
+          "id": {
+           "type": "integer"
+          },
+          "proposed_at": {
+           "format": "date-time",
+           "type": "string"
+          },
+          "proposed_by": {
+           "type": "string"
+          },
+          "status": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "decided_at",
+          "decided_by",
+          "given_name",
+          "id",
+          "proposed_at",
+          "proposed_by",
+          "status"
+         ],
+         "type": "object"
+        },
+        "type": "array"
+       },
+       "hospital": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "mother": {
+        "properties": {
+         "name": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "national_id": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "name",
+         "national_id"
+        ],
+        "type": "object"
+       },
+       "name_deadline": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "named_by": {
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "notification_id": {
+        "type": "string"
+       },
+       "overdue": {
+        "type": "boolean"
+       },
+       "proposal": {
+        "properties": {
+         "awaiting": {
+          "type": "string"
+         },
+         "given_name": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "id": {
+          "type": "integer"
+         },
+         "proposed_at": {
+          "format": "date-time",
+          "type": "string"
+         },
+         "proposed_by": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "awaiting",
+         "given_name",
+         "id",
+         "proposed_at",
+         "proposed_by"
+        ],
+        "type": [
+         "null",
+         "object"
+        ]
+       },
+       "registered_at": {
+        "format": "date-time",
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "reported_at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "status": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "birth_date",
+       "child",
+       "family_name",
+       "father",
+       "gender",
+       "history",
+       "hospital",
+       "mother",
+       "name_deadline",
+       "named_by",
+       "notification_id",
+       "overdue",
+       "proposal",
+       "registered_at",
+       "reported_at",
+       "status"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "births"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /x/persons/:id": {
+  "200": {
+   "properties": {
+    "address": {
+     "properties": {
+      "city": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "district": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "street": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "city",
+      "district",
+      "street"
+     ],
+     "type": "object"
+    },
+    "birth_date": {
+     "format": "date",
+     "type": "string"
+    },
+    "family": {
+     "items": {
+      "properties": {
+       "name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "national_id": {
+        "type": "string"
+       },
+       "relation": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "name",
+       "national_id",
+       "relation"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "family_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "gender": {
+     "type": "string"
+    },
+    "given_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "marital_status": {
+     "type": "string"
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "nationality": {
+     "type": "string"
+    },
+    "phone": {
+     "type": "string"
+    },
+    "status": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "address",
+    "birth_date",
+    "family",
+    "family_name",
+    "gender",
+    "given_name",
+    "marital_status",
+    "national_id",
+    "nationality",
+    "phone",
+    "status"
+   ],
+   "type": "object"
+  },
+  "404": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /x/persons/:id/name": {
+  "200": {
+   "properties": {
+    "name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "national_id": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "name",
+    "national_id"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /x/records/persons/:id": {
+  "200": {
+   "properties": {
+    "address": {
+     "properties": {
+      "city": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "city_index": {
+       "type": "integer"
+      },
+      "district": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "district_index": {
+       "type": "integer"
+      },
+      "street": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "city",
+      "city_index",
+      "district",
+      "district_index",
+      "street"
+     ],
+     "type": "object"
+    },
+    "birth_date": {
+     "format": "date",
+     "type": "string"
+    },
+    "changes": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "actor": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "detail": {
+        "properties": {
+         "divorced_on": {
+          "format": "date",
+          "type": "string"
+         },
+         "married_on": {
+          "format": "date",
+          "type": "string"
+         },
+         "spouse_id": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "spouse_id"
+        ],
+        "type": "object"
+       }
+      },
+      "required": [
+       "action",
+       "actor",
+       "at",
+       "detail"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "family": {
+     "items": {
+      "properties": {
+       "birth_date": {
+        "format": "date",
+        "type": "string"
+       },
+       "gender": {
+        "type": "string"
+       },
+       "name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "national_id": {
+        "type": "string"
+       },
+       "relation": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "birth_date",
+       "gender",
+       "name",
+       "national_id",
+       "relation"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "family_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "gender": {
+     "type": "string"
+    },
+    "given_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "marital_status": {
+     "type": "string"
+    },
+    "married_on": {
+     "format": "date",
+     "type": [
+      "null",
+      "string"
+     ]
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "phone": {
+     "type": "string"
+    },
+    "status": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "address",
+    "birth_date",
+    "changes",
+    "family",
+    "family_name",
+    "gender",
+    "given_name",
+    "marital_status",
+    "married_on",
+    "national_id",
+    "phone",
+    "status"
+   ],
+   "type": "object"
+  },
+  "404": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /x/records/search": {
+  "200": {
+   "properties": {
+    "results": {
+     "items": {
+      "properties": {
+       "birth_date": {
+        "format": "date",
+        "type": "string"
+       },
+       "gender": {
+        "type": "string"
+       },
+       "name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "national_id": {
+        "type": "string"
+       },
+       "status": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "birth_date",
+       "gender",
+       "name",
+       "national_id",
+       "status"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "results"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /x/births/:nid/confirmation": {
+  "200": {
+   "properties": {
+    "birth_date": {
+     "format": "date",
+     "type": "string"
+    },
+    "child": {
+     "properties": {
+      "name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "national_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "name",
+      "national_id"
+     ],
+     "type": "object"
+    },
+    "family_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "father": {
+     "properties": {
+      "name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "national_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "name",
+      "national_id"
+     ],
+     "type": [
+      "null",
+      "object"
+     ]
+    },
+    "gender": {
+     "type": "string"
+    },
+    "history": {
+     "items": {
+      "properties": {
+       "decided_at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "decided_by": {
+        "type": "string"
+       },
+       "given_name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "id": {
+        "type": "integer"
+       },
+       "proposed_at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "proposed_by": {
+        "type": "string"
+       },
+       "status": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "decided_at",
+       "decided_by",
+       "given_name",
+       "id",
+       "proposed_at",
+       "proposed_by",
+       "status"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "hospital": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "mother": {
+     "properties": {
+      "name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "national_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "name",
+      "national_id"
+     ],
+     "type": "object"
+    },
+    "name_deadline": {
+     "format": "date-time",
+     "type": "string"
+    },
+    "named_by": {
+     "type": "string"
+    },
+    "notification_id": {
+     "type": "string"
+    },
+    "overdue": {
+     "type": "boolean"
+    },
+    "proposal": {
+     "type": "null"
+    },
+    "registered_at": {
+     "format": "date-time",
+     "type": "string"
+    },
+    "reported_at": {
+     "format": "date-time",
+     "type": "string"
+    },
+    "status": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "birth_date",
+    "child",
+    "family_name",
+    "father",
+    "gender",
+    "history",
+    "hospital",
+    "mother",
+    "name_deadline",
+    "named_by",
+    "notification_id",
+    "overdue",
+    "proposal",
+    "registered_at",
+    "reported_at",
+    "status"
+   ],
+   "type": "object"
+  },
+  "403": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "409": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /x/births/:nid/proposal": {
+  "200": {
+   "properties": {
+    "birth_date": {
+     "format": "date",
+     "type": "string"
+    },
+    "child": {
+     "type": "null"
+    },
+    "family_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "father": {
+     "properties": {
+      "name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "national_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "name",
+      "national_id"
+     ],
+     "type": [
+      "null",
+      "object"
+     ]
+    },
+    "gender": {
+     "type": "string"
+    },
+    "history": {
+     "items": {
+      "properties": {
+       "decided_at": {
+        "format": "date-time",
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "decided_by": {
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "given_name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "id": {
+        "type": "integer"
+       },
+       "proposed_at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "proposed_by": {
+        "type": "string"
+       },
+       "status": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "decided_at",
+       "decided_by",
+       "given_name",
+       "id",
+       "proposed_at",
+       "proposed_by",
+       "status"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "hospital": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "mother": {
+     "properties": {
+      "name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "national_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "name",
+      "national_id"
+     ],
+     "type": "object"
+    },
+    "name_deadline": {
+     "format": "date-time",
+     "type": "string"
+    },
+    "named_by": {
+     "type": "null"
+    },
+    "notification_id": {
+     "type": "string"
+    },
+    "overdue": {
+     "type": "boolean"
+    },
+    "proposal": {
+     "properties": {
+      "awaiting": {
+       "type": [
+        "null",
+        "string"
+       ]
+      },
+      "given_name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "id": {
+       "type": "integer"
+      },
+      "proposed_at": {
+       "format": "date-time",
+       "type": "string"
+      },
+      "proposed_by": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "awaiting",
+      "given_name",
+      "id",
+      "proposed_at",
+      "proposed_by"
+     ],
+     "type": "object"
+    },
+    "registered_at": {
+     "type": "null"
+    },
+    "reported_at": {
+     "format": "date-time",
+     "type": "string"
+    },
+    "status": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "birth_date",
+    "child",
+    "family_name",
+    "father",
+    "gender",
+    "history",
+    "hospital",
+    "mother",
+    "name_deadline",
+    "named_by",
+    "notification_id",
+    "overdue",
+    "proposal",
+    "registered_at",
+    "reported_at",
+    "status"
+   ],
+   "type": "object"
+  },
+  "409": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /x/persons": {
+  "201": {
+   "properties": {
+    "address": {
+     "properties": {
+      "city": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "district": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "street": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "city",
+      "district",
+      "street"
+     ],
+     "type": "object"
+    },
+    "birth_date": {
+     "format": "date",
+     "type": "string"
+    },
+    "family": {
+     "items": {
+      "properties": {
+       "name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "national_id": {
+        "type": "string"
+       },
+       "relation": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "name",
+       "national_id",
+       "relation"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "family_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "gender": {
+     "type": "string"
+    },
+    "given_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "marital_status": {
+     "type": "string"
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "nationality": {
+     "type": "string"
+    },
+    "phone": {
+     "type": "string"
+    },
+    "status": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "address",
+    "birth_date",
+    "family",
+    "family_name",
+    "gender",
+    "given_name",
+    "marital_status",
+    "national_id",
+    "nationality",
+    "phone",
+    "status"
+   ],
+   "type": "object"
+  },
+  "409": {
+   "properties": {
+    "details": {
+     "properties": {
+      "national_ids": {
+       "items": {
+        "type": "string"
+       },
+       "type": "array"
+      }
+     },
+     "required": [
+      "national_ids"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "422": {
+   "properties": {
+    "details": {
+     "properties": {
+      "problems": {
+       "items": {
+        "properties": {
+         "code": {
+          "type": "string"
+         },
+         "field": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "code",
+         "field"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      }
+     },
+     "required": [
+      "problems"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /x/records/persons/:id/children": {
+  "200": {
+   "properties": {
+    "address": {
+     "properties": {
+      "city": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "city_index": {
+       "type": "integer"
+      },
+      "district": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "district_index": {
+       "type": "integer"
+      },
+      "street": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "city",
+      "city_index",
+      "district",
+      "district_index",
+      "street"
+     ],
+     "type": "object"
+    },
+    "birth_date": {
+     "format": "date",
+     "type": "string"
+    },
+    "changes": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "actor": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "detail": {
+        "properties": {
+         "after": {
+          "properties": {
+           "city": {
+            "type": "string"
+           },
+           "district": {
+            "type": "string"
+           },
+           "phone": {
+            "type": "string"
+           },
+           "street": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "city",
+           "district",
+           "phone",
+           "street"
+          ],
+          "type": "object"
+         },
+         "before": {
+          "properties": {
+           "city": {
+            "type": "string"
+           },
+           "district": {
+            "type": "string"
+           },
+           "phone": {
+            "type": "string"
+           },
+           "street": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "city",
+           "district",
+           "phone",
+           "street"
+          ],
+          "type": "object"
+         },
+         "child_id": {
+          "type": "string"
+         },
+         "married_on": {
+          "format": "date",
+          "type": "string"
+         },
+         "spouse_id": {
+          "type": "string"
+         }
+        },
+        "type": "object"
+       }
+      },
+      "required": [
+       "action",
+       "actor",
+       "at",
+       "detail"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "family": {
+     "items": {
+      "properties": {
+       "birth_date": {
+        "format": "date",
+        "type": "string"
+       },
+       "gender": {
+        "type": "string"
+       },
+       "name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "national_id": {
+        "type": "string"
+       },
+       "relation": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "birth_date",
+       "gender",
+       "name",
+       "national_id",
+       "relation"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "family_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "gender": {
+     "type": "string"
+    },
+    "given_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "marital_status": {
+     "type": "string"
+    },
+    "married_on": {
+     "format": "date",
+     "type": "string"
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "phone": {
+     "type": "string"
+    },
+    "status": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "address",
+    "birth_date",
+    "changes",
+    "family",
+    "family_name",
+    "gender",
+    "given_name",
+    "marital_status",
+    "married_on",
+    "national_id",
+    "phone",
+    "status"
+   ],
+   "type": "object"
+  },
+  "409": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "422": {
+   "properties": {
+    "details": {
+     "properties": {
+      "problems": {
+       "items": {
+        "properties": {
+         "code": {
+          "type": "string"
+         },
+         "field": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "code",
+         "field"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      }
+     },
+     "required": [
+      "problems"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /x/records/persons/:id/divorce": {
+  "200": {
+   "properties": {
+    "address": {
+     "properties": {
+      "city": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "city_index": {
+       "type": "integer"
+      },
+      "district": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "district_index": {
+       "type": "integer"
+      },
+      "street": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "city",
+      "city_index",
+      "district",
+      "district_index",
+      "street"
+     ],
+     "type": "object"
+    },
+    "birth_date": {
+     "format": "date",
+     "type": "string"
+    },
+    "changes": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "actor": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "detail": {
+        "properties": {
+         "after": {
+          "properties": {
+           "city": {
+            "type": "string"
+           },
+           "district": {
+            "type": "string"
+           },
+           "phone": {
+            "type": "string"
+           },
+           "street": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "city",
+           "district",
+           "phone",
+           "street"
+          ],
+          "type": "object"
+         },
+         "before": {
+          "properties": {
+           "city": {
+            "type": "string"
+           },
+           "district": {
+            "type": "string"
+           },
+           "phone": {
+            "type": "string"
+           },
+           "street": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "city",
+           "district",
+           "phone",
+           "street"
+          ],
+          "type": "object"
+         },
+         "child_id": {
+          "type": "string"
+         },
+         "divorced_on": {
+          "format": "date",
+          "type": "string"
+         },
+         "married_on": {
+          "format": "date",
+          "type": "string"
+         },
+         "spouse_id": {
+          "type": "string"
+         }
+        },
+        "type": "object"
+       }
+      },
+      "required": [
+       "action",
+       "actor",
+       "at",
+       "detail"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "family": {
+     "items": {
+      "properties": {
+       "birth_date": {
+        "format": "date",
+        "type": "string"
+       },
+       "gender": {
+        "type": "string"
+       },
+       "name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "national_id": {
+        "type": "string"
+       },
+       "relation": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "birth_date",
+       "gender",
+       "name",
+       "national_id",
+       "relation"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "family_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "gender": {
+     "type": "string"
+    },
+    "given_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "marital_status": {
+     "type": "string"
+    },
+    "married_on": {
+     "type": "null"
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "phone": {
+     "type": "string"
+    },
+    "status": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "address",
+    "birth_date",
+    "changes",
+    "family",
+    "family_name",
+    "gender",
+    "given_name",
+    "marital_status",
+    "married_on",
+    "national_id",
+    "phone",
+    "status"
+   ],
+   "type": "object"
+  },
+  "422": {
+   "properties": {
+    "details": {
+     "properties": {
+      "problems": {
+       "items": {
+        "properties": {
+         "code": {
+          "type": "string"
+         },
+         "field": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "code",
+         "field"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      }
+     },
+     "required": [
+      "problems"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /x/records/persons/:id/marriage": {
+  "200": {
+   "properties": {
+    "address": {
+     "properties": {
+      "city": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "city_index": {
+       "type": "integer"
+      },
+      "district": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "district_index": {
+       "type": "integer"
+      },
+      "street": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "city",
+      "city_index",
+      "district",
+      "district_index",
+      "street"
+     ],
+     "type": "object"
+    },
+    "birth_date": {
+     "format": "date",
+     "type": "string"
+    },
+    "changes": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "actor": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "detail": {
+        "properties": {
+         "after": {
+          "properties": {
+           "city": {
+            "type": "string"
+           },
+           "district": {
+            "type": "string"
+           },
+           "phone": {
+            "type": "string"
+           },
+           "street": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "city",
+           "district",
+           "phone",
+           "street"
+          ],
+          "type": "object"
+         },
+         "before": {
+          "properties": {
+           "city": {
+            "type": "string"
+           },
+           "district": {
+            "type": "string"
+           },
+           "phone": {
+            "type": "string"
+           },
+           "street": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "city",
+           "district",
+           "phone",
+           "street"
+          ],
+          "type": "object"
+         },
+         "married_on": {
+          "format": "date",
+          "type": "string"
+         },
+         "spouse_id": {
+          "type": "string"
+         }
+        },
+        "type": "object"
+       }
+      },
+      "required": [
+       "action",
+       "actor",
+       "at",
+       "detail"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "family": {
+     "items": {
+      "properties": {
+       "birth_date": {
+        "format": "date",
+        "type": "string"
+       },
+       "gender": {
+        "type": "string"
+       },
+       "name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "national_id": {
+        "type": "string"
+       },
+       "relation": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "birth_date",
+       "gender",
+       "name",
+       "national_id",
+       "relation"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "family_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "gender": {
+     "type": "string"
+    },
+    "given_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "marital_status": {
+     "type": "string"
+    },
+    "married_on": {
+     "format": "date",
+     "type": "string"
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "phone": {
+     "type": "string"
+    },
+    "status": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "address",
+    "birth_date",
+    "changes",
+    "family",
+    "family_name",
+    "gender",
+    "given_name",
+    "marital_status",
+    "married_on",
+    "national_id",
+    "phone",
+    "status"
+   ],
+   "type": "object"
+  },
+  "400": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "422": {
+   "properties": {
+    "details": {
+     "properties": {
+      "problems": {
+       "items": {
+        "properties": {
+         "code": {
+          "type": "string"
+         },
+         "field": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "code",
+         "field"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      }
+     },
+     "required": [
+      "problems"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "PUT /x/records/persons/:id/address": {
+  "200": {
+   "properties": {
+    "address": {
+     "properties": {
+      "city": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "city_index": {
+       "type": "integer"
+      },
+      "district": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "district_index": {
+       "type": "integer"
+      },
+      "street": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "city",
+      "city_index",
+      "district",
+      "district_index",
+      "street"
+     ],
+     "type": "object"
+    },
+    "birth_date": {
+     "format": "date",
+     "type": "string"
+    },
+    "changes": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "actor": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "detail": {
+        "properties": {
+         "after": {
+          "properties": {
+           "city": {
+            "type": "string"
+           },
+           "district": {
+            "type": "string"
+           },
+           "phone": {
+            "type": "string"
+           },
+           "street": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "city",
+           "district",
+           "phone",
+           "street"
+          ],
+          "type": "object"
+         },
+         "before": {
+          "properties": {
+           "city": {
+            "type": "string"
+           },
+           "district": {
+            "type": "string"
+           },
+           "phone": {
+            "type": "string"
+           },
+           "street": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "city",
+           "district",
+           "phone",
+           "street"
+          ],
+          "type": "object"
+         },
+         "child_id": {
+          "type": "string"
+         },
+         "divorced_on": {
+          "format": "date",
+          "type": "string"
+         },
+         "married_on": {
+          "format": "date",
+          "type": "string"
+         },
+         "spouse_id": {
+          "type": "string"
+         }
+        },
+        "type": "object"
+       }
+      },
+      "required": [
+       "action",
+       "actor",
+       "at",
+       "detail"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "family": {
+     "items": {
+      "properties": {
+       "birth_date": {
+        "format": "date",
+        "type": "string"
+       },
+       "gender": {
+        "type": "string"
+       },
+       "name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "national_id": {
+        "type": "string"
+       },
+       "relation": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "birth_date",
+       "gender",
+       "name",
+       "national_id",
+       "relation"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "family_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "gender": {
+     "type": "string"
+    },
+    "given_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "marital_status": {
+     "type": "string"
+    },
+    "married_on": {
+     "type": "null"
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "phone": {
+     "type": "string"
+    },
+    "status": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "address",
+    "birth_date",
+    "changes",
+    "family",
+    "family_name",
+    "gender",
+    "given_name",
+    "marital_status",
+    "married_on",
+    "national_id",
+    "phone",
+    "status"
+   ],
+   "type": "object"
+  },
+  "400": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "409": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "PUT /x/records/persons/:id/marital-status": {
+  "422": {
+   "properties": {
+    "details": {
+     "properties": {
+      "problems": {
+       "items": {
+        "properties": {
+         "code": {
+          "type": "string"
+         },
+         "field": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "code",
+         "field"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      }
+     },
+     "required": [
+      "problems"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "PUT /x/records/persons/:id/parents": {
+  "200": {
+   "properties": {
+    "address": {
+     "properties": {
+      "city": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "city_index": {
+       "type": "integer"
+      },
+      "district": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "district_index": {
+       "type": "integer"
+      },
+      "street": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "city",
+      "city_index",
+      "district",
+      "district_index",
+      "street"
+     ],
+     "type": "object"
+    },
+    "birth_date": {
+     "format": "date",
+     "type": "string"
+    },
+    "changes": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "actor": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "detail": {
+        "properties": {
+         "after": {
+          "properties": {
+           "father_id": {
+            "type": "string"
+           },
+           "mother_id": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "father_id",
+           "mother_id"
+          ],
+          "type": "object"
+         },
+         "before": {
+          "properties": {
+           "father_id": {
+            "type": "null"
+           },
+           "mother_id": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "father_id",
+           "mother_id"
+          ],
+          "type": "object"
+         }
+        },
+        "required": [
+         "after",
+         "before"
+        ],
+        "type": "object"
+       }
+      },
+      "required": [
+       "action",
+       "actor",
+       "at",
+       "detail"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "family": {
+     "items": {
+      "properties": {
+       "birth_date": {
+        "format": "date",
+        "type": "string"
+       },
+       "gender": {
+        "type": "string"
+       },
+       "name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "national_id": {
+        "type": "string"
+       },
+       "relation": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "birth_date",
+       "gender",
+       "name",
+       "national_id",
+       "relation"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "family_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "gender": {
+     "type": "string"
+    },
+    "given_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "marital_status": {
+     "type": "string"
+    },
+    "married_on": {
+     "type": "null"
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "phone": {
+     "type": "string"
+    },
+    "status": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "address",
+    "birth_date",
+    "changes",
+    "family",
+    "family_name",
+    "gender",
+    "given_name",
+    "marital_status",
+    "married_on",
+    "national_id",
+    "phone",
+    "status"
+   ],
+   "type": "object"
+  },
+  "422": {
+   "properties": {
+    "details": {
+     "properties": {
+      "problems": {
+       "items": {
+        "properties": {
+         "code": {
+          "type": "string"
+         },
+         "field": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "code",
+         "field"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      }
+     },
+     "required": [
+      "problems"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ }
+}

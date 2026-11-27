@@ -1,0 +1,11051 @@
+{
+ "DELETE /api/identity/apps/devices/:id": {
+  "200": {
+   "properties": {
+    "ok": {
+     "type": "boolean"
+    },
+    "sessions_revoked": {
+     "type": "integer"
+    }
+   },
+   "required": [
+    "ok",
+    "sessions_revoked"
+   ],
+   "type": "object"
+  }
+ },
+ "DELETE /api/identity/manage/:ministry/persons/:id/*": {
+  "200": {
+   "properties": {
+    "address": {
+     "properties": {
+      "city": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "city_index": {
+       "type": "integer"
+      },
+      "district": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "district_index": {
+       "type": "integer"
+      },
+      "street": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "city",
+      "city_index",
+      "district",
+      "district_index",
+      "street"
+     ],
+     "type": "object"
+    },
+    "allergies": {
+     "items": {
+      "properties": {
+       "ar": {
+        "type": "string"
+       },
+       "en": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "ar",
+       "en"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "allergy_indices": {
+     "items": {
+      "type": "integer"
+     },
+     "type": "array"
+    },
+    "base_income": {
+     "type": "integer"
+    },
+    "base_status": {
+     "type": "string"
+    },
+    "benefits": {
+     "items": {},
+     "type": "array"
+    },
+    "birth_date": {
+     "format": "date",
+     "type": "string"
+    },
+    "blood_type": {
+     "type": "string"
+    },
+    "changes": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "actor": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "detail": {
+        "properties": {
+         "after": {
+          "properties": {
+           "area_m2": {
+            "type": "integer"
+           },
+           "city": {
+            "type": "string"
+           },
+           "district": {
+            "type": "string"
+           },
+           "employer": {
+            "properties": {
+             "ar": {
+              "type": "string"
+             },
+             "en": {
+              "type": "string"
+             }
+            },
+            "required": [
+             "ar",
+             "en"
+            ],
+            "type": [
+             "null",
+             "object"
+            ]
+           },
+           "monthly_income": {
+            "type": "integer"
+           },
+           "phone": {
+            "type": "string"
+           },
+           "share_percent": {
+            "type": "integer"
+           },
+           "status": {
+            "type": "string"
+           },
+           "street": {
+            "type": "string"
+           },
+           "type": {
+            "properties": {
+             "ar": {
+              "type": "string"
+             },
+             "en": {
+              "type": "string"
+             }
+            },
+            "required": [
+             "ar",
+             "en"
+            ],
+            "type": "object"
+           }
+          },
+          "type": "object"
+         },
+         "area_m2": {
+          "type": "integer"
+         },
+         "before": {
+          "properties": {
+           "area_m2": {
+            "type": "integer"
+           },
+           "city": {
+            "type": "string"
+           },
+           "district": {
+            "type": "string"
+           },
+           "employer_name": {
+            "properties": {
+             "ar": {
+              "type": "string"
+             },
+             "en": {
+              "type": "string"
+             }
+            },
+            "required": [
+             "ar",
+             "en"
+            ],
+            "type": [
+             "null",
+             "object"
+            ]
+           },
+           "graduation_year": {
+            "type": "integer"
+           },
+           "level": {
+            "type": "string"
+           },
+           "monthly_income": {
+            "type": "integer"
+           },
+           "phone": {
+            "type": "string"
+           },
+           "share_percent": {
+            "type": "integer"
+           },
+           "status": {
+            "type": "string"
+           },
+           "street": {
+            "type": "string"
+           },
+           "type": {
+            "properties": {
+             "ar": {
+              "type": "string"
+             },
+             "en": {
+              "type": "string"
+             }
+            },
+            "required": [
+             "ar",
+             "en"
+            ],
+            "type": "object"
+           }
+          },
+          "type": [
+           "null",
+           "object"
+          ]
+         },
+         "child_id": {
+          "type": "string"
+         },
+         "deed_no": {
+          "type": "string"
+         },
+         "degree_id": {
+          "type": "string"
+         },
+         "employer": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "end_date": {
+          "format": "date",
+          "type": [
+           "null",
+           "string"
+          ]
+         },
+         "from_id": {
+          "type": "string"
+         },
+         "graduation_year": {
+          "type": "integer"
+         },
+         "job_id": {
+          "type": "string"
+         },
+         "job_title": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "level": {
+          "type": "string"
+         },
+         "level_name": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "make": {
+          "type": "string"
+         },
+         "married_on": {
+          "format": "date",
+          "type": "string"
+         },
+         "model": {
+          "type": "string"
+         },
+         "monthly_income": {
+          "type": "integer"
+         },
+         "plate": {
+          "type": "string"
+         },
+         "registration_expiry": {
+          "format": "date",
+          "type": "string"
+         },
+         "share_percent": {
+          "type": "integer"
+         },
+         "since_year": {
+          "type": "integer"
+         },
+         "spouse_id": {
+          "type": "string"
+         },
+         "stage": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "status": {
+          "type": "string"
+         },
+         "to_id": {
+          "type": "string"
+         },
+         "type": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "year": {
+          "type": "integer"
+         }
+        },
+        "type": "object"
+       }
+      },
+      "required": [
+       "action",
+       "actor",
+       "at"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "chronic_conditions": {
+     "items": {},
+     "type": "array"
+    },
+    "clinic_index": {
+     "type": "integer"
+    },
+    "condition_indices": {
+     "items": {},
+     "type": "array"
+    },
+    "current": {
+     "properties": {
+      "employer": {
+       "type": "null"
+      },
+      "income_bracket": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "income_source": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "job_title": {
+       "type": "null"
+      },
+      "monthly_income": {
+       "type": "integer"
+      },
+      "since": {
+       "type": "null"
+      },
+      "status": {
+       "type": "string"
+      },
+      "status_name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      }
+     },
+     "required": [
+      "employer",
+      "income_bracket",
+      "income_source",
+      "job_title",
+      "monthly_income",
+      "since",
+      "status",
+      "status_name"
+     ],
+     "type": "object"
+    },
+    "degrees": {
+     "items": {
+      "properties": {
+       "field": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "grade": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "grade_index": {
+        "type": "integer"
+       },
+       "graduation_year": {
+        "type": "integer"
+       },
+       "id": {
+        "type": "string"
+       },
+       "institution": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "institution_index": {
+        "type": "integer"
+       },
+       "level": {
+        "type": "string"
+       },
+       "level_name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "major_index": {
+        "type": "integer"
+       },
+       "verified": {
+        "type": "boolean"
+       }
+      },
+      "required": [
+       "field",
+       "grade",
+       "grade_index",
+       "graduation_year",
+       "id",
+       "institution",
+       "institution_index",
+       "level",
+       "level_name",
+       "major_index",
+       "verified"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "enrollment": {
+     "type": "null"
+    },
+    "exists": {
+     "type": "boolean"
+    },
+    "family": {
+     "items": {
+      "properties": {
+       "birth_date": {
+        "format": "date",
+        "type": "string"
+       },
+       "gender": {
+        "type": "string"
+       },
+       "name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "national_id": {
+        "type": "string"
+       },
+       "relation": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "birth_date",
+       "gender",
+       "name",
+       "national_id",
+       "relation"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "family_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "gender": {
+     "type": "string"
+    },
+    "given_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "jobs": {
+     "items": {
+      "properties": {
+       "current": {
+        "type": "boolean"
+       },
+       "employer": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "employer_index": {
+        "type": "integer"
+       },
+       "end_date": {
+        "format": "date",
+        "type": "string"
+       },
+       "id": {
+        "type": "string"
+       },
+       "job_title": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "job_title_index": {
+        "type": "integer"
+       },
+       "monthly_salary": {
+        "type": "integer"
+       },
+       "sector": {
+        "type": "string"
+       },
+       "start_date": {
+        "format": "date",
+        "type": "string"
+       }
+      },
+      "required": [
+       "current",
+       "employer",
+       "employer_index",
+       "end_date",
+       "id",
+       "job_title",
+       "job_title_index",
+       "monthly_salary",
+       "sector",
+       "start_date"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "marital_status": {
+     "type": "string"
+    },
+    "married_on": {
+     "format": "date",
+     "type": "string"
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "organ_donor": {
+     "type": "boolean"
+    },
+    "phone": {
+     "type": "string"
+    },
+    "primary_clinic": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "properties": {
+     "items": {
+      "type": []
+     },
+     "type": "array"
+    },
+    "social_insurance": {
+     "properties": {
+      "contribution_months": {
+       "type": "integer"
+      },
+      "number": {
+       "type": "string"
+      },
+      "pension": {
+       "type": "null"
+      }
+     },
+     "required": [
+      "contribution_months",
+      "number",
+      "pension"
+     ],
+     "type": "object"
+    },
+    "status": {
+     "type": "string"
+    },
+    "vaccinations": {
+     "items": {},
+     "type": "array"
+    },
+    "vehicles": {
+     "items": {
+      "type": []
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "changes",
+    "national_id"
+   ],
+   "type": "object"
+  },
+  "404": {
+   "properties": {
+    "details": {
+     "properties": {
+      "request_id": {
+       "type": "string"
+      },
+      "target": {
+       "type": "string"
+      },
+      "via": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "request_id",
+      "target",
+      "via"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "DELETE /api/identity/me/delegations/:id": {
+  "200": {
+   "properties": {
+    "created_at": {
+     "format": "date-time",
+     "type": "string"
+    },
+    "created_by": {
+     "type": [
+      "null",
+      "string"
+     ]
+    },
+    "created_via": {
+     "type": "string"
+    },
+    "delegate": {
+     "type": "string"
+    },
+    "delegate_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "grantor": {
+     "type": "string"
+    },
+    "grantor_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "id": {
+     "type": "string"
+    },
+    "mandate_jws": {
+     "type": "string"
+    },
+    "revoked_at": {
+     "format": "date-time",
+     "type": "string"
+    },
+    "revoked_by": {
+     "type": "string"
+    },
+    "scopes": {
+     "items": {
+      "properties": {
+       "label": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "scope": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "label",
+       "scope"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "status": {
+     "type": "string"
+    },
+    "valid_until": {
+     "format": "date-time",
+     "type": "string"
+    }
+   },
+   "required": [
+    "created_at",
+    "created_by",
+    "created_via",
+    "delegate",
+    "delegate_name",
+    "grantor",
+    "grantor_name",
+    "id",
+    "mandate_jws",
+    "revoked_at",
+    "revoked_by",
+    "scopes",
+    "status",
+    "valid_until"
+   ],
+   "type": "object"
+  }
+ },
+ "DELETE /api/identity/me/device-key": {
+  "200": {
+   "properties": {
+    "mode": {
+     "type": "string"
+    },
+    "ok": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "mode",
+    "ok"
+   ],
+   "type": "object"
+  }
+ },
+ "DELETE /api/identity/me/passkeys/:id": {
+  "200": {
+   "properties": {
+    "ok": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "ok"
+   ],
+   "type": "object"
+  }
+ },
+ "DELETE /api/identity/me/sessions/:id": {
+  "200": {
+   "properties": {
+    "ok": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "ok"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /.well-known/apple-app-site-association": {
+  "200": {
+   "properties": {
+    "applinks": {
+     "properties": {
+      "details": {
+       "items": {},
+       "type": "array"
+      }
+     },
+     "required": [
+      "details"
+     ],
+     "type": "object"
+    },
+    "webcredentials": {
+     "properties": {
+      "apps": {
+       "items": {},
+       "type": "array"
+      }
+     },
+     "required": [
+      "apps"
+     ],
+     "type": "object"
+    }
+   },
+   "required": [
+    "applinks",
+    "webcredentials"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /.well-known/assetlinks.json": {
+  "200": {
+   "items": {},
+   "type": "array"
+  }
+ },
+ "GET /api/identity/acting/:id/assets": {
+  "200": {
+   "properties": {
+    "assets": {
+     "properties": {
+      "national_id": {
+       "type": "string"
+      },
+      "properties": {
+       "items": {},
+       "type": "array"
+      },
+      "vehicles": {
+       "items": {
+        "properties": {
+         "color": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "days_left": {
+          "type": "integer"
+         },
+         "make": {
+          "type": "string"
+         },
+         "model": {
+          "type": "string"
+         },
+         "plate": {
+          "type": "string"
+         },
+         "registration_expiry": {
+          "format": "date",
+          "type": "string"
+         },
+         "status": {
+          "type": "string"
+         },
+         "year": {
+          "type": "integer"
+         }
+        },
+        "required": [
+         "color",
+         "days_left",
+         "make",
+         "model",
+         "plate",
+         "registration_expiry",
+         "status",
+         "year"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      }
+     },
+     "required": [
+      "national_id",
+      "properties",
+      "vehicles"
+     ],
+     "type": "object"
+    },
+    "delegation": {
+     "properties": {
+      "created_at": {
+       "format": "date-time",
+       "type": "string"
+      },
+      "created_by": {
+       "type": "null"
+      },
+      "created_via": {
+       "type": "string"
+      },
+      "delegate": {
+       "type": "string"
+      },
+      "delegate_name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "grantor": {
+       "type": "string"
+      },
+      "grantor_name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "id": {
+       "type": "string"
+      },
+      "mandate_jws": {
+       "type": "string"
+      },
+      "revoked_at": {
+       "type": "null"
+      },
+      "revoked_by": {
+       "type": "null"
+      },
+      "scopes": {
+       "items": {
+        "properties": {
+         "label": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "scope": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "label",
+         "scope"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      },
+      "status": {
+       "type": "string"
+      },
+      "valid_until": {
+       "format": "date-time",
+       "type": "string"
+      }
+     },
+     "required": [
+      "created_at",
+      "created_by",
+      "created_via",
+      "delegate",
+      "delegate_name",
+      "grantor",
+      "grantor_name",
+      "id",
+      "mandate_jws",
+      "revoked_at",
+      "revoked_by",
+      "scopes",
+      "status",
+      "valid_until"
+     ],
+     "type": "object"
+    }
+   },
+   "required": [
+    "assets",
+    "delegation"
+   ],
+   "type": "object"
+  },
+  "403": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "404": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/identity/admin/assisted-actions": {
+  "200": {
+   "properties": {
+    "actions": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "assisted_session_id": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "automated": {
+        "type": "boolean"
+       },
+       "citizen": {
+        "type": "string"
+       },
+       "detail": {
+        "properties": {
+         "delegate": {
+          "type": "string"
+         },
+         "delegation_id": {
+          "type": "string"
+         },
+         "expired_at": {
+          "format": "date-time",
+          "type": "string"
+         },
+         "minutes": {
+          "type": "integer"
+         },
+         "reason": {
+          "type": "string"
+         },
+         "scopes": {
+          "items": {
+           "type": "string"
+          },
+          "type": "array"
+         }
+        },
+        "type": "object"
+       },
+       "employee": {
+        "type": "string"
+       },
+       "employee_id": {
+        "type": "string"
+       },
+       "id": {
+        "type": "integer"
+       }
+      },
+      "required": [
+       "action",
+       "assisted_session_id",
+       "at",
+       "automated",
+       "citizen",
+       "detail",
+       "employee",
+       "employee_id",
+       "id"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "limit": {
+     "type": "integer"
+    },
+    "offset": {
+     "type": "integer"
+    },
+    "total": {
+     "type": "integer"
+    }
+   },
+   "required": [
+    "actions",
+    "limit",
+    "offset",
+    "total"
+   ],
+   "type": "object"
+  },
+  "403": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/identity/admin/sessions": {
+  "200": {
+   "properties": {
+    "active_by_role": {
+     "items": {
+      "properties": {
+       "n": {
+        "type": "integer"
+       },
+       "role": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "n",
+       "role"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "admin_actions": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "admin": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "detail": {
+        "properties": {
+         "subject": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "subject"
+        ],
+        "type": "object"
+       }
+      },
+      "required": [
+       "action",
+       "admin",
+       "at",
+       "detail"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "kill_switch_not_before": {
+     "format": "date-time",
+     "type": "string"
+    },
+    "recent": {
+     "items": {
+      "properties": {
+       "amr": {
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "created_at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "expires_at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "revoked_at": {
+        "format": "date-time",
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "revoked_reason": {
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "role": {
+        "type": "string"
+       },
+       "sid": {
+        "type": "string"
+       },
+       "subject": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "amr",
+       "created_at",
+       "expires_at",
+       "revoked_at",
+       "revoked_reason",
+       "role",
+       "sid",
+       "subject"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "active_by_role",
+    "admin_actions",
+    "kill_switch_not_before",
+    "recent"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/identity/apps/config": {
+  "200": {
+   "properties": {
+    "api_base": {
+     "type": "string"
+    },
+    "api_version": {
+     "type": "string"
+    },
+    "device_max_days": {
+     "type": "integer"
+    },
+    "openapi": {
+     "type": "string"
+    },
+    "passkeys": {
+     "properties": {
+      "origins": {
+       "items": {
+        "type": "string"
+       },
+       "type": "array"
+      },
+      "rp_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "origins",
+      "rp_id"
+     ],
+     "type": "object"
+    },
+    "push_providers": {
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "push_sending": {
+     "type": "boolean"
+    },
+    "refresh_days": {
+     "type": "integer"
+    },
+    "register_within_seconds": {
+     "type": "integer"
+    },
+    "session_seconds": {
+     "type": "integer"
+    }
+   },
+   "required": [
+    "api_base",
+    "api_version",
+    "device_max_days",
+    "openapi",
+    "passkeys",
+    "push_providers",
+    "push_sending",
+    "refresh_days",
+    "register_within_seconds",
+    "session_seconds"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/identity/apps/devices": {
+  "200": {
+   "properties": {
+    "devices": {
+     "items": {
+      "properties": {
+       "app_version": {
+        "type": "string"
+       },
+       "created_at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "current": {
+        "type": "boolean"
+       },
+       "device_id": {
+        "type": "string"
+       },
+       "last_used_at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "name": {
+        "type": "string"
+       },
+       "platform": {
+        "type": "string"
+       },
+       "push": {
+        "type": "string"
+       },
+       "refresh_expires_at": {
+        "format": "date-time",
+        "type": "string"
+       }
+      },
+      "required": [
+       "app_version",
+       "created_at",
+       "current",
+       "device_id",
+       "last_used_at",
+       "name",
+       "platform",
+       "push",
+       "refresh_expires_at"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "devices"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/identity/citizens/:id/public-key": {
+  "200": {
+   "properties": {
+    "device_bound": {
+     "type": "boolean"
+    },
+    "public_jwk": {
+     "properties": {
+      "alg": {
+       "type": "string"
+      },
+      "crv": {
+       "type": "string"
+      },
+      "kid": {
+       "type": "string"
+      },
+      "kty": {
+       "type": "string"
+      },
+      "x": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "alg",
+      "crv",
+      "kid",
+      "kty",
+      "x"
+     ],
+     "type": "object"
+    },
+    "retired_keys": {
+     "items": {},
+     "type": "array"
+    }
+   },
+   "required": [
+    "device_bound",
+    "public_jwk",
+    "retired_keys"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/identity/counter/actions": {
+  "200": {
+   "properties": {
+    "actions": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "assisted_session_id": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "automated": {
+        "type": "boolean"
+       },
+       "citizen": {
+        "type": "string"
+       },
+       "detail": {
+        "properties": {
+         "delegate": {
+          "type": "string"
+         },
+         "delegation_id": {
+          "type": "string"
+         },
+         "scopes": {
+          "items": {
+           "type": "string"
+          },
+          "type": "array"
+         }
+        },
+        "type": "object"
+       },
+       "employee": {
+        "type": "string"
+       },
+       "employee_id": {
+        "type": "string"
+       },
+       "id": {
+        "type": "integer"
+       }
+      },
+      "required": [
+       "action",
+       "assisted_session_id",
+       "at",
+       "automated",
+       "citizen",
+       "detail",
+       "employee",
+       "employee_id",
+       "id"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "limit": {
+     "type": "integer"
+    },
+    "offset": {
+     "type": "integer"
+    },
+    "total": {
+     "type": "integer"
+    }
+   },
+   "required": [
+    "actions",
+    "limit",
+    "offset",
+    "total"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/identity/counter/me": {
+  "200": {
+   "properties": {
+    "employee": {
+     "properties": {
+      "centre": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "employee_id": {
+       "type": "string"
+      },
+      "name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      }
+     },
+     "required": [
+      "centre",
+      "employee_id",
+      "name"
+     ],
+     "type": "object"
+    },
+    "open_sessions": {
+     "items": {},
+     "type": "array"
+    }
+   },
+   "required": [
+    "employee",
+    "open_sessions"
+   ],
+   "type": "object"
+  },
+  "401": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/identity/counter/sessions/:id/assets": {
+  "200": {
+   "properties": {
+    "national_id": {
+     "type": "string"
+    },
+    "properties": {
+     "items": {
+      "properties": {
+       "area_m2": {
+        "type": "integer"
+       },
+       "city": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "deed_no": {
+        "type": "string"
+       },
+       "district": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "share_percent": {
+        "type": "integer"
+       },
+       "type": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       }
+      },
+      "required": [
+       "area_m2",
+       "city",
+       "deed_no",
+       "district",
+       "share_percent",
+       "type"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "vehicles": {
+     "items": {
+      "properties": {
+       "color": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "days_left": {
+        "type": "integer"
+       },
+       "make": {
+        "type": "string"
+       },
+       "model": {
+        "type": "string"
+       },
+       "plate": {
+        "type": "string"
+       },
+       "registration_expiry": {
+        "format": "date",
+        "type": "string"
+       },
+       "status": {
+        "type": "string"
+       },
+       "year": {
+        "type": "integer"
+       }
+      },
+      "required": [
+       "color",
+       "days_left",
+       "make",
+       "model",
+       "plate",
+       "registration_expiry",
+       "status",
+       "year"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "national_id",
+    "properties",
+    "vehicles"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/identity/counter/sessions/:id/record": {
+  "200": {
+   "properties": {
+    "record": {
+     "properties": {
+      "address": {
+       "properties": {
+        "city": {
+         "properties": {
+          "ar": {
+           "type": "string"
+          },
+          "en": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "ar",
+          "en"
+         ],
+         "type": "object"
+        },
+        "district": {
+         "properties": {
+          "ar": {
+           "type": "string"
+          },
+          "en": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "ar",
+          "en"
+         ],
+         "type": "object"
+        },
+        "street": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "city",
+        "district",
+        "street"
+       ],
+       "type": "object"
+      },
+      "birth_date": {
+       "format": "date",
+       "type": "string"
+      },
+      "family": {
+       "items": {
+        "properties": {
+         "name": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "national_id": {
+          "type": "string"
+         },
+         "relation": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "name",
+         "national_id",
+         "relation"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      },
+      "family_name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "gender": {
+       "type": "string"
+      },
+      "given_name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "marital_status": {
+       "type": "string"
+      },
+      "national_id": {
+       "type": "string"
+      },
+      "nationality": {
+       "type": "string"
+      },
+      "phone": {
+       "type": "string"
+      },
+      "status": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "address",
+      "birth_date",
+      "family",
+      "family_name",
+      "gender",
+      "given_name",
+      "marital_status",
+      "national_id",
+      "nationality",
+      "phone",
+      "status"
+     ],
+     "type": "object"
+    },
+    "session": {
+     "properties": {
+      "citizen": {
+       "type": "string"
+      },
+      "expires_at": {
+       "format": "date-time",
+       "type": "string"
+      },
+      "id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "citizen",
+      "expires_at",
+      "id"
+     ],
+     "type": "object"
+    }
+   },
+   "required": [
+    "record",
+    "session"
+   ],
+   "type": "object"
+  },
+  "403": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/identity/manage/:ministry/persons/:id": {
+  "200": {
+   "properties": {
+    "address": {
+     "properties": {
+      "city": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "city_index": {
+       "type": "integer"
+      },
+      "district": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "district_index": {
+       "type": "integer"
+      },
+      "street": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "city",
+      "city_index",
+      "district",
+      "district_index",
+      "street"
+     ],
+     "type": "object"
+    },
+    "allergies": {
+     "items": {
+      "properties": {
+       "ar": {
+        "type": "string"
+       },
+       "en": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "ar",
+       "en"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "allergy_indices": {
+     "items": {
+      "type": "integer"
+     },
+     "type": "array"
+    },
+    "base_income": {
+     "type": "integer"
+    },
+    "base_status": {
+     "type": "null"
+    },
+    "benefits": {
+     "items": {},
+     "type": "array"
+    },
+    "birth_date": {
+     "format": "date",
+     "type": "string"
+    },
+    "blood_type": {
+     "type": "string"
+    },
+    "changes": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "actor": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "detail": {
+        "properties": {
+         "divorced_on": {
+          "format": "date",
+          "type": "string"
+         },
+         "from_id": {
+          "type": "string"
+         },
+         "make": {
+          "type": "string"
+         },
+         "married_on": {
+          "format": "date",
+          "type": "string"
+         },
+         "model": {
+          "type": "string"
+         },
+         "plate": {
+          "type": "string"
+         },
+         "spouse_id": {
+          "type": "string"
+         },
+         "to_id": {
+          "type": "string"
+         }
+        },
+        "type": "object"
+       }
+      },
+      "required": [
+       "action",
+       "actor",
+       "at"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "chronic_conditions": {
+     "items": {
+      "type": []
+     },
+     "type": "array"
+    },
+    "clinic_index": {
+     "type": "integer"
+    },
+    "condition_indices": {
+     "items": {
+      "type": []
+     },
+     "type": "array"
+    },
+    "current": {
+     "type": "null"
+    },
+    "exists": {
+     "type": "boolean"
+    },
+    "family": {
+     "items": {
+      "properties": {
+       "birth_date": {
+        "format": "date",
+        "type": "string"
+       },
+       "gender": {
+        "type": "string"
+       },
+       "name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "national_id": {
+        "type": "string"
+       },
+       "relation": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "birth_date",
+       "gender",
+       "name",
+       "national_id",
+       "relation"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "family_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "gender": {
+     "type": "string"
+    },
+    "given_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "jobs": {
+     "items": {},
+     "type": "array"
+    },
+    "marital_status": {
+     "type": "string"
+    },
+    "married_on": {
+     "format": "date",
+     "type": [
+      "null",
+      "string"
+     ]
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "organ_donor": {
+     "type": "boolean"
+    },
+    "phone": {
+     "type": "string"
+    },
+    "primary_clinic": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "properties": {
+     "items": {},
+     "type": "array"
+    },
+    "social_insurance": {
+     "type": "null"
+    },
+    "status": {
+     "type": "string"
+    },
+    "vaccinations": {
+     "items": {
+      "type": []
+     },
+     "type": "array"
+    },
+    "vehicles": {
+     "items": {
+      "properties": {
+       "color": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "days_left": {
+        "type": "integer"
+       },
+       "make": {
+        "type": "string"
+       },
+       "model": {
+        "type": "string"
+       },
+       "plate": {
+        "type": "string"
+       },
+       "registration_expiry": {
+        "format": "date",
+        "type": "string"
+       },
+       "renewable": {
+        "type": "boolean"
+       },
+       "status": {
+        "type": "string"
+       },
+       "year": {
+        "type": "integer"
+       }
+      },
+      "required": [
+       "color",
+       "days_left",
+       "make",
+       "model",
+       "plate",
+       "registration_expiry",
+       "renewable",
+       "status",
+       "year"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "changes",
+    "national_id"
+   ],
+   "type": "object"
+  },
+  "401": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "403": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "404": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/identity/manage/options": {
+  "200": {
+   "properties": {
+    "allergies": {
+     "items": {
+      "properties": {
+       "ar": {
+        "type": "string"
+       },
+       "en": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "ar",
+       "en"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "blood_types": {
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "cities": {
+     "items": {
+      "properties": {
+       "index": {
+        "type": "integer"
+       },
+       "name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       }
+      },
+      "required": [
+       "index",
+       "name"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "clinics": {
+     "items": {
+      "properties": {
+       "ar": {
+        "type": "string"
+       },
+       "en": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "ar",
+       "en"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "conditions": {
+     "items": {
+      "properties": {
+       "ar": {
+        "type": "string"
+       },
+       "en": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "ar",
+       "en"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "degree_levels": {
+     "items": {
+      "properties": {
+       "name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "value": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "name",
+       "value"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "districts": {
+     "items": {
+      "properties": {
+       "index": {
+        "type": "integer"
+       },
+       "name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       }
+      },
+      "required": [
+       "index",
+       "name"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "employee_id": {
+     "type": "string"
+    },
+    "employers": {
+     "items": {
+      "properties": {
+       "name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "sector": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "name",
+       "sector"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "grades": {
+     "items": {
+      "properties": {
+       "ar": {
+        "type": "string"
+       },
+       "en": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "ar",
+       "en"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "hospitals": {
+     "items": {
+      "properties": {
+       "ar": {
+        "type": "string"
+       },
+       "en": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "ar",
+       "en"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "institutions": {
+     "items": {
+      "properties": {
+       "ar": {
+        "type": "string"
+       },
+       "en": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "ar",
+       "en"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "job_titles": {
+     "items": {
+      "properties": {
+       "ar": {
+        "type": "string"
+       },
+       "en": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "ar",
+       "en"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "majors": {
+     "items": {
+      "properties": {
+       "ar": {
+        "type": "string"
+       },
+       "en": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "ar",
+       "en"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "ministries": {
+     "items": {
+      "properties": {
+       "key": {
+        "type": "string"
+       },
+       "name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       }
+      },
+      "required": [
+       "key",
+       "name"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "non_job_statuses": {
+     "items": {
+      "properties": {
+       "name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "value": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "name",
+       "value"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "property_types": {
+     "items": {
+      "properties": {
+       "ar": {
+        "type": "string"
+       },
+       "en": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "ar",
+       "en"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "study_stages": {
+     "items": {
+      "properties": {
+       "ar": {
+        "type": "string"
+       },
+       "en": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "ar",
+       "en"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "vaccines": {
+     "items": {
+      "properties": {
+       "ar": {
+        "type": "string"
+       },
+       "en": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "ar",
+       "en"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "vehicle_colors": {
+     "items": {
+      "properties": {
+       "ar": {
+        "type": "string"
+       },
+       "en": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "ar",
+       "en"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "vehicle_makes": {
+     "items": {
+      "properties": {
+       "make": {
+        "type": "string"
+       },
+       "models": {
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       }
+      },
+      "required": [
+       "make",
+       "models"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "allergies",
+    "blood_types",
+    "cities",
+    "clinics",
+    "conditions",
+    "degree_levels",
+    "districts",
+    "employee_id",
+    "employers",
+    "grades",
+    "hospitals",
+    "institutions",
+    "job_titles",
+    "majors",
+    "ministries",
+    "non_job_statuses",
+    "property_types",
+    "study_stages",
+    "vaccines",
+    "vehicle_colors",
+    "vehicle_makes"
+   ],
+   "type": "object"
+  },
+  "403": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/identity/manage/persons/:id/overview": {
+  "200": {
+   "properties": {
+    "ministries": {
+     "items": {
+      "properties": {
+       "key": {
+        "type": "string"
+       },
+       "last_change": {
+        "type": "null"
+       },
+       "name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "ok": {
+        "type": "boolean"
+       },
+       "summary": {
+        "properties": {
+         "city": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "degrees": {
+          "type": "integer"
+         },
+         "employer": {
+          "type": "null"
+         },
+         "exists": {
+          "type": "boolean"
+         },
+         "family": {
+          "type": "integer"
+         },
+         "jobs": {
+          "type": "integer"
+         },
+         "marital_status": {
+          "type": "string"
+         },
+         "properties": {
+          "type": "integer"
+         },
+         "status": {
+          "type": "null"
+         },
+         "status_name": {
+          "type": "null"
+         },
+         "studying": {
+          "type": "boolean"
+         },
+         "vehicles": {
+          "type": "integer"
+         }
+        },
+        "type": "object"
+       }
+      },
+      "required": [
+       "key",
+       "last_change",
+       "name",
+       "ok",
+       "summary"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "person": {
+     "properties": {
+      "birth_date": {
+       "format": "date",
+       "type": "string"
+      },
+      "family_name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "gender": {
+       "type": "string"
+      },
+      "given_name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "national_id": {
+       "type": "string"
+      },
+      "status": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "birth_date",
+      "family_name",
+      "gender",
+      "given_name",
+      "national_id",
+      "status"
+     ],
+     "type": "object"
+    }
+   },
+   "required": [
+    "ministries",
+    "national_id",
+    "person"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/identity/manage/search": {
+  "200": {
+   "properties": {
+    "results": {
+     "items": {
+      "properties": {
+       "birth_date": {
+        "format": "date",
+        "type": "string"
+       },
+       "gender": {
+        "type": "string"
+       },
+       "name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "national_id": {
+        "type": "string"
+       },
+       "status": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "birth_date",
+       "gender",
+       "name",
+       "national_id",
+       "status"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "results"
+   ],
+   "type": "object"
+  },
+  "422": {
+   "properties": {
+    "details": {
+     "properties": {
+      "problems": {
+       "items": {
+        "properties": {
+         "code": {
+          "type": "string"
+         },
+         "field": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "code",
+         "field"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      }
+     },
+     "required": [
+      "problems"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/identity/me/assets": {
+  "200": {
+   "properties": {
+    "national_id": {
+     "type": "string"
+    },
+    "properties": {
+     "items": {
+      "properties": {
+       "area_m2": {
+        "type": "integer"
+       },
+       "city": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "deed_no": {
+        "type": "string"
+       },
+       "district": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "share_percent": {
+        "type": "integer"
+       },
+       "type": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       }
+      },
+      "required": [
+       "area_m2",
+       "city",
+       "deed_no",
+       "district",
+       "share_percent",
+       "type"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "vehicles": {
+     "items": {
+      "properties": {
+       "color": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "days_left": {
+        "type": "integer"
+       },
+       "make": {
+        "type": "string"
+       },
+       "model": {
+        "type": "string"
+       },
+       "plate": {
+        "type": "string"
+       },
+       "registration_expiry": {
+        "format": "date",
+        "type": "string"
+       },
+       "status": {
+        "type": "string"
+       },
+       "year": {
+        "type": "integer"
+       }
+      },
+      "required": [
+       "color",
+       "days_left",
+       "make",
+       "model",
+       "plate",
+       "registration_expiry",
+       "status",
+       "year"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "national_id",
+    "properties",
+    "vehicles"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/identity/me/assisted-actions": {
+  "200": {
+   "properties": {
+    "actions": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "centre": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "detail": {
+        "properties": {
+         "delegate": {
+          "type": "string"
+         },
+         "delegation_id": {
+          "type": "string"
+         },
+         "expired_at": {
+          "format": "date-time",
+          "type": "string"
+         },
+         "minutes": {
+          "type": "integer"
+         },
+         "reason": {
+          "type": "string"
+         },
+         "scopes": {
+          "items": {
+           "type": "string"
+          },
+          "type": "array"
+         }
+        },
+        "type": "object"
+       },
+       "employee_id": {
+        "type": "string"
+       },
+       "id": {
+        "type": "integer"
+       }
+      },
+      "required": [
+       "action",
+       "at",
+       "centre",
+       "detail",
+       "employee_id",
+       "id"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "actions"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/identity/me/births": {
+  "200": {
+   "properties": {
+    "births": {
+     "items": {
+      "properties": {
+       "birth_date": {
+        "format": "date",
+        "type": "string"
+       },
+       "can_confirm": {
+        "type": "boolean"
+       },
+       "child": {
+        "properties": {
+         "name": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "national_id": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "name",
+         "national_id"
+        ],
+        "type": [
+         "null",
+         "object"
+        ]
+       },
+       "family_name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "father": {
+        "properties": {
+         "name": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "national_id": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "name",
+         "national_id"
+        ],
+        "type": [
+         "null",
+         "object"
+        ]
+       },
+       "gender": {
+        "type": "string"
+       },
+       "history": {
+        "items": {
+         "properties": {
+          "decided_at": {
+           "format": "date-time",
+           "type": [
+            "null",
+            "string"
+           ]
+          },
+          "decided_by": {
+           "type": [
+            "null",
+            "string"
+           ]
+          },
+          "given_name": {
+           "properties": {
+            "ar": {
+             "type": "string"
+            },
+            "en": {
+             "type": "string"
+            }
+           },
+           "required": [
+            "ar",
+            "en"
+           ],
+           "type": "object"
+          },
+          "id": {
+           "type": "integer"
+          },
+          "proposed_at": {
+           "format": "date-time",
+           "type": "string"
+          },
+          "proposed_by": {
+           "type": "string"
+          },
+          "status": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "decided_at",
+          "decided_by",
+          "given_name",
+          "id",
+          "proposed_at",
+          "proposed_by",
+          "status"
+         ],
+         "type": "object"
+        },
+        "type": "array"
+       },
+       "hospital": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "mother": {
+        "properties": {
+         "name": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "national_id": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "name",
+         "national_id"
+        ],
+        "type": "object"
+       },
+       "my_role": {
+        "type": "string"
+       },
+       "name_deadline": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "named_by": {
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "notification_id": {
+        "type": "string"
+       },
+       "other_parent": {
+        "properties": {
+         "has_account": {
+          "type": "boolean"
+         },
+         "name": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "national_id": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "has_account",
+         "name",
+         "national_id"
+        ],
+        "type": [
+         "null",
+         "object"
+        ]
+       },
+       "overdue": {
+        "type": "boolean"
+       },
+       "proposal": {
+        "properties": {
+         "awaiting": {
+          "type": "string"
+         },
+         "given_name": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "id": {
+          "type": "integer"
+         },
+         "proposed_at": {
+          "format": "date-time",
+          "type": "string"
+         },
+         "proposed_by": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "awaiting",
+         "given_name",
+         "id",
+         "proposed_at",
+         "proposed_by"
+        ],
+        "type": [
+         "null",
+         "object"
+        ]
+       },
+       "registered_at": {
+        "format": "date-time",
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "reported_at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "sole_parent": {
+        "type": "boolean"
+       },
+       "status": {
+        "type": "string"
+       },
+       "waiting_for_other": {
+        "type": "boolean"
+       }
+      },
+      "required": [
+       "birth_date",
+       "can_confirm",
+       "child",
+       "family_name",
+       "father",
+       "gender",
+       "history",
+       "hospital",
+       "mother",
+       "my_role",
+       "name_deadline",
+       "named_by",
+       "notification_id",
+       "other_parent",
+       "overdue",
+       "proposal",
+       "registered_at",
+       "reported_at",
+       "sole_parent",
+       "status",
+       "waiting_for_other"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "name_deadline_days": {
+     "type": "integer"
+    }
+   },
+   "required": [
+    "births",
+    "name_deadline_days"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/identity/me/delegations": {
+  "200": {
+   "properties": {
+    "granted": {
+     "items": {
+      "properties": {
+       "created_at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "created_by": {
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "created_via": {
+        "type": "string"
+       },
+       "delegate": {
+        "type": "string"
+       },
+       "delegate_name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "grantor": {
+        "type": "string"
+       },
+       "grantor_name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "id": {
+        "type": "string"
+       },
+       "mandate_jws": {
+        "type": "string"
+       },
+       "revoked_at": {
+        "format": "date-time",
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "revoked_by": {
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "scopes": {
+        "items": {
+         "properties": {
+          "label": {
+           "properties": {
+            "ar": {
+             "type": "string"
+            },
+            "en": {
+             "type": "string"
+            }
+           },
+           "required": [
+            "ar",
+            "en"
+           ],
+           "type": "object"
+          },
+          "scope": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "label",
+          "scope"
+         ],
+         "type": "object"
+        },
+        "type": "array"
+       },
+       "status": {
+        "type": "string"
+       },
+       "valid_until": {
+        "format": "date-time",
+        "type": "string"
+       }
+      },
+      "required": [
+       "created_at",
+       "created_by",
+       "created_via",
+       "delegate",
+       "delegate_name",
+       "grantor",
+       "grantor_name",
+       "id",
+       "mandate_jws",
+       "revoked_at",
+       "revoked_by",
+       "scopes",
+       "status",
+       "valid_until"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "received": {
+     "items": {
+      "properties": {
+       "created_at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "created_by": {
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "created_via": {
+        "type": "string"
+       },
+       "delegate": {
+        "type": "string"
+       },
+       "delegate_name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "grantor": {
+        "type": "string"
+       },
+       "grantor_name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "id": {
+        "type": "string"
+       },
+       "mandate_jws": {
+        "type": "string"
+       },
+       "revoked_at": {
+        "format": "date-time",
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "revoked_by": {
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "scopes": {
+        "items": {
+         "properties": {
+          "label": {
+           "properties": {
+            "ar": {
+             "type": "string"
+            },
+            "en": {
+             "type": "string"
+            }
+           },
+           "required": [
+            "ar",
+            "en"
+           ],
+           "type": "object"
+          },
+          "scope": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "label",
+          "scope"
+         ],
+         "type": "object"
+        },
+        "type": "array"
+       },
+       "status": {
+        "type": "string"
+       },
+       "valid_until": {
+        "format": "date-time",
+        "type": "string"
+       }
+      },
+      "required": [
+       "created_at",
+       "created_by",
+       "created_via",
+       "delegate",
+       "delegate_name",
+       "grantor",
+       "grantor_name",
+       "id",
+       "mandate_jws",
+       "revoked_at",
+       "revoked_by",
+       "scopes",
+       "status",
+       "valid_until"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "granted",
+    "received"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/identity/me/device-key": {
+  "200": {
+   "properties": {
+    "enrolled_at": {
+     "format": "date-time",
+     "type": [
+      "null",
+      "string"
+     ]
+    },
+    "kid": {
+     "type": [
+      "null",
+      "string"
+     ]
+    },
+    "mode": {
+     "type": "string"
+    },
+    "passkey": {
+     "properties": {
+      "credential_id": {
+       "type": "string"
+      },
+      "nickname": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "credential_id",
+      "nickname"
+     ],
+     "type": [
+      "null",
+      "object"
+     ]
+    },
+    "public_jwk": {
+     "properties": {
+      "alg": {
+       "type": "string"
+      },
+      "crv": {
+       "type": "string"
+      },
+      "kid": {
+       "type": "string"
+      },
+      "kty": {
+       "type": "string"
+      },
+      "x": {
+       "type": "string"
+      },
+      "y": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "alg",
+      "crv",
+      "kid",
+      "kty",
+      "x",
+      "y"
+     ],
+     "type": [
+      "null",
+      "object"
+     ]
+    },
+    "server_holds_private_key": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "enrolled_at",
+    "kid",
+    "mode",
+    "passkey",
+    "public_jwk",
+    "server_holds_private_key"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/identity/me/education": {
+  "200": {
+   "properties": {
+    "degrees": {
+     "items": {
+      "properties": {
+       "field": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "grade": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "graduation_year": {
+        "type": "integer"
+       },
+       "id": {
+        "type": "string"
+       },
+       "institution": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "level": {
+        "type": "string"
+       },
+       "level_name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "verified": {
+        "type": "boolean"
+       }
+      },
+      "required": [
+       "field",
+       "grade",
+       "graduation_year",
+       "id",
+       "institution",
+       "level",
+       "level_name",
+       "verified"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "enrollment": {
+     "type": "null"
+    },
+    "national_id": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "degrees",
+    "enrollment",
+    "national_id"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/identity/me/employment": {
+  "200": {
+   "properties": {
+    "benefits": {
+     "items": {
+      "properties": {
+       "child_id": {
+        "type": "string"
+       },
+       "id": {
+        "type": "string"
+       },
+       "kind": {
+        "type": "string"
+       },
+       "monthly_amount": {
+        "type": "integer"
+       },
+       "reason": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "starts_on": {
+        "format": "date",
+        "type": "string"
+       },
+       "status": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "child_id",
+       "id",
+       "kind",
+       "monthly_amount",
+       "reason",
+       "starts_on",
+       "status"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "employer": {
+     "properties": {
+      "name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "sector": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "name",
+      "sector"
+     ],
+     "type": [
+      "null",
+      "object"
+     ]
+    },
+    "income_bracket": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "income_source": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "job_title": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": [
+      "null",
+      "object"
+     ]
+    },
+    "monthly_income": {
+     "type": "integer"
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "since": {
+     "format": "date",
+     "type": [
+      "null",
+      "string"
+     ]
+    },
+    "social_insurance": {
+     "properties": {
+      "contribution_months": {
+       "type": "integer"
+      },
+      "number": {
+       "type": "string"
+      },
+      "pension": {
+       "type": [
+        "integer",
+        "null"
+       ]
+      }
+     },
+     "required": [
+      "contribution_months",
+      "number",
+      "pension"
+     ],
+     "type": "object"
+    },
+    "status": {
+     "type": "string"
+    },
+    "status_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    }
+   },
+   "required": [
+    "benefits",
+    "employer",
+    "income_bracket",
+    "income_source",
+    "job_title",
+    "monthly_income",
+    "national_id",
+    "since",
+    "social_insurance",
+    "status",
+    "status_name"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/identity/me/health": {
+  "200": {
+   "properties": {
+    "allergies": {
+     "items": {},
+     "type": "array"
+    },
+    "blood_type": {
+     "type": "string"
+    },
+    "chronic_conditions": {
+     "items": {
+      "properties": {
+       "ar": {
+        "type": "string"
+       },
+       "en": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "ar",
+       "en"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "organ_donor": {
+     "type": "boolean"
+    },
+    "primary_clinic": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "vaccinations": {
+     "items": {
+      "properties": {
+       "given_on": {
+        "format": "date",
+        "type": "string"
+       },
+       "name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       }
+      },
+      "required": [
+       "given_on",
+       "name"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "allergies",
+    "blood_type",
+    "chronic_conditions",
+    "national_id",
+    "organ_donor",
+    "primary_clinic",
+    "vaccinations"
+   ],
+   "type": "object"
+  },
+  "401": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/identity/me/life-events": {
+  "200": {
+   "properties": {
+    "life_events": {
+     "items": {
+      "properties": {
+       "complete": {
+        "type": "boolean"
+       },
+       "correlation_id": {
+        "type": "string"
+       },
+       "created_at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "data": {
+        "properties": {
+         "birth_date": {
+          "format": "date",
+          "type": "string"
+         },
+         "child_gender": {
+          "type": "string"
+         },
+         "child_given_name": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "child_national_id": {
+          "type": "string"
+         },
+         "hospital": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         }
+        },
+        "required": [
+         "birth_date",
+         "child_gender",
+         "child_given_name",
+         "child_national_id",
+         "hospital"
+        ],
+        "type": "object"
+       },
+       "kind": {
+        "type": "string"
+       },
+       "steps": {
+        "items": {
+         "properties": {
+          "at": {
+           "format": "date-time",
+           "type": "string"
+          },
+          "done": {
+           "type": "boolean"
+          },
+          "label": {
+           "properties": {
+            "ar": {
+             "type": "string"
+            },
+            "en": {
+             "type": "string"
+            }
+           },
+           "required": [
+            "ar",
+            "en"
+           ],
+           "type": "object"
+          },
+          "publisher": {
+           "type": "string"
+          },
+          "type": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "at",
+          "done",
+          "label",
+          "publisher",
+          "type"
+         ],
+         "type": "object"
+        },
+        "type": "array"
+       }
+      },
+      "required": [
+       "complete",
+       "correlation_id",
+       "created_at",
+       "data",
+       "kind",
+       "steps"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "life_events"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/identity/me/notifications": {
+  "200": {
+   "properties": {
+    "notifications": {
+     "items": {
+      "properties": {
+       "body": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "created_at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "id": {
+        "type": "integer"
+       },
+       "link": {
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "read_at": {
+        "format": "date-time",
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "title": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "type": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "body",
+       "created_at",
+       "id",
+       "link",
+       "read_at",
+       "title",
+       "type"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "unread": {
+     "type": "integer"
+    }
+   },
+   "required": [
+    "notifications",
+    "unread"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/identity/me/passkeys": {
+  "200": {
+   "properties": {
+    "passkeys": {
+     "items": {
+      "properties": {
+       "backed_up": {
+        "type": "boolean"
+       },
+       "created_at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "credential_id": {
+        "type": "string"
+       },
+       "last_used_at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "nickname": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "backed_up",
+       "created_at",
+       "credential_id",
+       "last_used_at",
+       "nickname"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "passkeys"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/identity/me/record": {
+  "200": {
+   "properties": {
+    "address": {
+     "properties": {
+      "city": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "district": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "street": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "city",
+      "district",
+      "street"
+     ],
+     "type": "object"
+    },
+    "birth_date": {
+     "format": "date",
+     "type": "string"
+    },
+    "family": {
+     "items": {
+      "properties": {
+       "name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "national_id": {
+        "type": "string"
+       },
+       "relation": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "name",
+       "national_id",
+       "relation"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "family_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "gender": {
+     "type": "string"
+    },
+    "given_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "marital_status": {
+     "type": "string"
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "nationality": {
+     "type": "string"
+    },
+    "phone": {
+     "type": "string"
+    },
+    "status": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "address",
+    "birth_date",
+    "family",
+    "family_name",
+    "gender",
+    "given_name",
+    "marital_status",
+    "national_id",
+    "nationality",
+    "phone",
+    "status"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/identity/me/sessions": {
+  "200": {
+   "properties": {
+    "sessions": {
+     "items": {
+      "properties": {
+       "amr": {
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       },
+       "auth_time": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "created_at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "current": {
+        "type": "boolean"
+       },
+       "expires_at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "id": {
+        "type": "string"
+       },
+       "last_refreshed_at": {
+        "format": "date-time",
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "sid_hint": {
+        "type": "string"
+       },
+       "user_agent": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "amr",
+       "auth_time",
+       "created_at",
+       "current",
+       "expires_at",
+       "id",
+       "last_refreshed_at",
+       "sid_hint",
+       "user_agent"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "sessions"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/identity/portal-config": {
+  "200": {
+   "properties": {
+    "demo_mode": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "demo_mode"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/identity/registry/registrations": {
+  "200": {
+   "properties": {
+    "registrations": {
+     "items": {
+      "properties": {
+       "activated": {
+        "type": "boolean"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "attempts": {
+        "type": [
+         "integer",
+         "null"
+        ]
+       },
+       "code_expires_at": {
+        "format": "date-time",
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "employee_id": {
+        "type": "string"
+       },
+       "locked": {
+        "type": "boolean"
+       },
+       "national_id": {
+        "type": "string"
+       },
+       "reason": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "activated",
+       "at",
+       "attempts",
+       "code_expires_at",
+       "employee_id",
+       "locked",
+       "national_id",
+       "reason"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "registrations"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/identity/staff/births/options": {
+  "200": {
+   "properties": {
+    "employee_id": {
+     "type": "string"
+    },
+    "hospitals": {
+     "items": {
+      "properties": {
+       "ar": {
+        "type": "string"
+       },
+       "en": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "ar",
+       "en"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "name_deadline_days": {
+     "type": "integer"
+    }
+   },
+   "required": [
+    "employee_id",
+    "hospitals",
+    "name_deadline_days"
+   ],
+   "type": "object"
+  },
+  "403": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/identity/staff/me": {
+  "200": {
+   "properties": {
+    "centre": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "employee_id": {
+     "type": "string"
+    },
+    "name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "permissions": {
+     "items": {
+      "properties": {
+       "label": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "permission": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "label",
+       "permission"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "role": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "centre",
+    "employee_id",
+    "name",
+    "permissions",
+    "role"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /api/identity/test/feed": {
+  "200": {
+   "properties": {
+    "messages": {
+     "items": {
+      "properties": {
+       "created_at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "id": {
+        "type": "integer"
+       },
+       "status": {
+        "type": "string"
+       },
+       "text": {
+        "type": "string"
+       },
+       "type": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "created_at",
+       "id",
+       "status",
+       "text",
+       "type"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "not_mocked": {
+     "type": "integer"
+    }
+   },
+   "required": [
+    "messages",
+    "not_mocked"
+   ],
+   "type": "object"
+  },
+  "403": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /healthz": {
+  "200": {
+   "properties": {
+    "ok": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "ok"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/identity/acting/:id/vehicles/:plate/renew": {
+  "200": {
+   "properties": {
+    "days_left": {
+     "type": "integer"
+    },
+    "fee": {
+     "type": "integer"
+    },
+    "new_expiry": {
+     "format": "date",
+     "type": "string"
+    },
+    "old_expiry": {
+     "format": "date",
+     "type": "string"
+    },
+    "plate": {
+     "type": "string"
+    },
+    "renewal_id": {
+     "type": "string"
+    },
+    "status": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "days_left",
+    "fee",
+    "new_expiry",
+    "old_expiry",
+    "plate",
+    "renewal_id",
+    "status"
+   ],
+   "type": "object"
+  },
+  "409": {
+   "properties": {
+    "details": {
+     "properties": {
+      "days_left": {
+       "type": "integer"
+      },
+      "request_id": {
+       "type": "string"
+      },
+      "target": {
+       "type": "string"
+      },
+      "via": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "days_left",
+      "request_id",
+      "target",
+      "via"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/identity/admin/kill-switch": {
+  "403": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/identity/admin/subjects/:subject/revoke-sessions": {
+  "200": {
+   "properties": {
+    "ok": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "ok"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/identity/apps/devices": {
+  "201": {
+   "properties": {
+    "device_id": {
+     "type": "string"
+    },
+    "refresh_expires_at": {
+     "format": "date-time",
+     "type": "string"
+    },
+    "refresh_token": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "device_id",
+    "refresh_expires_at",
+    "refresh_token"
+   ],
+   "type": "object"
+  },
+  "400": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "401": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/identity/apps/token": {
+  "200": {
+   "properties": {
+    "refresh_expires_at": {
+     "format": "date-time",
+     "type": "string"
+    },
+    "refresh_token": {
+     "type": "string"
+    },
+    "session": {
+     "properties": {
+      "amr": {
+       "items": {
+        "type": "string"
+       },
+       "type": "array"
+      },
+      "auth_time": {
+       "type": "integer"
+      },
+      "exp": {
+       "type": "integer"
+      },
+      "name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "role": {
+       "type": "string"
+      },
+      "sid": {
+       "type": "string"
+      },
+      "sub": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "amr",
+      "auth_time",
+      "exp",
+      "name",
+      "role",
+      "sid",
+      "sub"
+     ],
+     "type": "object"
+    },
+    "token": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "refresh_expires_at",
+    "refresh_token",
+    "session",
+    "token"
+   ],
+   "type": "object"
+  },
+  "401": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/identity/auth/activation/complete": {
+  "200": {
+   "properties": {
+    "session": {
+     "properties": {
+      "amr": {
+       "items": {
+        "type": "string"
+       },
+       "type": "array"
+      },
+      "auth_time": {
+       "type": "integer"
+      },
+      "exp": {
+       "type": "integer"
+      },
+      "name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "role": {
+       "type": "string"
+      },
+      "sid": {
+       "type": "string"
+      },
+      "sub": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "amr",
+      "auth_time",
+      "exp",
+      "name",
+      "role",
+      "sid",
+      "sub"
+     ],
+     "type": "object"
+    }
+   },
+   "required": [
+    "session"
+   ],
+   "type": "object"
+  },
+  "422": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/identity/auth/activation/verify": {
+  "200": {
+   "properties": {
+    "activation_token": {
+     "type": "string"
+    },
+    "expires_in": {
+     "type": "integer"
+    }
+   },
+   "required": [
+    "activation_token",
+    "expires_in"
+   ],
+   "type": "object"
+  },
+  "401": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/identity/auth/logout": {
+  "200": {
+   "properties": {
+    "ok": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "ok"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/identity/auth/otp": {
+  "200": {
+   "properties": {
+    "session": {
+     "properties": {
+      "amr": {
+       "items": {
+        "type": "string"
+       },
+       "type": "array"
+      },
+      "auth_time": {
+       "type": "integer"
+      },
+      "exp": {
+       "type": "integer"
+      },
+      "name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "role": {
+       "type": "string"
+      },
+      "sid": {
+       "type": "string"
+      },
+      "sub": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "amr",
+      "auth_time",
+      "exp",
+      "name",
+      "role",
+      "sid",
+      "sub"
+     ],
+     "type": "object"
+    },
+    "token": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "session"
+   ],
+   "type": "object"
+  },
+  "401": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/identity/auth/passkey/options": {
+  "200": {
+   "properties": {
+    "challenge_id": {
+     "type": "string"
+    },
+    "options": {
+     "properties": {
+      "allowCredentials": {
+       "items": {
+        "type": []
+       },
+       "type": "array"
+      },
+      "challenge": {
+       "type": "string"
+      },
+      "rpId": {
+       "type": "string"
+      },
+      "timeout": {
+       "type": "integer"
+      },
+      "userVerification": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "allowCredentials",
+      "challenge",
+      "rpId",
+      "timeout",
+      "userVerification"
+     ],
+     "type": "object"
+    }
+   },
+   "required": [
+    "challenge_id",
+    "options"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/identity/auth/passkey/verify": {
+  "200": {
+   "properties": {
+    "session": {
+     "properties": {
+      "amr": {
+       "items": {
+        "type": "string"
+       },
+       "type": "array"
+      },
+      "auth_time": {
+       "type": "integer"
+      },
+      "exp": {
+       "type": "integer"
+      },
+      "name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "role": {
+       "type": "string"
+      },
+      "sid": {
+       "type": "string"
+      },
+      "sub": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "amr",
+      "auth_time",
+      "exp",
+      "name",
+      "role",
+      "sid",
+      "sub"
+     ],
+     "type": "object"
+    }
+   },
+   "required": [
+    "session"
+   ],
+   "type": "object"
+  },
+  "401": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/identity/auth/password": {
+  "200": {
+   "properties": {
+    "method": {
+     "type": "string"
+    },
+    "otp_challenge_id": {
+     "type": "string"
+    },
+    "test_code": {
+     "type": "string"
+    },
+    "test_message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "method",
+    "otp_challenge_id",
+    "test_code",
+    "test_message"
+   ],
+   "type": "object"
+  },
+  "401": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "429": {
+   "properties": {
+    "details": {
+     "properties": {
+      "retry_after": {
+       "type": "integer"
+      }
+     },
+     "required": [
+      "retry_after"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/identity/counter/sessions": {
+  "200": {
+   "properties": {
+    "id": {
+     "type": "string"
+    },
+    "sent": {
+     "type": "boolean"
+    },
+    "status": {
+     "type": "string"
+    },
+    "test_code": {
+     "type": "string"
+    },
+    "test_message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "id",
+    "sent",
+    "status",
+    "test_code",
+    "test_message"
+   ],
+   "type": "object"
+  },
+  "403": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "429": {
+   "properties": {
+    "details": {
+     "properties": {
+      "retry_after": {
+       "type": "integer"
+      }
+     },
+     "required": [
+      "retry_after"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/identity/counter/sessions/:id/confirm": {
+  "200": {
+   "properties": {
+    "citizen": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string"
+    },
+    "minutes": {
+     "type": "integer"
+    },
+    "status": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "citizen",
+    "id",
+    "minutes",
+    "status"
+   ],
+   "type": "object"
+  },
+  "401": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/identity/counter/sessions/:id/delegations": {
+  "200": {
+   "properties": {
+    "created_at": {
+     "format": "date-time",
+     "type": "string"
+    },
+    "created_by": {
+     "type": "string"
+    },
+    "created_via": {
+     "type": "string"
+    },
+    "delegate": {
+     "type": "string"
+    },
+    "delegate_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "grantor": {
+     "type": "string"
+    },
+    "grantor_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "id": {
+     "type": "string"
+    },
+    "mandate_jws": {
+     "type": "string"
+    },
+    "revoked_at": {
+     "type": "null"
+    },
+    "revoked_by": {
+     "type": "null"
+    },
+    "scopes": {
+     "items": {
+      "properties": {
+       "label": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "scope": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "label",
+       "scope"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "status": {
+     "type": "string"
+    },
+    "valid_until": {
+     "format": "date-time",
+     "type": "string"
+    }
+   },
+   "required": [
+    "created_at",
+    "created_by",
+    "created_via",
+    "delegate",
+    "delegate_name",
+    "grantor",
+    "grantor_name",
+    "id",
+    "mandate_jws",
+    "revoked_at",
+    "revoked_by",
+    "scopes",
+    "status",
+    "valid_until"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/identity/counter/sessions/:id/end": {
+  "200": {
+   "properties": {
+    "ok": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "ok"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/identity/counter/sessions/:id/vehicles/:plate/renew": {
+  "409": {
+   "properties": {
+    "details": {
+     "properties": {
+      "days_left": {
+       "type": "integer"
+      },
+      "request_id": {
+       "type": "string"
+      },
+      "target": {
+       "type": "string"
+      },
+      "via": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "days_left",
+      "request_id",
+      "target",
+      "via"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/identity/manage/:ministry/persons/:id/*": {
+  "200": {
+   "properties": {
+    "address": {
+     "properties": {
+      "city": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "city_index": {
+       "type": "integer"
+      },
+      "district": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "district_index": {
+       "type": "integer"
+      },
+      "street": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "city",
+      "city_index",
+      "district",
+      "district_index",
+      "street"
+     ],
+     "type": "object"
+    },
+    "allergies": {
+     "items": {
+      "properties": {
+       "ar": {
+        "type": "string"
+       },
+       "en": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "ar",
+       "en"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "allergy_indices": {
+     "items": {
+      "type": "integer"
+     },
+     "type": "array"
+    },
+    "base_income": {
+     "type": "integer"
+    },
+    "base_status": {
+     "type": "null"
+    },
+    "benefits": {
+     "items": {
+      "type": []
+     },
+     "type": "array"
+    },
+    "birth_date": {
+     "format": "date",
+     "type": "string"
+    },
+    "blood_type": {
+     "type": "string"
+    },
+    "changes": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "actor": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "detail": {
+        "properties": {
+         "after": {
+          "properties": {
+           "city": {
+            "type": "string"
+           },
+           "district": {
+            "type": "string"
+           },
+           "employer": {
+            "properties": {
+             "ar": {
+              "type": "string"
+             },
+             "en": {
+              "type": "string"
+             }
+            },
+            "required": [
+             "ar",
+             "en"
+            ],
+            "type": "object"
+           },
+           "monthly_income": {
+            "type": "integer"
+           },
+           "phone": {
+            "type": "string"
+           },
+           "status": {
+            "type": "string"
+           },
+           "street": {
+            "type": "string"
+           }
+          },
+          "type": "object"
+         },
+         "area_m2": {
+          "type": "integer"
+         },
+         "before": {
+          "properties": {
+           "city": {
+            "type": "string"
+           },
+           "district": {
+            "type": "string"
+           },
+           "employer_name": {
+            "properties": {
+             "ar": {
+              "type": "string"
+             },
+             "en": {
+              "type": "string"
+             }
+            },
+            "required": [
+             "ar",
+             "en"
+            ],
+            "type": "object"
+           },
+           "graduation_year": {
+            "type": "integer"
+           },
+           "level": {
+            "type": "string"
+           },
+           "monthly_income": {
+            "type": "integer"
+           },
+           "phone": {
+            "type": "string"
+           },
+           "status": {
+            "type": "string"
+           },
+           "street": {
+            "type": "string"
+           }
+          },
+          "type": [
+           "null",
+           "object"
+          ]
+         },
+         "child_id": {
+          "type": "string"
+         },
+         "deed_no": {
+          "type": "string"
+         },
+         "degree_id": {
+          "type": "string"
+         },
+         "divorced_on": {
+          "format": "date",
+          "type": "string"
+         },
+         "employer": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "end_date": {
+          "format": "date",
+          "type": [
+           "null",
+           "string"
+          ]
+         },
+         "from_id": {
+          "type": "string"
+         },
+         "graduation_year": {
+          "type": "integer"
+         },
+         "job_id": {
+          "type": "string"
+         },
+         "job_title": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "level": {
+          "type": "string"
+         },
+         "level_name": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "make": {
+          "type": "string"
+         },
+         "married_on": {
+          "format": "date",
+          "type": "string"
+         },
+         "model": {
+          "type": "string"
+         },
+         "plate": {
+          "type": "string"
+         },
+         "registration_expiry": {
+          "format": "date",
+          "type": "string"
+         },
+         "share_percent": {
+          "type": "integer"
+         },
+         "since_year": {
+          "type": "integer"
+         },
+         "spouse_id": {
+          "type": "string"
+         },
+         "stage": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "to_id": {
+          "type": "string"
+         },
+         "type": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "year": {
+          "type": "integer"
+         }
+        },
+        "type": "object"
+       }
+      },
+      "required": [
+       "action",
+       "actor",
+       "at"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "chronic_conditions": {
+     "items": {},
+     "type": "array"
+    },
+    "clinic_index": {
+     "type": "integer"
+    },
+    "condition_indices": {
+     "items": {},
+     "type": "array"
+    },
+    "current": {
+     "properties": {
+      "employer": {
+       "properties": {
+        "name": {
+         "properties": {
+          "ar": {
+           "type": "string"
+          },
+          "en": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "ar",
+          "en"
+         ],
+         "type": "object"
+        },
+        "sector": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "name",
+        "sector"
+       ],
+       "type": "object"
+      },
+      "income_bracket": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "income_source": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "job_title": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "monthly_income": {
+       "type": "integer"
+      },
+      "since": {
+       "format": "date",
+       "type": "string"
+      },
+      "status": {
+       "type": "string"
+      },
+      "status_name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      }
+     },
+     "required": [
+      "employer",
+      "income_bracket",
+      "income_source",
+      "job_title",
+      "monthly_income",
+      "since",
+      "status",
+      "status_name"
+     ],
+     "type": "object"
+    },
+    "degrees": {
+     "items": {
+      "properties": {
+       "field": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "grade": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "grade_index": {
+        "type": "integer"
+       },
+       "graduation_year": {
+        "type": "integer"
+       },
+       "id": {
+        "type": "string"
+       },
+       "institution": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "institution_index": {
+        "type": "integer"
+       },
+       "level": {
+        "type": "string"
+       },
+       "level_name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "major_index": {
+        "type": "integer"
+       },
+       "verified": {
+        "type": "boolean"
+       }
+      },
+      "required": [
+       "field",
+       "grade",
+       "grade_index",
+       "graduation_year",
+       "id",
+       "institution",
+       "institution_index",
+       "level",
+       "level_name",
+       "major_index",
+       "verified"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "enrollment": {
+     "type": "null"
+    },
+    "exists": {
+     "type": "boolean"
+    },
+    "family": {
+     "items": {
+      "properties": {
+       "birth_date": {
+        "format": "date",
+        "type": "string"
+       },
+       "gender": {
+        "type": "string"
+       },
+       "name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "national_id": {
+        "type": "string"
+       },
+       "relation": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "birth_date",
+       "gender",
+       "name",
+       "national_id",
+       "relation"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "family_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "gender": {
+     "type": "string"
+    },
+    "given_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "jobs": {
+     "items": {
+      "properties": {
+       "current": {
+        "type": "boolean"
+       },
+       "employer": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "employer_index": {
+        "type": "integer"
+       },
+       "end_date": {
+        "format": "date",
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "id": {
+        "type": "string"
+       },
+       "job_title": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "job_title_index": {
+        "type": "integer"
+       },
+       "monthly_salary": {
+        "type": "integer"
+       },
+       "sector": {
+        "type": "string"
+       },
+       "start_date": {
+        "format": "date",
+        "type": "string"
+       }
+      },
+      "required": [
+       "current",
+       "employer",
+       "employer_index",
+       "end_date",
+       "id",
+       "job_title",
+       "job_title_index",
+       "monthly_salary",
+       "sector",
+       "start_date"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "marital_status": {
+     "type": "string"
+    },
+    "married_on": {
+     "format": "date",
+     "type": [
+      "null",
+      "string"
+     ]
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "organ_donor": {
+     "type": "boolean"
+    },
+    "phone": {
+     "type": "string"
+    },
+    "plate": {
+     "type": "string"
+    },
+    "primary_clinic": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "properties": {
+     "items": {
+      "properties": {
+       "area_m2": {
+        "type": "integer"
+       },
+       "city": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "city_index": {
+        "type": "integer"
+       },
+       "deed_no": {
+        "type": "string"
+       },
+       "district": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "district_index": {
+        "type": "integer"
+       },
+       "share_percent": {
+        "type": "integer"
+       },
+       "type": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "type_index": {
+        "type": "integer"
+       }
+      },
+      "required": [
+       "area_m2",
+       "city",
+       "city_index",
+       "deed_no",
+       "district",
+       "district_index",
+       "share_percent",
+       "type",
+       "type_index"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "social_insurance": {
+     "properties": {
+      "contribution_months": {
+       "type": "integer"
+      },
+      "number": {
+       "type": "string"
+      },
+      "pension": {
+       "type": "null"
+      }
+     },
+     "required": [
+      "contribution_months",
+      "number",
+      "pension"
+     ],
+     "type": "object"
+    },
+    "status": {
+     "type": "string"
+    },
+    "vaccinations": {
+     "items": {
+      "properties": {
+       "given_on": {
+        "format": "date",
+        "type": "string"
+       },
+       "id": {
+        "type": "integer"
+       },
+       "name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       }
+      },
+      "required": [
+       "given_on",
+       "id",
+       "name"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "vehicles": {
+     "items": {
+      "properties": {
+       "color": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "days_left": {
+        "type": "integer"
+       },
+       "make": {
+        "type": "string"
+       },
+       "model": {
+        "type": "string"
+       },
+       "plate": {
+        "type": "string"
+       },
+       "registration_expiry": {
+        "format": "date",
+        "type": "string"
+       },
+       "renewable": {
+        "type": "boolean"
+       },
+       "status": {
+        "type": "string"
+       },
+       "year": {
+        "type": "integer"
+       }
+      },
+      "required": [
+       "color",
+       "days_left",
+       "make",
+       "model",
+       "plate",
+       "registration_expiry",
+       "renewable",
+       "status",
+       "year"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "changes",
+    "national_id"
+   ],
+   "type": "object"
+  },
+  "400": {
+   "properties": {
+    "details": {
+     "properties": {
+      "request_id": {
+       "type": "string"
+      },
+      "target": {
+       "type": "string"
+      },
+      "via": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "request_id",
+      "target",
+      "via"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "404": {
+   "properties": {
+    "details": {
+     "properties": {
+      "request_id": {
+       "type": "string"
+      },
+      "target": {
+       "type": "string"
+      },
+      "via": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "request_id",
+      "target",
+      "via"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "409": {
+   "properties": {
+    "details": {
+     "properties": {
+      "days_left": {
+       "type": "integer"
+      },
+      "request_id": {
+       "type": "string"
+      },
+      "target": {
+       "type": "string"
+      },
+      "via": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "request_id",
+      "target",
+      "via"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "422": {
+   "properties": {
+    "details": {
+     "properties": {
+      "problems": {
+       "items": {
+        "properties": {
+         "code": {
+          "type": "string"
+         },
+         "field": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "code",
+         "field"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      },
+      "request_id": {
+       "type": "string"
+      },
+      "target": {
+       "type": "string"
+      },
+      "via": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "problems"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/identity/me/births/:nid/confirm": {
+  "200": {
+   "properties": {
+    "birth_date": {
+     "format": "date",
+     "type": "string"
+    },
+    "can_confirm": {
+     "type": "boolean"
+    },
+    "child": {
+     "properties": {
+      "name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "national_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "name",
+      "national_id"
+     ],
+     "type": "object"
+    },
+    "family_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "father": {
+     "properties": {
+      "name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "national_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "name",
+      "national_id"
+     ],
+     "type": [
+      "null",
+      "object"
+     ]
+    },
+    "gender": {
+     "type": "string"
+    },
+    "history": {
+     "items": {
+      "properties": {
+       "decided_at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "decided_by": {
+        "type": "string"
+       },
+       "given_name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "id": {
+        "type": "integer"
+       },
+       "proposed_at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "proposed_by": {
+        "type": "string"
+       },
+       "status": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "decided_at",
+       "decided_by",
+       "given_name",
+       "id",
+       "proposed_at",
+       "proposed_by",
+       "status"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "hospital": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "mother": {
+     "properties": {
+      "name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "national_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "name",
+      "national_id"
+     ],
+     "type": "object"
+    },
+    "my_role": {
+     "type": "string"
+    },
+    "name_deadline": {
+     "format": "date-time",
+     "type": "string"
+    },
+    "named_by": {
+     "type": "string"
+    },
+    "notification_id": {
+     "type": "string"
+    },
+    "other_parent": {
+     "properties": {
+      "has_account": {
+       "type": "boolean"
+      },
+      "name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "national_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "has_account",
+      "name",
+      "national_id"
+     ],
+     "type": [
+      "null",
+      "object"
+     ]
+    },
+    "overdue": {
+     "type": "boolean"
+    },
+    "proposal": {
+     "type": "null"
+    },
+    "registered_at": {
+     "format": "date-time",
+     "type": "string"
+    },
+    "reported_at": {
+     "format": "date-time",
+     "type": "string"
+    },
+    "sole_parent": {
+     "type": "boolean"
+    },
+    "status": {
+     "type": "string"
+    },
+    "waiting_for_other": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "birth_date",
+    "can_confirm",
+    "child",
+    "family_name",
+    "father",
+    "gender",
+    "history",
+    "hospital",
+    "mother",
+    "my_role",
+    "name_deadline",
+    "named_by",
+    "notification_id",
+    "other_parent",
+    "overdue",
+    "proposal",
+    "registered_at",
+    "reported_at",
+    "sole_parent",
+    "status",
+    "waiting_for_other"
+   ],
+   "type": "object"
+  },
+  "403": {
+   "properties": {
+    "details": {
+     "properties": {
+      "request_id": {
+       "type": "string"
+      },
+      "target": {
+       "type": "string"
+      },
+      "via": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "request_id",
+      "target",
+      "via"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "409": {
+   "properties": {
+    "details": {
+     "properties": {
+      "request_id": {
+       "type": "string"
+      },
+      "target": {
+       "type": "string"
+      },
+      "via": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "request_id",
+      "target",
+      "via"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/identity/me/births/:nid/name": {
+  "200": {
+   "properties": {
+    "birth_date": {
+     "format": "date",
+     "type": "string"
+    },
+    "can_confirm": {
+     "type": "boolean"
+    },
+    "child": {
+     "type": "null"
+    },
+    "family_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "father": {
+     "properties": {
+      "name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "national_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "name",
+      "national_id"
+     ],
+     "type": [
+      "null",
+      "object"
+     ]
+    },
+    "gender": {
+     "type": "string"
+    },
+    "history": {
+     "items": {
+      "properties": {
+       "decided_at": {
+        "format": "date-time",
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "decided_by": {
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "given_name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "id": {
+        "type": "integer"
+       },
+       "proposed_at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "proposed_by": {
+        "type": "string"
+       },
+       "status": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "decided_at",
+       "decided_by",
+       "given_name",
+       "id",
+       "proposed_at",
+       "proposed_by",
+       "status"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "hospital": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "mother": {
+     "properties": {
+      "name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "national_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "name",
+      "national_id"
+     ],
+     "type": "object"
+    },
+    "my_role": {
+     "type": "string"
+    },
+    "name_deadline": {
+     "format": "date-time",
+     "type": "string"
+    },
+    "named_by": {
+     "type": "null"
+    },
+    "notification_id": {
+     "type": "string"
+    },
+    "other_parent": {
+     "properties": {
+      "has_account": {
+       "type": "boolean"
+      },
+      "name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "national_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "has_account",
+      "name",
+      "national_id"
+     ],
+     "type": [
+      "null",
+      "object"
+     ]
+    },
+    "overdue": {
+     "type": "boolean"
+    },
+    "proposal": {
+     "properties": {
+      "awaiting": {
+       "type": [
+        "null",
+        "string"
+       ]
+      },
+      "given_name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "id": {
+       "type": "integer"
+      },
+      "proposed_at": {
+       "format": "date-time",
+       "type": "string"
+      },
+      "proposed_by": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "awaiting",
+      "given_name",
+      "id",
+      "proposed_at",
+      "proposed_by"
+     ],
+     "type": "object"
+    },
+    "registered_at": {
+     "type": "null"
+    },
+    "reported_at": {
+     "format": "date-time",
+     "type": "string"
+    },
+    "sole_parent": {
+     "type": "boolean"
+    },
+    "status": {
+     "type": "string"
+    },
+    "waiting_for_other": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "birth_date",
+    "can_confirm",
+    "child",
+    "family_name",
+    "father",
+    "gender",
+    "history",
+    "hospital",
+    "mother",
+    "my_role",
+    "name_deadline",
+    "named_by",
+    "notification_id",
+    "other_parent",
+    "overdue",
+    "proposal",
+    "registered_at",
+    "reported_at",
+    "sole_parent",
+    "status",
+    "waiting_for_other"
+   ],
+   "type": "object"
+  },
+  "404": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "409": {
+   "properties": {
+    "details": {
+     "properties": {
+      "request_id": {
+       "type": "string"
+      },
+      "target": {
+       "type": "string"
+      },
+      "via": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "request_id",
+      "target",
+      "via"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "422": {
+   "properties": {
+    "details": {
+     "properties": {
+      "problems": {
+       "items": {
+        "properties": {
+         "code": {
+          "type": "string"
+         },
+         "field": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "code",
+         "field"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      }
+     },
+     "required": [
+      "problems"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/identity/me/ceremonies": {
+  "200": {
+   "properties": {
+    "ceremony_id": {
+     "type": "string"
+    },
+    "kid": {
+     "type": "string"
+    },
+    "options": {
+     "properties": {
+      "allowCredentials": {
+       "items": {
+        "properties": {
+         "id": {
+          "type": "string"
+         },
+         "transports": {
+          "items": {
+           "type": []
+          },
+          "type": "array"
+         },
+         "type": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "id",
+         "transports",
+         "type"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      },
+      "challenge": {
+       "type": "string"
+      },
+      "rpId": {
+       "type": "string"
+      },
+      "timeout": {
+       "type": "integer"
+      },
+      "userVerification": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "allowCredentials",
+      "challenge",
+      "rpId",
+      "timeout",
+      "userVerification"
+     ],
+     "type": "object"
+    },
+    "payload_json": {
+     "type": [
+      "null",
+      "string"
+     ]
+    }
+   },
+   "required": [
+    "ceremony_id",
+    "kid",
+    "options",
+    "payload_json"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/identity/me/ceremonies/:id/complete": {
+  "200": {
+   "properties": {
+    "claims": {
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "created_at": {
+     "format": "date-time",
+     "type": "string"
+    },
+    "created_by": {
+     "type": "null"
+    },
+    "created_via": {
+     "type": "string"
+    },
+    "credentials": {
+     "items": {
+      "properties": {
+       "credential": {
+        "type": "string"
+       },
+       "issuer": {
+        "type": "string"
+       },
+       "sd_jwt": {
+        "type": "string"
+       },
+       "vct": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "credential",
+       "issuer",
+       "sd_jwt",
+       "vct"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "delegate": {
+     "type": "string"
+    },
+    "delegate_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "grantor": {
+     "type": "string"
+    },
+    "grantor_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "id": {
+     "type": "string"
+    },
+    "jws": {
+     "type": "string"
+    },
+    "mandate_jws": {
+     "type": "string"
+    },
+    "payload": {
+     "properties": {
+      "amr": {
+       "items": {
+        "type": "string"
+       },
+       "type": "array"
+      },
+      "doc_sha256": {
+       "type": "string"
+      },
+      "signed_at": {
+       "format": "date-time",
+       "type": "string"
+      },
+      "signer": {
+       "type": "string"
+      },
+      "signer_name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "title": {
+       "type": "string"
+      },
+      "typ": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "amr",
+      "doc_sha256",
+      "signed_at",
+      "signer",
+      "signer_name",
+      "title",
+      "typ"
+     ],
+     "type": "object"
+    },
+    "revoked_at": {
+     "type": "null"
+    },
+    "revoked_by": {
+     "type": "null"
+    },
+    "scopes": {
+     "items": {
+      "properties": {
+       "label": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "scope": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "label",
+       "scope"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "status": {
+     "type": "string"
+    },
+    "valid_until": {
+     "format": "date-time",
+     "type": "string"
+    }
+   },
+   "type": "object"
+  },
+  "400": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "401": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/identity/me/delegations": {
+  "200": {
+   "properties": {
+    "created_at": {
+     "format": "date-time",
+     "type": "string"
+    },
+    "created_by": {
+     "type": "null"
+    },
+    "created_via": {
+     "type": "string"
+    },
+    "delegate": {
+     "type": "string"
+    },
+    "delegate_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "grantor": {
+     "type": "string"
+    },
+    "grantor_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "id": {
+     "type": "string"
+    },
+    "mandate_jws": {
+     "type": "string"
+    },
+    "revoked_at": {
+     "type": "null"
+    },
+    "revoked_by": {
+     "type": "null"
+    },
+    "scopes": {
+     "items": {
+      "properties": {
+       "label": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "scope": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "label",
+       "scope"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "status": {
+     "type": "string"
+    },
+    "valid_until": {
+     "format": "date-time",
+     "type": "string"
+    }
+   },
+   "required": [
+    "created_at",
+    "created_by",
+    "created_via",
+    "delegate",
+    "delegate_name",
+    "grantor",
+    "grantor_name",
+    "id",
+    "mandate_jws",
+    "revoked_at",
+    "revoked_by",
+    "scopes",
+    "status",
+    "valid_until"
+   ],
+   "type": "object"
+  },
+  "400": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "409": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "422": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/identity/me/device-key": {
+  "200": {
+   "properties": {
+    "kid": {
+     "type": "string"
+    },
+    "ok": {
+     "type": "boolean"
+    },
+    "server_holds_private_key": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "kid",
+    "ok",
+    "server_holds_private_key"
+   ],
+   "type": "object"
+  },
+  "400": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/identity/me/device-key/options": {
+  "200": {
+   "properties": {
+    "ceremony_id": {
+     "type": "string"
+    },
+    "options": {
+     "properties": {
+      "allowCredentials": {
+       "items": {
+        "properties": {
+         "id": {
+          "type": "string"
+         },
+         "transports": {
+          "items": {
+           "type": "string"
+          },
+          "type": "array"
+         },
+         "type": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "id",
+         "transports",
+         "type"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      },
+      "challenge": {
+       "type": "string"
+      },
+      "rpId": {
+       "type": "string"
+      },
+      "timeout": {
+       "type": "integer"
+      },
+      "userVerification": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "allowCredentials",
+      "challenge",
+      "rpId",
+      "timeout",
+      "userVerification"
+     ],
+     "type": "object"
+    }
+   },
+   "required": [
+    "ceremony_id",
+    "options"
+   ],
+   "type": "object"
+  },
+  "409": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/identity/me/passkeys": {
+  "200": {
+   "properties": {
+    "credential_id": {
+     "type": "string"
+    },
+    "ok": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "credential_id",
+    "ok"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/identity/me/passkeys/options": {
+  "200": {
+   "properties": {
+    "challenge_id": {
+     "type": "string"
+    },
+    "options": {
+     "properties": {
+      "attestation": {
+       "type": "string"
+      },
+      "authenticatorSelection": {
+       "properties": {
+        "requireResidentKey": {
+         "type": "boolean"
+        },
+        "residentKey": {
+         "type": "string"
+        },
+        "userVerification": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "requireResidentKey",
+        "residentKey",
+        "userVerification"
+       ],
+       "type": "object"
+      },
+      "challenge": {
+       "type": "string"
+      },
+      "excludeCredentials": {
+       "items": {
+        "type": []
+       },
+       "type": "array"
+      },
+      "extensions": {
+       "properties": {
+        "credProps": {
+         "type": "boolean"
+        }
+       },
+       "required": [
+        "credProps"
+       ],
+       "type": "object"
+      },
+      "hints": {
+       "items": {
+        "type": []
+       },
+       "type": "array"
+      },
+      "pubKeyCredParams": {
+       "items": {
+        "properties": {
+         "alg": {
+          "type": "integer"
+         },
+         "type": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "alg",
+         "type"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      },
+      "rp": {
+       "properties": {
+        "id": {
+         "type": "string"
+        },
+        "name": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "id",
+        "name"
+       ],
+       "type": "object"
+      },
+      "timeout": {
+       "type": "integer"
+      },
+      "user": {
+       "properties": {
+        "displayName": {
+         "type": "string"
+        },
+        "id": {
+         "type": "string"
+        },
+        "name": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "displayName",
+        "id",
+        "name"
+       ],
+       "type": "object"
+      }
+     },
+     "required": [
+      "attestation",
+      "authenticatorSelection",
+      "challenge",
+      "excludeCredentials",
+      "extensions",
+      "hints",
+      "pubKeyCredParams",
+      "rp",
+      "timeout",
+      "user"
+     ],
+     "type": "object"
+    }
+   },
+   "required": [
+    "challenge_id",
+    "options"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/identity/me/sessions/sign-out-everywhere": {
+  "200": {
+   "properties": {
+    "ok": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "ok"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/identity/me/signatures": {
+  "200": {
+   "properties": {
+    "id": {
+     "type": "string"
+    },
+    "jws": {
+     "type": "string"
+    },
+    "payload": {
+     "properties": {
+      "amr": {
+       "items": {
+        "type": "string"
+       },
+       "type": "array"
+      },
+      "doc_sha256": {
+       "type": "string"
+      },
+      "signed_at": {
+       "format": "date-time",
+       "type": "string"
+      },
+      "signer": {
+       "type": "string"
+      },
+      "signer_name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "title": {
+       "type": "string"
+      },
+      "typ": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "amr",
+      "doc_sha256",
+      "signed_at",
+      "signer",
+      "signer_name",
+      "title",
+      "typ"
+     ],
+     "type": "object"
+    }
+   },
+   "required": [
+    "id",
+    "jws",
+    "payload"
+   ],
+   "type": "object"
+  },
+  "401": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "409": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/identity/registry/persons": {
+  "201": {
+   "properties": {
+    "activation": {
+     "properties": {
+      "expires_at": {
+       "format": "date-time",
+       "type": "string"
+      },
+      "sent": {
+       "type": "boolean"
+      },
+      "sent_via": {
+       "type": "string"
+      },
+      "test_code": {
+       "type": "string"
+      },
+      "test_message": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "expires_at",
+      "sent",
+      "sent_via",
+      "test_code",
+      "test_message"
+     ],
+     "type": "object"
+    },
+    "person": {
+     "properties": {
+      "address": {
+       "properties": {
+        "city": {
+         "properties": {
+          "ar": {
+           "type": "string"
+          },
+          "en": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "ar",
+          "en"
+         ],
+         "type": "object"
+        },
+        "district": {
+         "properties": {
+          "ar": {
+           "type": "string"
+          },
+          "en": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "ar",
+          "en"
+         ],
+         "type": "object"
+        },
+        "street": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "city",
+        "district",
+        "street"
+       ],
+       "type": "object"
+      },
+      "birth_date": {
+       "format": "date",
+       "type": "string"
+      },
+      "family": {
+       "items": {
+        "properties": {
+         "name": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "national_id": {
+          "type": "string"
+         },
+         "relation": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "name",
+         "national_id",
+         "relation"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      },
+      "family_name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "gender": {
+       "type": "string"
+      },
+      "given_name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "marital_status": {
+       "type": "string"
+      },
+      "national_id": {
+       "type": "string"
+      },
+      "nationality": {
+       "type": "string"
+      },
+      "phone": {
+       "type": "string"
+      },
+      "status": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "address",
+      "birth_date",
+      "family",
+      "family_name",
+      "gender",
+      "given_name",
+      "marital_status",
+      "national_id",
+      "nationality",
+      "phone",
+      "status"
+     ],
+     "type": "object"
+    }
+   },
+   "required": [
+    "activation",
+    "person"
+   ],
+   "type": "object"
+  },
+  "401": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "403": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "409": {
+   "properties": {
+    "details": {
+     "properties": {
+      "national_ids": {
+       "items": {
+        "type": "string"
+       },
+       "type": "array"
+      },
+      "request_id": {
+       "type": "string"
+      },
+      "target": {
+       "type": "string"
+      },
+      "via": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "national_ids",
+      "request_id",
+      "target",
+      "via"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "422": {
+   "properties": {
+    "details": {
+     "properties": {
+      "problems": {
+       "items": {
+        "properties": {
+         "code": {
+          "type": "string"
+         },
+         "field": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "code",
+         "field"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      },
+      "request_id": {
+       "type": "string"
+      },
+      "target": {
+       "type": "string"
+      },
+      "via": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "problems",
+      "request_id",
+      "target",
+      "via"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/identity/registry/persons/:id/activation-code": {
+  "200": {
+   "properties": {
+    "expires_at": {
+     "format": "date-time",
+     "type": "string"
+    },
+    "sent": {
+     "type": "boolean"
+    },
+    "sent_via": {
+     "type": "string"
+    },
+    "test_code": {
+     "type": "string"
+    },
+    "test_message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "expires_at",
+    "sent",
+    "sent_via",
+    "test_code",
+    "test_message"
+   ],
+   "type": "object"
+  },
+  "409": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "429": {
+   "properties": {
+    "details": {
+     "properties": {
+      "retry_after": {
+       "type": "integer"
+      }
+     },
+     "required": [
+      "retry_after"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/identity/session/refresh": {
+  "200": {
+   "properties": {
+    "session": {
+     "properties": {
+      "amr": {
+       "items": {
+        "type": "string"
+       },
+       "type": "array"
+      },
+      "auth_time": {
+       "type": "integer"
+      },
+      "exp": {
+       "type": "integer"
+      },
+      "name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "role": {
+       "type": "string"
+      },
+      "sid": {
+       "type": "string"
+      },
+      "sub": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "amr",
+      "auth_time",
+      "exp",
+      "name",
+      "role",
+      "sid",
+      "sub"
+     ],
+     "type": "object"
+    }
+   },
+   "required": [
+    "session"
+   ],
+   "type": "object"
+  },
+  "401": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/identity/signatures/verify": {
+  "200": {
+   "properties": {
+    "content_matches": {
+     "type": "boolean"
+    },
+    "key": {
+     "properties": {
+      "device_bound": {
+       "type": "boolean"
+      },
+      "kid": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "device_bound",
+      "kid"
+     ],
+     "type": "object"
+    },
+    "payload": {
+     "properties": {
+      "amr": {
+       "items": {
+        "type": "string"
+       },
+       "type": "array"
+      },
+      "doc_sha256": {
+       "type": "string"
+      },
+      "signed_at": {
+       "format": "date-time",
+       "type": "string"
+      },
+      "signer": {
+       "type": "string"
+      },
+      "signer_name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "title": {
+       "type": "string"
+      },
+      "typ": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "amr",
+      "doc_sha256",
+      "signed_at",
+      "signer",
+      "signer_name",
+      "title",
+      "typ"
+     ],
+     "type": "object"
+    },
+    "reason": {
+     "type": [
+      "null",
+      "string"
+     ]
+    },
+    "valid": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "content_matches",
+    "key",
+    "payload",
+    "reason",
+    "valid"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /api/identity/staff/births": {
+  "200": {
+   "properties": {
+    "employee_id": {
+     "type": "string"
+    },
+    "father": {
+     "properties": {
+      "has_account": {
+       "type": "boolean"
+      },
+      "name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "national_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "has_account",
+      "name",
+      "national_id"
+     ],
+     "type": [
+      "null",
+      "object"
+     ]
+    },
+    "hospital": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "mother": {
+     "properties": {
+      "has_account": {
+       "type": "boolean"
+      },
+      "name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "national_id": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "has_account",
+      "name",
+      "national_id"
+     ],
+     "type": "object"
+    },
+    "notification_id": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "employee_id",
+    "father",
+    "hospital",
+    "mother",
+    "notification_id"
+   ],
+   "type": "object"
+  },
+  "403": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "409": {
+   "properties": {
+    "details": {
+     "properties": {
+      "notification_ids": {
+       "items": {
+        "type": "string"
+       },
+       "type": "array"
+      },
+      "request_id": {
+       "type": "string"
+      },
+      "target": {
+       "type": "string"
+      },
+      "via": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "notification_ids",
+      "request_id",
+      "target",
+      "via"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "422": {
+   "properties": {
+    "details": {
+     "properties": {
+      "problems": {
+       "items": {
+        "properties": {
+         "code": {
+          "type": "string"
+         },
+         "field": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "code",
+         "field"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      }
+     },
+     "required": [
+      "problems"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /x/presentations": {
+  "200": {
+   "properties": {
+    "format": {
+     "type": "string"
+    },
+    "presentations": {
+     "items": {
+      "properties": {
+       "credential": {
+        "type": "string"
+       },
+       "issuer": {
+        "type": "string"
+       },
+       "presentation": {
+        "type": "string"
+       },
+       "vct": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "credential",
+       "issuer",
+       "presentation",
+       "vct"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "format",
+    "presentations"
+   ],
+   "type": "object"
+  },
+  "409": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "PUT /api/identity/apps/devices/:id/push": {
+  "200": {
+   "properties": {
+    "ok": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "ok"
+   ],
+   "type": "object"
+  }
+ },
+ "PUT /api/identity/manage/:ministry/persons/:id": {
+  "200": {
+   "properties": {
+    "allergies": {
+     "items": {
+      "properties": {
+       "ar": {
+        "type": "string"
+       },
+       "en": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "ar",
+       "en"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "allergy_indices": {
+     "items": {
+      "type": "integer"
+     },
+     "type": "array"
+    },
+    "blood_type": {
+     "type": "string"
+    },
+    "changes": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "actor": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       }
+      },
+      "required": [
+       "action",
+       "actor",
+       "at"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "chronic_conditions": {
+     "items": {},
+     "type": "array"
+    },
+    "clinic_index": {
+     "type": "integer"
+    },
+    "condition_indices": {
+     "items": {},
+     "type": "array"
+    },
+    "exists": {
+     "type": "boolean"
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "organ_donor": {
+     "type": "boolean"
+    },
+    "primary_clinic": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "vaccinations": {
+     "items": {},
+     "type": "array"
+    }
+   },
+   "required": [
+    "allergies",
+    "allergy_indices",
+    "blood_type",
+    "changes",
+    "chronic_conditions",
+    "clinic_index",
+    "condition_indices",
+    "exists",
+    "national_id",
+    "organ_donor",
+    "primary_clinic",
+    "vaccinations"
+   ],
+   "type": "object"
+  },
+  "400": {
+   "properties": {
+    "details": {
+     "properties": {
+      "request_id": {
+       "type": "string"
+      },
+      "target": {
+       "type": "string"
+      },
+      "via": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "request_id",
+      "target",
+      "via"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "PUT /api/identity/manage/:ministry/persons/:id/*": {
+  "200": {
+   "properties": {
+    "address": {
+     "properties": {
+      "city": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "city_index": {
+       "type": "integer"
+      },
+      "district": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "district_index": {
+       "type": "integer"
+      },
+      "street": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "city",
+      "city_index",
+      "district",
+      "district_index",
+      "street"
+     ],
+     "type": "object"
+    },
+    "base_income": {
+     "type": "integer"
+    },
+    "base_status": {
+     "type": [
+      "null",
+      "string"
+     ]
+    },
+    "benefits": {
+     "items": {
+      "type": []
+     },
+     "type": "array"
+    },
+    "birth_date": {
+     "format": "date",
+     "type": "string"
+    },
+    "changes": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "actor": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "detail": {
+        "properties": {
+         "after": {
+          "properties": {
+           "area_m2": {
+            "type": "integer"
+           },
+           "city": {
+            "type": "string"
+           },
+           "district": {
+            "type": "string"
+           },
+           "employer": {
+            "properties": {
+             "ar": {
+              "type": "string"
+             },
+             "en": {
+              "type": "string"
+             }
+            },
+            "required": [
+             "ar",
+             "en"
+            ],
+            "type": [
+             "null",
+             "object"
+            ]
+           },
+           "father_id": {
+            "type": "string"
+           },
+           "monthly_income": {
+            "type": "integer"
+           },
+           "mother_id": {
+            "type": "string"
+           },
+           "phone": {
+            "type": "string"
+           },
+           "share_percent": {
+            "type": "integer"
+           },
+           "status": {
+            "type": "string"
+           },
+           "street": {
+            "type": "string"
+           },
+           "type": {
+            "properties": {
+             "ar": {
+              "type": "string"
+             },
+             "en": {
+              "type": "string"
+             }
+            },
+            "required": [
+             "ar",
+             "en"
+            ],
+            "type": "object"
+           }
+          },
+          "type": "object"
+         },
+         "area_m2": {
+          "type": "integer"
+         },
+         "before": {
+          "properties": {
+           "area_m2": {
+            "type": "integer"
+           },
+           "city": {
+            "type": "string"
+           },
+           "district": {
+            "type": "string"
+           },
+           "employer_name": {
+            "properties": {
+             "ar": {
+              "type": "string"
+             },
+             "en": {
+              "type": "string"
+             }
+            },
+            "required": [
+             "ar",
+             "en"
+            ],
+            "type": [
+             "null",
+             "object"
+            ]
+           },
+           "father_id": {
+            "type": "null"
+           },
+           "graduation_year": {
+            "type": "integer"
+           },
+           "level": {
+            "type": "string"
+           },
+           "monthly_income": {
+            "type": "integer"
+           },
+           "mother_id": {
+            "type": "string"
+           },
+           "phone": {
+            "type": "string"
+           },
+           "share_percent": {
+            "type": "integer"
+           },
+           "status": {
+            "type": "string"
+           },
+           "street": {
+            "type": "string"
+           },
+           "type": {
+            "properties": {
+             "ar": {
+              "type": "string"
+             },
+             "en": {
+              "type": "string"
+             }
+            },
+            "required": [
+             "ar",
+             "en"
+            ],
+            "type": "object"
+           }
+          },
+          "type": [
+           "null",
+           "object"
+          ]
+         },
+         "child_id": {
+          "type": "string"
+         },
+         "deed_no": {
+          "type": "string"
+         },
+         "degree_id": {
+          "type": "string"
+         },
+         "divorced_on": {
+          "format": "date",
+          "type": "string"
+         },
+         "employer": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "end_date": {
+          "format": "date",
+          "type": [
+           "null",
+           "string"
+          ]
+         },
+         "from_id": {
+          "type": "string"
+         },
+         "graduation_year": {
+          "type": "integer"
+         },
+         "job_id": {
+          "type": "string"
+         },
+         "job_title": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "level": {
+          "type": "string"
+         },
+         "level_name": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "make": {
+          "type": "string"
+         },
+         "married_on": {
+          "format": "date",
+          "type": "string"
+         },
+         "model": {
+          "type": "string"
+         },
+         "monthly_income": {
+          "type": "integer"
+         },
+         "plate": {
+          "type": "string"
+         },
+         "registration_expiry": {
+          "format": "date",
+          "type": "string"
+         },
+         "share_percent": {
+          "type": "integer"
+         },
+         "since_year": {
+          "type": "integer"
+         },
+         "spouse_id": {
+          "type": "string"
+         },
+         "stage": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "status": {
+          "type": "string"
+         },
+         "to_id": {
+          "type": "string"
+         },
+         "type": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "year": {
+          "type": "integer"
+         }
+        },
+        "type": "object"
+       }
+      },
+      "required": [
+       "action",
+       "actor",
+       "at",
+       "detail"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "current": {
+     "properties": {
+      "employer": {
+       "type": "null"
+      },
+      "income_bracket": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "income_source": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "job_title": {
+       "type": "null"
+      },
+      "monthly_income": {
+       "type": "integer"
+      },
+      "since": {
+       "type": "null"
+      },
+      "status": {
+       "type": "string"
+      },
+      "status_name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      }
+     },
+     "required": [
+      "employer",
+      "income_bracket",
+      "income_source",
+      "job_title",
+      "monthly_income",
+      "since",
+      "status",
+      "status_name"
+     ],
+     "type": "object"
+    },
+    "degrees": {
+     "items": {
+      "properties": {
+       "field": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "grade": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "grade_index": {
+        "type": "integer"
+       },
+       "graduation_year": {
+        "type": "integer"
+       },
+       "id": {
+        "type": "string"
+       },
+       "institution": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "institution_index": {
+        "type": "integer"
+       },
+       "level": {
+        "type": "string"
+       },
+       "level_name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "major_index": {
+        "type": "integer"
+       },
+       "verified": {
+        "type": "boolean"
+       }
+      },
+      "required": [
+       "field",
+       "grade",
+       "grade_index",
+       "graduation_year",
+       "id",
+       "institution",
+       "institution_index",
+       "level",
+       "level_name",
+       "major_index",
+       "verified"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "enrollment": {
+     "properties": {
+      "institution": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "institution_index": {
+       "type": "integer"
+      },
+      "since_year": {
+       "type": "integer"
+      },
+      "stage": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "stage_index": {
+       "type": "integer"
+      }
+     },
+     "required": [
+      "institution",
+      "institution_index",
+      "since_year",
+      "stage",
+      "stage_index"
+     ],
+     "type": [
+      "null",
+      "object"
+     ]
+    },
+    "family": {
+     "items": {
+      "properties": {
+       "birth_date": {
+        "format": "date",
+        "type": "string"
+       },
+       "gender": {
+        "type": "string"
+       },
+       "name": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "national_id": {
+        "type": "string"
+       },
+       "relation": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "birth_date",
+       "gender",
+       "name",
+       "national_id",
+       "relation"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "family_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "gender": {
+     "type": "string"
+    },
+    "given_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "jobs": {
+     "items": {
+      "properties": {
+       "current": {
+        "type": "boolean"
+       },
+       "employer": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "employer_index": {
+        "type": "integer"
+       },
+       "end_date": {
+        "format": "date",
+        "type": "string"
+       },
+       "id": {
+        "type": "string"
+       },
+       "job_title": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "job_title_index": {
+        "type": "integer"
+       },
+       "monthly_salary": {
+        "type": "integer"
+       },
+       "sector": {
+        "type": "string"
+       },
+       "start_date": {
+        "format": "date",
+        "type": "string"
+       }
+      },
+      "required": [
+       "current",
+       "employer",
+       "employer_index",
+       "end_date",
+       "id",
+       "job_title",
+       "job_title_index",
+       "monthly_salary",
+       "sector",
+       "start_date"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "marital_status": {
+     "type": "string"
+    },
+    "married_on": {
+     "type": "null"
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "phone": {
+     "type": "string"
+    },
+    "properties": {
+     "items": {
+      "properties": {
+       "area_m2": {
+        "type": "integer"
+       },
+       "city": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "city_index": {
+        "type": "integer"
+       },
+       "deed_no": {
+        "type": "string"
+       },
+       "district": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "district_index": {
+        "type": "integer"
+       },
+       "share_percent": {
+        "type": "integer"
+       },
+       "type": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "type_index": {
+        "type": "integer"
+       }
+      },
+      "required": [
+       "area_m2",
+       "city",
+       "city_index",
+       "deed_no",
+       "district",
+       "district_index",
+       "share_percent",
+       "type",
+       "type_index"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "social_insurance": {
+     "properties": {
+      "contribution_months": {
+       "type": "integer"
+      },
+      "number": {
+       "type": "string"
+      },
+      "pension": {
+       "type": "null"
+      }
+     },
+     "required": [
+      "contribution_months",
+      "number",
+      "pension"
+     ],
+     "type": "object"
+    },
+    "status": {
+     "type": "string"
+    },
+    "vehicles": {
+     "items": {},
+     "type": "array"
+    }
+   },
+   "required": [
+    "changes",
+    "national_id"
+   ],
+   "type": "object"
+  },
+  "400": {
+   "properties": {
+    "details": {
+     "properties": {
+      "request_id": {
+       "type": "string"
+      },
+      "target": {
+       "type": "string"
+      },
+      "via": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "request_id",
+      "target",
+      "via"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "409": {
+   "properties": {
+    "details": {
+     "properties": {
+      "request_id": {
+       "type": "string"
+      },
+      "target": {
+       "type": "string"
+      },
+      "via": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "request_id",
+      "target",
+      "via"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "422": {
+   "properties": {
+    "details": {
+     "properties": {
+      "problems": {
+       "items": {
+        "properties": {
+         "code": {
+          "type": "string"
+         },
+         "field": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "code",
+         "field"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      },
+      "request_id": {
+       "type": "string"
+      },
+      "target": {
+       "type": "string"
+      },
+      "via": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "problems",
+      "request_id",
+      "target",
+      "via"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ }
+}

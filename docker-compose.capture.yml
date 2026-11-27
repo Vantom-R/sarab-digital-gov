@@ -1,0 +1,21 @@
+# Used only by 'make openapi': the services record the shape (never the values) of every JSON response
+# they send while the test suites run. See packages/shared/src/openapi-responses.ts.
+services:
+  jisr:
+    environment: { OPENAPI_CAPTURE: "1" }
+  identity:
+    environment: { OPENAPI_CAPTURE: "1" }
+  civil-registry:
+    environment: { OPENAPI_CAPTURE: "1" }
+  education:
+    environment: { OPENAPI_CAPTURE: "1" }
+  health:
+    environment: { OPENAPI_CAPTURE: "1" }
+  labor:
+    environment: { OPENAPI_CAPTURE: "1" }
+  property:
+    environment: { OPENAPI_CAPTURE: "1" }
+  consent:
+    environment: { OPENAPI_CAPTURE: "1" }
+  bank-alwaha:
+    environment: { OPENAPI_CAPTURE: "1" }

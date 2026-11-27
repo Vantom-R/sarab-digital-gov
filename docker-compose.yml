@@ -1,0 +1,419 @@
+# Republic of Sarab — fictional digital government prototype.
+#
+# Network design (mirrors X-Road's "security server" idea):
+#   * Each member service sits on its own private network ex-<member> shared ONLY with Jisr,
+#     so members cannot reach each other directly — every exchange must go through Jisr.
+#   * Each database sits on its own private network db-<service> shared ONLY with its service.
+#   * All of those networks are `internal: true` (no outbound internet).
+#   * Only the gateway publishes a port, and only on 127.0.0.1 (the host's reverse proxy proxies to it).
+name: sarab
+
+# Log retention: every container keeps at most 5 × 10 MB of logs (Docker's json-file driver rotates them).
+x-logging: &logging
+  driver: json-file
+  options: { max-size: "10m", max-file: "5" }
+
+x-node: &node
+  logging: *logging
+  build: { context: ., target: backend }
+  image: sarab/backend:latest
+  restart: unless-stopped
+  mem_limit: 192m
+  environment: &node-env
+    PORT: "3000"
+    JISR_URL: http://jisr:3000
+    TRUST_LIST: /trust/members.json
+    COOKIE_SECURE: "true"
+    LOG_LEVEL: info
+  volumes: &trust
+    - ./secrets/trust/members.json:/trust/members.json:ro
+
+x-pg: &pg
+  logging: *logging
+  image: postgres:16-alpine
+  restart: unless-stopped
+  mem_limit: 160m
+  command: ["postgres", "-c", "shared_buffers=24MB", "-c", "max_connections=25", "-c", "work_mem=2MB", "-c", "effective_cache_size=64MB"]
+  healthcheck:
+    test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+    interval: 5s
+    timeout: 3s
+    retries: 20
+
+services:
+  # ---------------- Event bus (NATS JetStream) ----------------
+  # Joins only the ex-<member> networks of members that publish/subscribe. Every member has its own
+  # NATS user with least-privilege permissions generated from packages/shared/src/event-policy.ts.
+  nats:
+    logging: *logging
+    image: nats:2.10.29-alpine
+    restart: unless-stopped
+    mem_limit: 96m
+    command: ["-c", "/etc/nats/nats.conf"]
+    volumes:
+      - ./secrets/nats.conf:/etc/nats/nats.conf:ro
+      - nats-data:/data
+    networks: [ex-jisr, ex-mithaq, ex-registry, ex-education, ex-health, ex-labor, ex-property]
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:8222/healthz?js-enabled-only=true >/dev/null 2>&1"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  # ---------------- Exchange layer ----------------
+  # Jisr runs as the database user jisr_app: it may only read and append the audit log, never change or
+  # delete an entry, and it cannot switch the append-only trigger off (it does not own the table).
+  jisr:
+    <<: *node
+    command: ["node", "services/jisr/src/index.ts"]
+    environment:
+      <<: *node-env
+      MEMBER_ID: jisr
+      NATS_PASSWORD: ${NATS_PW_JISR}
+      DATABASE_URL: postgres://jisr_app:${JISR_APP_DB_PASSWORD}@jisr-db:5432/jisr
+    volumes:
+      - ./secrets/trust/members.json:/trust/members.json:ro
+      - ./secrets/keys/jisr.private.jwk.json:/keys/private.jwk.json:ro
+    networks: [ex-jisr, ex-mithaq, ex-registry, ex-idhn, ex-bank, ex-education, ex-health, ex-labor, ex-property, db-jisr]
+    depends_on: { jisr-migrate: { condition: service_completed_successfully }, nats: { condition: service_healthy } }
+
+  # One-shot: applies Jisr's schema and access policy as the table OWNER, (re)creates jisr_app, and exits.
+  # Only this container ever holds the owner password (ops too, for backups and the anchor check).
+  jisr-migrate:
+    logging: *logging
+    build: { context: ., target: backend }
+    image: sarab/backend:latest
+    restart: "no"
+    mem_limit: 96m
+    command: ["node", "services/jisr/src/migrate.ts"]
+    labels: { sarab.oneshot: "true" }
+    healthcheck: { disable: true }
+    environment:
+      DATABASE_URL: postgres://jisr:${JISR_DB_PASSWORD}@jisr-db:5432/jisr
+      JISR_APP_DB_PASSWORD: ${JISR_APP_DB_PASSWORD}
+    networks: [db-jisr]
+    depends_on: { jisr-db: { condition: service_healthy } }
+
+  jisr-db:
+    <<: *pg
+    environment: { POSTGRES_DB: jisr, POSTGRES_USER: jisr, POSTGRES_PASSWORD: "${JISR_DB_PASSWORD}" }
+    volumes: [jisr-data:/var/lib/postgresql/data]
+    networks: [db-jisr]
+
+  # ---------------- Identity (Mithaq) ----------------
+  identity:
+    <<: *node
+    command: ["node", "services/identity/src/index.ts"]
+    environment:
+      <<: *node-env
+      MEMBER_ID: mithaq
+      NATS_PASSWORD: ${NATS_PW_MITHAQ}
+      DATABASE_URL: postgres://identity:${IDENTITY_DB_PASSWORD}@identity-db:5432/identity
+      RP_ID: ${RP_ID}
+      PUBLIC_ORIGIN: ${PUBLIC_ORIGIN}
+      MASTER_KEY: ${MASTER_KEY}
+      DEMO_PASSWORD: ${DEMO_PASSWORD}
+      DEMO_MODE: ${DEMO_MODE:-false}
+      TEST_STAFF_PASSWORD: ${TEST_STAFF_PASSWORD}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      NOTIFIER_URL: http://notifier:3000
+      NOTIFIER_KEY: ${NOTIFIER_KEY_MITHAQ}   # lets Mithaq use only /send and /feed, with structured fields
+      CLERK_PASSWORD: ${CLERK_PASSWORD}
+      # Native apps (fill in when the apps exist): "TEAMID.bundle.id" list; Android package + signing-cert SHA-256
+      IOS_APP_IDS: ${IOS_APP_IDS:-}
+      ANDROID_APP_PACKAGE: ${ANDROID_APP_PACKAGE:-}
+      ANDROID_CERT_SHA256: ${ANDROID_CERT_SHA256:-}
+    volumes:
+      - ./secrets/trust/members.json:/trust/members.json:ro
+      - ./secrets/keys/mithaq.private.jwk.json:/keys/private.jwk.json:ro
+    networks: [ex-mithaq, db-identity, notify]
+    depends_on: { identity-db: { condition: service_healthy } }
+
+  # Staff sign-in codes go out by Telegram (stand-in for an SMS gateway). Only this container has
+  # internet access and the bot token; only Mithaq can reach it (private 'notify' network).
+  notifier:
+    logging: *logging
+    build: { context: ., target: backend }   # same image as the services, so `make deploy S=notifier` rebuilds it
+    image: sarab/backend:latest
+    restart: unless-stopped
+    mem_limit: 64m
+    command: ["node", "services/notifier/src/index.ts"]
+    environment:
+      PORT: "3000"
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
+      TELEGRAM_CHAT_ID: ${TELEGRAM_CHAT_ID}
+      PUBLIC_ORIGIN: ${PUBLIC_ORIGIN}
+      NOTIFIER_KEY_MITHAQ: ${NOTIFIER_KEY_MITHAQ}
+      NOTIFIER_KEY_OPS: ${NOTIFIER_KEY_OPS}
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:3000/health"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+    networks: [notify, egress]
+
+  # Operator's robot: nightly encrypted backups (and, below, audit anchors and monitoring). No port, no
+  # internet: it reaches Telegram only through the notifier. It sits on every db-* network because it dumps
+  # every database, and runs as the owner of ./secrets and ./.env (read-only) so it can back them up.
+  # It holds only the PUBLIC backup key — it can encrypt, never decrypt.
+  ops:
+    logging: *logging
+    build: { context: ., target: ops }
+    image: sarab/ops:latest
+    restart: unless-stopped
+    mem_limit: 128m
+    user: "${SARAB_UID:-1000}:${SARAB_GID:-1000}"
+    command: ["node", "services/ops/src/index.ts"]
+    environment:
+      PORT: "3000"
+      NOTIFIER_URL: http://notifier:3000
+      NOTIFIER_KEY: ${NOTIFIER_KEY_OPS}
+      BACKUP_AGE_RECIPIENT: ${BACKUP_AGE_RECIPIENT:-}
+      BACKUP_AT_UTC: "00:30"
+      BACKUP_KEEP: "7"
+      OPS_STATE: /backups/.ops-state.json
+      DOCKER_API: http://docker-api:2375
+      GATEWAY_URL: http://gateway:8080
+      JISR_URL: http://jisr:3000
+      TRUST_LIST: /trust/members.json
+      JISR_DB_PASSWORD: ${JISR_DB_PASSWORD}
+      IDENTITY_DB_PASSWORD: ${IDENTITY_DB_PASSWORD}
+      REGISTRY_DB_PASSWORD: ${REGISTRY_DB_PASSWORD}
+      CONSENT_DB_PASSWORD: ${CONSENT_DB_PASSWORD}
+      BANK_DB_PASSWORD: ${BANK_DB_PASSWORD}
+      EDUCATION_DB_PASSWORD: ${EDUCATION_DB_PASSWORD}
+      HEALTH_DB_PASSWORD: ${HEALTH_DB_PASSWORD}
+      LABOR_DB_PASSWORD: ${LABOR_DB_PASSWORD}
+      PROPERTY_DB_PASSWORD: ${PROPERTY_DB_PASSWORD}
+    volumes:
+      - ./secrets:/src/secrets:ro
+      - ./.env:/src/env:ro
+      - ./backups:/backups
+      - ./secrets/trust/members.json:/trust/members.json:ro
+    networks: [notify, ex-jisr, docker-api, db-jisr, db-identity, db-registry, db-consent, db-bank, db-education, db-health, db-labor, db-property]
+    depends_on: [notifier, docker-api]
+
+  # The monitor's only window on Docker (services/docker-api, red-team item C): GET only, Sarab containers
+  # only, and only list / inspect (state, health, labels — no environment, mounts or command) / stats /
+  # logs. Copying files out (archive), exec, start, stop, create … all answer 403. Only ops can reach it.
+  docker-api:
+    logging: *logging
+    build: { context: ., target: backend }
+    image: sarab/backend:latest
+    restart: unless-stopped
+    mem_limit: 64m
+    command: ["node", "services/docker-api/src/index.ts"]
+    user: "1000:${DOCKER_GID:-985}"   # the node user, in the group that may use the Docker socket
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    environment: { PORT: "2375", COMPOSE_PROJECT: sarab }
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks: [docker-api]
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:2375/_ping >/dev/null || exit 1"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+
+  identity-db:
+    <<: *pg
+    environment: { POSTGRES_DB: identity, POSTGRES_USER: identity, POSTGRES_PASSWORD: "${IDENTITY_DB_PASSWORD}" }
+    volumes: [identity-data:/var/lib/postgresql/data]
+    networks: [db-identity]
+
+  # ---------------- Ministries ----------------
+  civil-registry:
+    <<: *node
+    command: ["node", "services/civil-registry/src/index.ts"]
+    environment:
+      <<: *node-env
+      MEMBER_ID: civil-registry
+      NATS_PASSWORD: ${NATS_PW_CIVIL_REGISTRY}
+      DATABASE_URL: postgres://registry:${REGISTRY_DB_PASSWORD}@registry-db:5432/registry
+    volumes:
+      - ./secrets/trust/members.json:/trust/members.json:ro
+      - ./secrets/keys/civil-registry.private.jwk.json:/keys/private.jwk.json:ro
+    networks: [ex-registry, db-registry]
+    depends_on: { registry-db: { condition: service_healthy } }
+
+  registry-db:
+    <<: *pg
+    environment: { POSTGRES_DB: registry, POSTGRES_USER: registry, POSTGRES_PASSWORD: "${REGISTRY_DB_PASSWORD}" }
+    volumes: [registry-data:/var/lib/postgresql/data]
+    networks: [db-registry]
+
+  # ---------------- Phase 2 ministries (each: own service, own database, own networks) ----------------
+  education:
+    <<: *node
+    command: ["node", "services/education/src/index.ts"]
+    environment:
+      <<: *node-env
+      MEMBER_ID: education
+      NATS_PASSWORD: ${NATS_PW_EDUCATION}
+      DATABASE_URL: postgres://education:${EDUCATION_DB_PASSWORD}@education-db:5432/education
+    volumes:
+      - ./secrets/trust/members.json:/trust/members.json:ro
+      - ./secrets/keys/education.private.jwk.json:/keys/private.jwk.json:ro
+    networks: [ex-education, db-education]
+    depends_on: { education-db: { condition: service_healthy } }
+
+  education-db:
+    <<: *pg
+    environment: { POSTGRES_DB: education, POSTGRES_USER: education, POSTGRES_PASSWORD: "${EDUCATION_DB_PASSWORD}" }
+    volumes: [education-data:/var/lib/postgresql/data]
+    networks: [db-education]
+
+  health:
+    <<: *node
+    command: ["node", "services/health/src/index.ts"]
+    environment:
+      <<: *node-env
+      MEMBER_ID: health
+      NATS_PASSWORD: ${NATS_PW_HEALTH}
+      DATABASE_URL: postgres://health:${HEALTH_DB_PASSWORD}@health-db:5432/health
+    volumes:
+      - ./secrets/trust/members.json:/trust/members.json:ro
+      - ./secrets/keys/health.private.jwk.json:/keys/private.jwk.json:ro
+    networks: [ex-health, db-health]
+    depends_on: { health-db: { condition: service_healthy } }
+
+  health-db:
+    <<: *pg
+    environment: { POSTGRES_DB: health, POSTGRES_USER: health, POSTGRES_PASSWORD: "${HEALTH_DB_PASSWORD}" }
+    volumes: [health-data:/var/lib/postgresql/data]
+    networks: [db-health]
+
+  labor:
+    <<: *node
+    command: ["node", "services/labor/src/index.ts"]
+    environment:
+      <<: *node-env
+      MEMBER_ID: labor
+      NATS_PASSWORD: ${NATS_PW_LABOR}
+      DATABASE_URL: postgres://labor:${LABOR_DB_PASSWORD}@labor-db:5432/labor
+    volumes:
+      - ./secrets/trust/members.json:/trust/members.json:ro
+      - ./secrets/keys/labor.private.jwk.json:/keys/private.jwk.json:ro
+    networks: [ex-labor, db-labor]
+    depends_on: { labor-db: { condition: service_healthy } }
+
+  labor-db:
+    <<: *pg
+    environment: { POSTGRES_DB: labor, POSTGRES_USER: labor, POSTGRES_PASSWORD: "${LABOR_DB_PASSWORD}" }
+    volumes: [labor-data:/var/lib/postgresql/data]
+    networks: [db-labor]
+
+  property:
+    <<: *node
+    command: ["node", "services/property/src/index.ts"]
+    environment:
+      <<: *node-env
+      MEMBER_ID: property
+      NATS_PASSWORD: ${NATS_PW_PROPERTY}
+      DATABASE_URL: postgres://property:${PROPERTY_DB_PASSWORD}@property-db:5432/property
+    volumes:
+      - ./secrets/trust/members.json:/trust/members.json:ro
+      - ./secrets/keys/property.private.jwk.json:/keys/private.jwk.json:ro
+    networks: [ex-property, db-property]
+    depends_on: { property-db: { condition: service_healthy } }
+
+  property-db:
+    <<: *pg
+    environment: { POSTGRES_DB: property, POSTGRES_USER: property, POSTGRES_PASSWORD: "${PROPERTY_DB_PASSWORD}" }
+    volumes: [property-data:/var/lib/postgresql/data]
+    networks: [db-property]
+
+  # ---------------- Consent (Idhn) ----------------
+  consent:
+    <<: *node
+    command: ["node", "services/consent/src/index.ts"]
+    environment:
+      <<: *node-env
+      MEMBER_ID: idhn
+      DATABASE_URL: postgres://consent:${CONSENT_DB_PASSWORD}@consent-db:5432/consent
+    volumes:
+      - ./secrets/trust/members.json:/trust/members.json:ro
+      - ./secrets/keys/idhn.private.jwk.json:/keys/private.jwk.json:ro
+    networks: [ex-idhn, db-consent]
+    depends_on: { consent-db: { condition: service_healthy } }
+
+  consent-db:
+    <<: *pg
+    environment: { POSTGRES_DB: consent, POSTGRES_USER: consent, POSTGRES_PASSWORD: "${CONSENT_DB_PASSWORD}" }
+    volumes: [consent-data:/var/lib/postgresql/data]
+    networks: [db-consent]
+
+  # ---------------- Private sector demo ----------------
+  bank-alwaha:
+    <<: *node
+    command: ["node", "services/bank-alwaha/src/index.ts"]
+    environment:
+      <<: *node-env
+      MEMBER_ID: bank-alwaha
+      DATABASE_URL: postgres://bank:${BANK_DB_PASSWORD}@bank-db:5432/bank
+    volumes:
+      - ./secrets/trust/members.json:/trust/members.json:ro
+      - ./secrets/keys/bank-alwaha.private.jwk.json:/keys/private.jwk.json:ro
+    networks: [ex-bank, db-bank]
+    depends_on: { bank-db: { condition: service_healthy } }
+
+  bank-db:
+    <<: *pg
+    environment: { POSTGRES_DB: bank, POSTGRES_USER: bank, POSTGRES_PASSWORD: "${BANK_DB_PASSWORD}" }
+    volumes: [bank-data:/var/lib/postgresql/data]
+    networks: [db-bank]
+
+  # ---------------- Gateway: portal + public APIs (the only published port, 127.0.0.1 only) ----------------
+  gateway:
+    logging: *logging
+    build: { context: ., dockerfile: gateway/Dockerfile }
+    image: sarab/gateway:latest
+    restart: unless-stopped
+    mem_limit: 64m
+    ports:
+      - "127.0.0.1:${GATEWAY_PORT:-18090}:8080"
+    networks: [public, ex-jisr, ex-mithaq, ex-registry, ex-idhn, ex-bank, ex-education, ex-health, ex-labor, ex-property]
+    depends_on: [jisr, identity, civil-registry, consent, bank-alwaha, education, health, labor, property]
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO /dev/null http://127.0.0.1:8080/ || exit 1"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+
+networks:
+  public: {}
+  ex-jisr: { internal: true }
+  ex-mithaq: { internal: true }
+  ex-registry: { internal: true }
+  ex-idhn: { internal: true }
+  ex-bank: { internal: true }
+  ex-education: { internal: true }
+  ex-health: { internal: true }
+  ex-labor: { internal: true }
+  ex-property: { internal: true }
+  db-jisr: { internal: true }
+  db-identity: { internal: true }
+  db-registry: { internal: true }
+  db-consent: { internal: true }
+  db-bank: { internal: true }
+  db-education: { internal: true }
+  db-health: { internal: true }
+  db-labor: { internal: true }
+  db-property: { internal: true }
+  notify: { internal: true }
+  egress: {}   # outbound internet, notifier only
+  docker-api: { internal: true }   # ops ↔ read-only Docker API proxy
+
+volumes:
+  nats-data: {}
+  jisr-data: {}
+  identity-data: {}
+  registry-data: {}
+  consent-data: {}
+  bank-data: {}
+  education-data: {}
+  health-data: {}
+  labor-data: {}
+  property-data: {}

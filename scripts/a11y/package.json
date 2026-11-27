@@ -1,0 +1,10 @@
+{
+  "name": "sarab-a11y-tests",
+  "private": true,
+  "type": "module",
+  "description": "Browser tests: axe-core WCAG audit, keyboard/focus checks, and real WebAuthn via a virtual authenticator",
+  "dependencies": {
+    "@axe-core/playwright": "4.10.1",
+    "playwright": "1.52.0"
+  }
+}

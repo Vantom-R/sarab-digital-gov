@@ -1,0 +1,1831 @@
+{
+ "DELETE /x/records/persons/:id/jobs/:jobId": {
+  "200": {
+   "properties": {
+    "base_income": {
+     "type": "integer"
+    },
+    "base_status": {
+     "type": "string"
+    },
+    "benefits": {
+     "items": {},
+     "type": "array"
+    },
+    "changes": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "actor": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "detail": {
+        "properties": {
+         "after": {
+          "properties": {
+           "employer": {
+            "properties": {
+             "ar": {
+              "type": "string"
+             },
+             "en": {
+              "type": "string"
+             }
+            },
+            "required": [
+             "ar",
+             "en"
+            ],
+            "type": [
+             "null",
+             "object"
+            ]
+           },
+           "monthly_income": {
+            "type": "integer"
+           },
+           "status": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "employer",
+           "monthly_income",
+           "status"
+          ],
+          "type": "object"
+         },
+         "before": {
+          "properties": {
+           "employer_name": {
+            "properties": {
+             "ar": {
+              "type": "string"
+             },
+             "en": {
+              "type": "string"
+             }
+            },
+            "required": [
+             "ar",
+             "en"
+            ],
+            "type": [
+             "null",
+             "object"
+            ]
+           },
+           "monthly_income": {
+            "type": "integer"
+           },
+           "status": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "employer_name",
+           "monthly_income",
+           "status"
+          ],
+          "type": [
+           "null",
+           "object"
+          ]
+         },
+         "employer": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "end_date": {
+          "format": "date",
+          "type": [
+           "null",
+           "string"
+          ]
+         },
+         "job_id": {
+          "type": "string"
+         },
+         "job_title": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "monthly_income": {
+          "type": "integer"
+         },
+         "status": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "after",
+         "before"
+        ],
+        "type": "object"
+       }
+      },
+      "required": [
+       "action",
+       "actor",
+       "at",
+       "detail"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "current": {
+     "properties": {
+      "employer": {
+       "type": "null"
+      },
+      "income_bracket": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "income_source": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "job_title": {
+       "type": "null"
+      },
+      "monthly_income": {
+       "type": "integer"
+      },
+      "since": {
+       "type": "null"
+      },
+      "status": {
+       "type": "string"
+      },
+      "status_name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      }
+     },
+     "required": [
+      "employer",
+      "income_bracket",
+      "income_source",
+      "job_title",
+      "monthly_income",
+      "since",
+      "status",
+      "status_name"
+     ],
+     "type": "object"
+    },
+    "jobs": {
+     "items": {
+      "properties": {
+       "current": {
+        "type": "boolean"
+       },
+       "employer": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "employer_index": {
+        "type": "integer"
+       },
+       "end_date": {
+        "format": "date",
+        "type": "string"
+       },
+       "id": {
+        "type": "string"
+       },
+       "job_title": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "job_title_index": {
+        "type": "integer"
+       },
+       "monthly_salary": {
+        "type": "integer"
+       },
+       "sector": {
+        "type": "string"
+       },
+       "start_date": {
+        "format": "date",
+        "type": "string"
+       }
+      },
+      "required": [
+       "current",
+       "employer",
+       "employer_index",
+       "end_date",
+       "id",
+       "job_title",
+       "job_title_index",
+       "monthly_salary",
+       "sector",
+       "start_date"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "social_insurance": {
+     "properties": {
+      "contribution_months": {
+       "type": "integer"
+      },
+      "number": {
+       "type": "string"
+      },
+      "pension": {
+       "type": "null"
+      }
+     },
+     "required": [
+      "contribution_months",
+      "number",
+      "pension"
+     ],
+     "type": "object"
+    }
+   },
+   "required": [
+    "base_income",
+    "base_status",
+    "benefits",
+    "changes",
+    "current",
+    "jobs",
+    "national_id",
+    "social_insurance"
+   ],
+   "type": "object"
+  },
+  "404": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /healthz": {
+  "200": {
+   "properties": {
+    "ok": {
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "ok"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /x/persons/:id/employment": {
+  "200": {
+   "properties": {
+    "benefits": {
+     "items": {
+      "properties": {
+       "child_id": {
+        "type": "string"
+       },
+       "id": {
+        "type": "string"
+       },
+       "kind": {
+        "type": "string"
+       },
+       "monthly_amount": {
+        "type": "integer"
+       },
+       "reason": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "starts_on": {
+        "format": "date",
+        "type": "string"
+       },
+       "status": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "child_id",
+       "id",
+       "kind",
+       "monthly_amount",
+       "reason",
+       "starts_on",
+       "status"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "employer": {
+     "properties": {
+      "name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "sector": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "name",
+      "sector"
+     ],
+     "type": [
+      "null",
+      "object"
+     ]
+    },
+    "income_bracket": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "income_source": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    },
+    "job_title": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": [
+      "null",
+      "object"
+     ]
+    },
+    "monthly_income": {
+     "type": "integer"
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "since": {
+     "format": "date",
+     "type": [
+      "null",
+      "string"
+     ]
+    },
+    "social_insurance": {
+     "properties": {
+      "contribution_months": {
+       "type": "integer"
+      },
+      "number": {
+       "type": "string"
+      },
+      "pension": {
+       "type": [
+        "integer",
+        "null"
+       ]
+      }
+     },
+     "required": [
+      "contribution_months",
+      "number",
+      "pension"
+     ],
+     "type": "object"
+    },
+    "status": {
+     "type": "string"
+    },
+    "status_name": {
+     "properties": {
+      "ar": {
+       "type": "string"
+      },
+      "en": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "ar",
+      "en"
+     ],
+     "type": "object"
+    }
+   },
+   "required": [
+    "benefits",
+    "employer",
+    "income_bracket",
+    "income_source",
+    "job_title",
+    "monthly_income",
+    "national_id",
+    "since",
+    "social_insurance",
+    "status",
+    "status_name"
+   ],
+   "type": "object"
+  }
+ },
+ "GET /x/records/persons/:id": {
+  "200": {
+   "properties": {
+    "base_income": {
+     "type": "integer"
+    },
+    "base_status": {
+     "type": "null"
+    },
+    "benefits": {
+     "items": {
+      "type": []
+     },
+     "type": "array"
+    },
+    "changes": {
+     "items": {
+      "type": []
+     },
+     "type": "array"
+    },
+    "current": {
+     "type": "null"
+    },
+    "jobs": {
+     "items": {
+      "type": []
+     },
+     "type": "array"
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "social_insurance": {
+     "type": "null"
+    }
+   },
+   "required": [
+    "base_income",
+    "base_status",
+    "benefits",
+    "changes",
+    "current",
+    "jobs",
+    "national_id",
+    "social_insurance"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /x/credentials/employment": {
+  "200": {
+   "properties": {
+    "credential": {
+     "type": "string"
+    },
+    "format": {
+     "type": "string"
+    },
+    "vct": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "credential",
+    "format",
+    "vct"
+   ],
+   "type": "object"
+  }
+ },
+ "POST /x/records/persons/:id/jobs": {
+  "201": {
+   "properties": {
+    "base_income": {
+     "type": "integer"
+    },
+    "base_status": {
+     "type": "null"
+    },
+    "benefits": {
+     "items": {
+      "type": []
+     },
+     "type": "array"
+    },
+    "changes": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "actor": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "detail": {
+        "properties": {
+         "after": {
+          "properties": {
+           "employer": {
+            "properties": {
+             "ar": {
+              "type": "string"
+             },
+             "en": {
+              "type": "string"
+             }
+            },
+            "required": [
+             "ar",
+             "en"
+            ],
+            "type": "object"
+           },
+           "monthly_income": {
+            "type": "integer"
+           },
+           "status": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "employer",
+           "monthly_income",
+           "status"
+          ],
+          "type": "object"
+         },
+         "before": {
+          "properties": {
+           "employer_name": {
+            "properties": {
+             "ar": {
+              "type": "string"
+             },
+             "en": {
+              "type": "string"
+             }
+            },
+            "required": [
+             "ar",
+             "en"
+            ],
+            "type": "object"
+           },
+           "monthly_income": {
+            "type": "integer"
+           },
+           "status": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "employer_name",
+           "monthly_income",
+           "status"
+          ],
+          "type": [
+           "null",
+           "object"
+          ]
+         },
+         "employer": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "end_date": {
+          "format": "date",
+          "type": [
+           "null",
+           "string"
+          ]
+         },
+         "job_id": {
+          "type": "string"
+         },
+         "job_title": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         }
+        },
+        "required": [
+         "after",
+         "before",
+         "employer",
+         "end_date",
+         "job_id",
+         "job_title"
+        ],
+        "type": "object"
+       }
+      },
+      "required": [
+       "action",
+       "actor",
+       "at",
+       "detail"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "current": {
+     "properties": {
+      "employer": {
+       "properties": {
+        "name": {
+         "properties": {
+          "ar": {
+           "type": "string"
+          },
+          "en": {
+           "type": "string"
+          }
+         },
+         "required": [
+          "ar",
+          "en"
+         ],
+         "type": "object"
+        },
+        "sector": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "name",
+        "sector"
+       ],
+       "type": "object"
+      },
+      "income_bracket": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "income_source": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "job_title": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "monthly_income": {
+       "type": "integer"
+      },
+      "since": {
+       "format": "date",
+       "type": "string"
+      },
+      "status": {
+       "type": "string"
+      },
+      "status_name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      }
+     },
+     "required": [
+      "employer",
+      "income_bracket",
+      "income_source",
+      "job_title",
+      "monthly_income",
+      "since",
+      "status",
+      "status_name"
+     ],
+     "type": "object"
+    },
+    "jobs": {
+     "items": {
+      "properties": {
+       "current": {
+        "type": "boolean"
+       },
+       "employer": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "employer_index": {
+        "type": "integer"
+       },
+       "end_date": {
+        "format": "date",
+        "type": [
+         "null",
+         "string"
+        ]
+       },
+       "id": {
+        "type": "string"
+       },
+       "job_title": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "job_title_index": {
+        "type": "integer"
+       },
+       "monthly_salary": {
+        "type": "integer"
+       },
+       "sector": {
+        "type": "string"
+       },
+       "start_date": {
+        "format": "date",
+        "type": "string"
+       }
+      },
+      "required": [
+       "current",
+       "employer",
+       "employer_index",
+       "end_date",
+       "id",
+       "job_title",
+       "job_title_index",
+       "monthly_salary",
+       "sector",
+       "start_date"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "social_insurance": {
+     "properties": {
+      "contribution_months": {
+       "type": "integer"
+      },
+      "number": {
+       "type": "string"
+      },
+      "pension": {
+       "type": "null"
+      }
+     },
+     "required": [
+      "contribution_months",
+      "number",
+      "pension"
+     ],
+     "type": "object"
+    }
+   },
+   "required": [
+    "base_income",
+    "base_status",
+    "benefits",
+    "changes",
+    "current",
+    "jobs",
+    "national_id",
+    "social_insurance"
+   ],
+   "type": "object"
+  },
+  "400": {
+   "properties": {
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "error",
+    "message"
+   ],
+   "type": "object"
+  },
+  "422": {
+   "properties": {
+    "details": {
+     "properties": {
+      "problems": {
+       "items": {
+        "properties": {
+         "code": {
+          "type": "string"
+         },
+         "field": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "code",
+         "field"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      }
+     },
+     "required": [
+      "problems"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ },
+ "PUT /x/records/persons/:id/jobs/:jobId": {
+  "200": {
+   "properties": {
+    "base_income": {
+     "type": "integer"
+    },
+    "base_status": {
+     "type": "null"
+    },
+    "benefits": {
+     "items": {},
+     "type": "array"
+    },
+    "changes": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "actor": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "detail": {
+        "properties": {
+         "after": {
+          "properties": {
+           "employer": {
+            "properties": {
+             "ar": {
+              "type": "string"
+             },
+             "en": {
+              "type": "string"
+             }
+            },
+            "required": [
+             "ar",
+             "en"
+            ],
+            "type": [
+             "null",
+             "object"
+            ]
+           },
+           "monthly_income": {
+            "type": "integer"
+           },
+           "status": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "employer",
+           "monthly_income",
+           "status"
+          ],
+          "type": "object"
+         },
+         "before": {
+          "properties": {
+           "employer_name": {
+            "properties": {
+             "ar": {
+              "type": "string"
+             },
+             "en": {
+              "type": "string"
+             }
+            },
+            "required": [
+             "ar",
+             "en"
+            ],
+            "type": "object"
+           },
+           "monthly_income": {
+            "type": "integer"
+           },
+           "status": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "employer_name",
+           "monthly_income",
+           "status"
+          ],
+          "type": [
+           "null",
+           "object"
+          ]
+         },
+         "employer": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "end_date": {
+          "format": "date",
+          "type": [
+           "null",
+           "string"
+          ]
+         },
+         "job_id": {
+          "type": "string"
+         },
+         "job_title": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         }
+        },
+        "required": [
+         "after",
+         "before",
+         "employer",
+         "end_date",
+         "job_id",
+         "job_title"
+        ],
+        "type": "object"
+       }
+      },
+      "required": [
+       "action",
+       "actor",
+       "at",
+       "detail"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "current": {
+     "properties": {
+      "employer": {
+       "type": "null"
+      },
+      "income_bracket": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "income_source": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "job_title": {
+       "type": "null"
+      },
+      "monthly_income": {
+       "type": "integer"
+      },
+      "since": {
+       "type": "null"
+      },
+      "status": {
+       "type": "string"
+      },
+      "status_name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      }
+     },
+     "required": [
+      "employer",
+      "income_bracket",
+      "income_source",
+      "job_title",
+      "monthly_income",
+      "since",
+      "status",
+      "status_name"
+     ],
+     "type": "object"
+    },
+    "jobs": {
+     "items": {
+      "properties": {
+       "current": {
+        "type": "boolean"
+       },
+       "employer": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "employer_index": {
+        "type": "integer"
+       },
+       "end_date": {
+        "format": "date",
+        "type": "string"
+       },
+       "id": {
+        "type": "string"
+       },
+       "job_title": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "job_title_index": {
+        "type": "integer"
+       },
+       "monthly_salary": {
+        "type": "integer"
+       },
+       "sector": {
+        "type": "string"
+       },
+       "start_date": {
+        "format": "date",
+        "type": "string"
+       }
+      },
+      "required": [
+       "current",
+       "employer",
+       "employer_index",
+       "end_date",
+       "id",
+       "job_title",
+       "job_title_index",
+       "monthly_salary",
+       "sector",
+       "start_date"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "social_insurance": {
+     "properties": {
+      "contribution_months": {
+       "type": "integer"
+      },
+      "number": {
+       "type": "string"
+      },
+      "pension": {
+       "type": "null"
+      }
+     },
+     "required": [
+      "contribution_months",
+      "number",
+      "pension"
+     ],
+     "type": "object"
+    }
+   },
+   "required": [
+    "base_income",
+    "base_status",
+    "benefits",
+    "changes",
+    "current",
+    "jobs",
+    "national_id",
+    "social_insurance"
+   ],
+   "type": "object"
+  }
+ },
+ "PUT /x/records/persons/:id/status": {
+  "200": {
+   "properties": {
+    "base_income": {
+     "type": "integer"
+    },
+    "base_status": {
+     "type": "string"
+    },
+    "benefits": {
+     "items": {},
+     "type": "array"
+    },
+    "changes": {
+     "items": {
+      "properties": {
+       "action": {
+        "type": "string"
+       },
+       "actor": {
+        "type": "string"
+       },
+       "at": {
+        "format": "date-time",
+        "type": "string"
+       },
+       "detail": {
+        "properties": {
+         "after": {
+          "properties": {
+           "employer": {
+            "properties": {
+             "ar": {
+              "type": "string"
+             },
+             "en": {
+              "type": "string"
+             }
+            },
+            "required": [
+             "ar",
+             "en"
+            ],
+            "type": [
+             "null",
+             "object"
+            ]
+           },
+           "monthly_income": {
+            "type": "integer"
+           },
+           "status": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "employer",
+           "monthly_income",
+           "status"
+          ],
+          "type": "object"
+         },
+         "before": {
+          "properties": {
+           "employer_name": {
+            "properties": {
+             "ar": {
+              "type": "string"
+             },
+             "en": {
+              "type": "string"
+             }
+            },
+            "required": [
+             "ar",
+             "en"
+            ],
+            "type": [
+             "null",
+             "object"
+            ]
+           },
+           "monthly_income": {
+            "type": "integer"
+           },
+           "status": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "employer_name",
+           "monthly_income",
+           "status"
+          ],
+          "type": [
+           "null",
+           "object"
+          ]
+         },
+         "employer": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "end_date": {
+          "format": "date",
+          "type": [
+           "null",
+           "string"
+          ]
+         },
+         "job_id": {
+          "type": "string"
+         },
+         "job_title": {
+          "properties": {
+           "ar": {
+            "type": "string"
+           },
+           "en": {
+            "type": "string"
+           }
+          },
+          "required": [
+           "ar",
+           "en"
+          ],
+          "type": "object"
+         },
+         "monthly_income": {
+          "type": "integer"
+         },
+         "status": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "after",
+         "before"
+        ],
+        "type": "object"
+       }
+      },
+      "required": [
+       "action",
+       "actor",
+       "at",
+       "detail"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "current": {
+     "properties": {
+      "employer": {
+       "type": "null"
+      },
+      "income_bracket": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "income_source": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      },
+      "job_title": {
+       "type": "null"
+      },
+      "monthly_income": {
+       "type": "integer"
+      },
+      "since": {
+       "type": "null"
+      },
+      "status": {
+       "type": "string"
+      },
+      "status_name": {
+       "properties": {
+        "ar": {
+         "type": "string"
+        },
+        "en": {
+         "type": "string"
+        }
+       },
+       "required": [
+        "ar",
+        "en"
+       ],
+       "type": "object"
+      }
+     },
+     "required": [
+      "employer",
+      "income_bracket",
+      "income_source",
+      "job_title",
+      "monthly_income",
+      "since",
+      "status",
+      "status_name"
+     ],
+     "type": "object"
+    },
+    "jobs": {
+     "items": {
+      "properties": {
+       "current": {
+        "type": "boolean"
+       },
+       "employer": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "employer_index": {
+        "type": "integer"
+       },
+       "end_date": {
+        "format": "date",
+        "type": "string"
+       },
+       "id": {
+        "type": "string"
+       },
+       "job_title": {
+        "properties": {
+         "ar": {
+          "type": "string"
+         },
+         "en": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "ar",
+         "en"
+        ],
+        "type": "object"
+       },
+       "job_title_index": {
+        "type": "integer"
+       },
+       "monthly_salary": {
+        "type": "integer"
+       },
+       "sector": {
+        "type": "string"
+       },
+       "start_date": {
+        "format": "date",
+        "type": "string"
+       }
+      },
+      "required": [
+       "current",
+       "employer",
+       "employer_index",
+       "end_date",
+       "id",
+       "job_title",
+       "job_title_index",
+       "monthly_salary",
+       "sector",
+       "start_date"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "national_id": {
+     "type": "string"
+    },
+    "social_insurance": {
+     "properties": {
+      "contribution_months": {
+       "type": "integer"
+      },
+      "number": {
+       "type": "string"
+      },
+      "pension": {
+       "type": "null"
+      }
+     },
+     "required": [
+      "contribution_months",
+      "number",
+      "pension"
+     ],
+     "type": "object"
+    }
+   },
+   "required": [
+    "base_income",
+    "base_status",
+    "benefits",
+    "changes",
+    "current",
+    "jobs",
+    "national_id",
+    "social_insurance"
+   ],
+   "type": "object"
+  },
+  "422": {
+   "properties": {
+    "details": {
+     "properties": {
+      "problems": {
+       "items": {
+        "properties": {
+         "code": {
+          "type": "string"
+         },
+         "field": {
+          "type": "string"
+         }
+        },
+        "required": [
+         "code",
+         "field"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      }
+     },
+     "required": [
+      "problems"
+     ],
+     "type": "object"
+    },
+    "error": {
+     "type": "string"
+    },
+    "message": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "details",
+    "error",
+    "message"
+   ],
+   "type": "object"
+  }
+ }
+}
