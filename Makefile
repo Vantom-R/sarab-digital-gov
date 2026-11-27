@@ -35,7 +35,7 @@ init:
 	@touch .env && grep -q '^DOCKER_GID=' .env || echo "DOCKER_GID=$$(stat -c %g /var/run/docker.sock 2>/dev/null || echo 0)" >> .env
 	$(NODE) node scripts/init-secrets.ts
 	@chmod 700 secrets
-	@echo "secrets ready (staff passwords are in .env; every one-time code is sent by Telegram)"
+	@echo "secrets ready (passwords are in .env; one-time codes go to Telegram, or with no bot to: docker compose logs -f notifier)"
 
 # Maintenance mode (services/ops/src/maintenance.ts): every rebuild / redeploy / restart below opens a
 # window in which the monitor does not alert about containers going down or restarting, waits until every

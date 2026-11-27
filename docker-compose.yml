@@ -140,8 +140,8 @@ services:
     command: ["node", "services/notifier/src/index.ts"]
     environment:
       PORT: "3000"
-      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
-      TELEGRAM_CHAT_ID: ${TELEGRAM_CHAT_ID}
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN:-}
+      TELEGRAM_CHAT_ID: ${TELEGRAM_CHAT_ID:-}
       PUBLIC_ORIGIN: ${PUBLIC_ORIGIN}
       NOTIFIER_KEY_MITHAQ: ${NOTIFIER_KEY_MITHAQ}
       NOTIFIER_KEY_OPS: ${NOTIFIER_KEY_OPS}

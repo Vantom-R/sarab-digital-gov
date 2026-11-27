@@ -96,6 +96,10 @@ Then open **http://localhost:18090**.
   example, `GATEWAY_PORT=18190` and `COMPOSE_PROJECT_NAME=sarab2`. The portal is then at
   http://localhost:18190, and the containers, volumes and images are all named `sarab2`, so the two copies
   share nothing.
+* `all predefined address pools have been fully subnetted`: Sarab uses 22 small Docker networks (one per
+  member and per database, for isolation), and Docker's default pools run out after about 30 networks on a
+  machine. Remove unused networks (`docker network prune`), or give Docker more pools with
+  `default-address-pools` in `/etc/docker/daemon.json`.
 
 For a public deployment, set `DEMO_MODE=false`, your own `PUBLIC_ORIGIN` and `RP_ID`, and put a TLS
 reverse proxy in front of the gateway (it listens on 127.0.0.1 only).

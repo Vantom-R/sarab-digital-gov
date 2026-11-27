@@ -3,7 +3,7 @@
 //   secrets/trust/members.json              — public trust list (mounted into every service)
 //   secrets/nats.conf                       — event bus config: one user per member, least-privilege permissions
 //   .env                                    — random DB/bus passwords, master key, staff passwords
-//                                             (+ TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID for admin sign-in codes, added by hand)
+//                                             (+ optional TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID, added by hand; without them: console mode)
 // Idempotent: existing keys and .env values are kept.
 // Run: node scripts/init-secrets.ts   (inside a node:24 container; no npm deps needed)
 
