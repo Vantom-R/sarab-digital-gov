@@ -4,6 +4,7 @@
 set -uo pipefail
 cd "$(dirname "$0")/../.."
 DC="${DOCKER:-docker} compose"
+P=$(grep -s '^COMPOSE_PROJECT_NAME=' .env | cut -d= -f2-); P=${P:-sarab}
 res() { printf '%s|%s|%s|%s\n' "$1" "$2" "$3" "$4"; }   # category|name|BLOCKED/OPEN|detail
 
 # --- a compromised gateway (the only container facing the internet) ---
@@ -21,19 +22,19 @@ for t in notifier:3000 identity:3000 consent:3000 bank-db:5432 civil-registry:30
 done
 
 # --- a compromised ops container and the Docker API proxy ---
-code=$($DC exec -T ops sh -c 'wget -S -q -O /dev/null "http://docker-api:2375/containers/sarab-jisr-1/archive?path=/keys/private.jwk.json" 2>&1 | grep -m1 "HTTP/" | awk "{print \$2}"')
+code=$($DC exec -T ops sh -c "wget -S -q -O /dev/null 'http://docker-api:2375/containers/$P-jisr-1/archive?path=/keys/private.jwk.json' 2>&1 | grep -m1 HTTP/ | awk '{print \$2}'")
 res docker "compromised ops copies a file (Jisr's private key) out of another container via the Docker proxy" $([ "$code" = 200 ] && echo OPEN || echo BLOCKED) "GET /containers/{id}/archive → HTTP ${code:-none}"
-envs=$($DC exec -T ops sh -c 'wget -q -O - http://docker-api:2375/containers/sarab-identity-1/json' | grep -c MASTER_KEY)
+envs=$($DC exec -T ops sh -c "wget -q -O - http://docker-api:2375/containers/$P-identity-1/json" | grep -c MASTER_KEY)
 res docker "compromised ops reads other containers' environment (MASTER_KEY) via the Docker proxy" $([ "$envs" -gt 0 ] && echo OPEN || echo BLOCKED) "GET /containers/{id}/json: $envs mentions of MASTER_KEY (environment is removed by the proxy)"
-for p in "containers/sarab-bank-alwaha-1/stop" "containers/create" "containers/sarab-bank-alwaha-1/exec"; do
+for p in "containers/$P-bank-alwaha-1/stop" "containers/create" "containers/$P-bank-alwaha-1/exec"; do
   c=$($DC exec -T ops sh -c "wget -S -q -O /dev/null --post-data='{}' http://docker-api:2375/$p 2>&1 | grep -m1 HTTP/ | awk '{print \$2}'")
   res docker "compromised ops: POST /$p through the proxy" $([ "${c:-0}" -ge 400 ] 2>/dev/null && echo BLOCKED || echo OPEN) "HTTP ${c:-none}"
 done
-for p in "containers/sarab-jisr-1/export" "containers/sarab-jisr-1/top" "images/json" "volumes" "v1.43/containers/json" "containers/sarab-jisr-1/archive?path=/etc/passwd"; do
+for p in "containers/$P-jisr-1/export" "containers/$P-jisr-1/top" "images/json" "volumes" "v1.43/containers/json" "containers/$P-jisr-1/archive?path=/etc/passwd"; do
   c=$($DC exec -T ops sh -c "wget -S -q -O /dev/null 'http://docker-api:2375/$p' 2>&1 | grep -m1 HTTP/ | awk '{print \$2}'")
   res docker "compromised ops: GET /$p through the proxy" $([ "${c:-0}" -ge 400 ] 2>/dev/null && echo BLOCKED || echo OPEN) "HTTP ${c:-none}"
 done
-others=$($DC exec -T ops sh -c 'wget -q -O - "http://docker-api:2375/containers/json?all=1"' | grep -o '"com.docker.compose.project":"[^"]*"' | grep -vc '"sarab"')
+others=$($DC exec -T ops sh -c 'wget -q -O - "http://docker-api:2375/containers/json?all=1"' | grep -o '"com.docker.compose.project":"[^"]*"' | grep -vc "\"$P\"")
 res docker "compromised ops sees containers outside the Sarab project (other sites on this server)" $([ "${others:-0}" -eq 0 ] && echo BLOCKED || echo OPEN) "${others:-0} foreign containers listed"
 
 # --- a compromised Jisr tries to rewrite its own audit log (inside a transaction that is rolled back) ---

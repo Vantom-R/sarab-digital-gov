@@ -92,6 +92,10 @@ Then open **http://localhost:18090**.
   and `make redteam-inside` (attacks). Tests use a dedicated automated-test staff account and a short-lived
   test ticket, so they never send codes.
 * If your Docker needs root: `make up DOCKER="sudo docker"`. `make help` lists every command.
+* Port 18090 taken, or a second copy on the same machine? Before `make init`, create `.env` with, for
+  example, `GATEWAY_PORT=18190` and `COMPOSE_PROJECT_NAME=sarab2`. The portal is then at
+  http://localhost:18190, and the containers, volumes and images are all named `sarab2`, so the two copies
+  share nothing.
 
 For a public deployment, set `DEMO_MODE=false`, your own `PUBLIC_ORIGIN` and `RP_ID`, and put a TLS
 reverse proxy in front of the gateway (it listens on 127.0.0.1 only).

@@ -2,6 +2,8 @@
 DOCKER ?= docker
 export DOCKER
 DC := $(DOCKER) compose
+# Compose project name (COMPOSE_PROJECT_NAME in .env, default sarab): also names the images, so two copies never share them.
+PROJECT := $(or $(shell grep -s '^COMPOSE_PROJECT_NAME=' .env | cut -d= -f2-),sarab)
 NODE := $(DOCKER) run --rm -u $(shell id -u):$(shell id -g) -v $(CURDIR):/app -w /app node:24-alpine
 
 .PHONY: redteam redteam-inside send-report deploy monitor-status test-alert openapi openapi-bundle audit-verify anchors-reset backup backup-key restore-test help init up down restart reset logs ps stats e2e a11y citizens typecheck attack-demo demo-refresh a11y-snapshots test-cleanup
@@ -138,7 +140,7 @@ BACKUP_KEY ?= $(HOME)/sarab-backup.key
 
 backup-key:
 	@if [ -f "$(BACKUP_KEY)" ]; then echo "backup key already exists: $(BACKUP_KEY)"; else \
-	  $(DOCKER) run --rm -u $(shell id -u):$(shell id -g) -v $(dir $(BACKUP_KEY)):/out sarab/ops:latest age-keygen -o /out/$(notdir $(BACKUP_KEY)) 2>/dev/null && chmod 600 "$(BACKUP_KEY)" && \
+	  $(DOCKER) run --rm -u $(shell id -u):$(shell id -g) -v $(dir $(BACKUP_KEY)):/out $(PROJECT)/ops:latest age-keygen -o /out/$(notdir $(BACKUP_KEY)) 2>/dev/null && chmod 600 "$(BACKUP_KEY)" && \
 	  echo "private key written to $(BACKUP_KEY) - copy it somewhere safe"; fi
 	@pub=$$(grep -o 'age1[0-9a-z]*' "$(BACKUP_KEY)" | head -1); \
 	  if grep -q '^BACKUP_AGE_RECIPIENT=' .env; then sed -i "s/^BACKUP_AGE_RECIPIENT=.*/BACKUP_AGE_RECIPIENT=$$pub/" .env; else echo "BACKUP_AGE_RECIPIENT=$$pub" >> .env; fi; \
@@ -149,7 +151,7 @@ backup:
 
 restore-test:
 	@test -f "$(BACKUP_KEY)" || { echo "private key not found: $(BACKUP_KEY) (set BACKUP_KEY=/path)"; exit 1; }
-	@$(DOCKER) run --rm --network none -u 0 -v $(CURDIR)/backups:/backups:ro -v "$(BACKUP_KEY)":/key:ro sarab/ops:latest node services/ops/src/restore-test.ts $(FILE)
+	@$(DOCKER) run --rm --network none -u 0 -v $(CURDIR)/backups:/backups:ro -v "$(BACKUP_KEY)":/key:ro $(PROJECT)/ops:latest node services/ops/src/restore-test.ts $(FILE)
 
 # ---------------- Audit anchors ----------------
 # Checks the audit chain against every hourly anchor; TEXT=file checks anchors pasted from Telegram instead.
@@ -171,7 +173,7 @@ redteam:
 
 redteam-inside:
 	@./scripts/redteam/inside.sh
-	@$(DOCKER) run --rm --network none -u 0 -v $(CURDIR)/backups:/backups:ro -v "$(BACKUP_KEY)":/key:ro -v $(CURDIR)/scripts/redteam:/app/redteam:ro sarab/ops:latest node redteam/tamper-copy.ts
+	@$(DOCKER) run --rm --network none -u 0 -v $(CURDIR)/backups:/backups:ro -v "$(BACKUP_KEY)":/key:ro -v $(CURDIR)/scripts/redteam:/app/redteam:ro $(PROJECT)/ops:latest node redteam/tamper-copy.ts
 
 # Sends a plain-text report file to the operator's Telegram (heading 🛡️): make send-report F=reports/x.txt C="caption"
 send-report:

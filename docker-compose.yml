@@ -16,7 +16,7 @@ x-logging: &logging
 x-node: &node
   logging: *logging
   build: { context: ., target: backend }
-  image: sarab/backend:latest
+  image: ${COMPOSE_PROJECT_NAME:-sarab}/backend:latest
   restart: unless-stopped
   mem_limit: 192m
   environment: &node-env
@@ -82,7 +82,7 @@ services:
   jisr-migrate:
     logging: *logging
     build: { context: ., target: backend }
-    image: sarab/backend:latest
+    image: ${COMPOSE_PROJECT_NAME:-sarab}/backend:latest
     restart: "no"
     mem_limit: 96m
     command: ["node", "services/jisr/src/migrate.ts"]
@@ -134,7 +134,7 @@ services:
   notifier:
     logging: *logging
     build: { context: ., target: backend }   # same image as the services, so `make deploy S=notifier` rebuilds it
-    image: sarab/backend:latest
+    image: ${COMPOSE_PROJECT_NAME:-sarab}/backend:latest
     restart: unless-stopped
     mem_limit: 64m
     command: ["node", "services/notifier/src/index.ts"]
@@ -159,7 +159,7 @@ services:
   ops:
     logging: *logging
     build: { context: ., target: ops }
-    image: sarab/ops:latest
+    image: ${COMPOSE_PROJECT_NAME:-sarab}/ops:latest
     restart: unless-stopped
     mem_limit: 128m
     user: "${SARAB_UID:-1000}:${SARAB_GID:-1000}"
@@ -172,6 +172,7 @@ services:
       BACKUP_AT_UTC: "00:30"
       BACKUP_KEEP: "7"
       OPS_STATE: /backups/.ops-state.json
+      COMPOSE_PROJECT: ${COMPOSE_PROJECT_NAME:-sarab}
       DOCKER_API: http://docker-api:2375
       GATEWAY_URL: http://gateway:8080
       JISR_URL: http://jisr:3000
@@ -199,7 +200,7 @@ services:
   docker-api:
     logging: *logging
     build: { context: ., target: backend }
-    image: sarab/backend:latest
+    image: ${COMPOSE_PROJECT_NAME:-sarab}/backend:latest
     restart: unless-stopped
     mem_limit: 64m
     command: ["node", "services/docker-api/src/index.ts"]
@@ -207,7 +208,7 @@ services:
     read_only: true
     cap_drop: [ALL]
     security_opt: ["no-new-privileges:true"]
-    environment: { PORT: "2375", COMPOSE_PROJECT: sarab }
+    environment: { PORT: "2375", COMPOSE_PROJECT: "${COMPOSE_PROJECT_NAME:-sarab}" }
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     networks: [docker-api]
@@ -369,7 +370,7 @@ services:
   gateway:
     logging: *logging
     build: { context: ., dockerfile: gateway/Dockerfile }
-    image: sarab/gateway:latest
+    image: ${COMPOSE_PROJECT_NAME:-sarab}/gateway:latest
     restart: unless-stopped
     mem_limit: 64m
     ports:

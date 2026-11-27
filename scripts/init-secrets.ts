@@ -50,9 +50,9 @@ if (existsSync(envFile)) {
 }
 const ensure = (k: string, v: () => string) => { if (!env.get(k)) env.set(k, v()); };
 const pw = () => randomBytes(18).toString('base64url');
-ensure('PUBLIC_ORIGIN', () => 'http://localhost:18090');
-ensure('RP_ID', () => 'localhost');
 ensure('GATEWAY_PORT', () => '18090');
+ensure('PUBLIC_ORIGIN', () => `http://localhost:${env.get('GATEWAY_PORT')}`);
+ensure('RP_ID', () => 'localhost');
 ensure('MASTER_KEY', () => randomBytes(32).toString('base64'));
 for (const db of ['IDENTITY', 'REGISTRY', 'JISR', 'CONSENT', 'BANK', 'EDUCATION', 'HEALTH', 'LABOR', 'PROPERTY']) ensure(`${db}_DB_PASSWORD`, pw);
 // DEMO_MODE=true (local use, the default here): the sign-in page lists the demo citizens and their shared
